@@ -1,5 +1,6 @@
 <?php
 
+define("CRYSLO_CORE_VERSION", "1.1");
 define("DIR_ROOT", $_SERVER['DOCUMENT_ROOT']);
 
 /**
@@ -12,6 +13,19 @@ function pre($var = false)
         echo '<pre>';
         print_r($var);
         echo '</pre>';
+    }
+}
+
+function prt($var = false)
+{
+    if ($var)
+    {
+        if (is_array($var))
+        {
+            print_r($var); return;
+        }
+
+        print $var."\n"; return;
     }
 }
 
