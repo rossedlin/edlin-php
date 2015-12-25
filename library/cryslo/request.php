@@ -9,5 +9,9 @@ namespace Cryslo;
 
 class Request
 {
-
+    static public function get($key, $default = false)
+    {
+        if (isset($_GET[$key])) return $_GET[$key];
+        return $default;
+    }
 }
