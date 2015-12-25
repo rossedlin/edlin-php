@@ -21,6 +21,27 @@ class Utils
 		// search forward starting from end minus needle length characters
 		return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== FALSE);
 	}
+
+	static public function getFromArray(&$array, $key, $default = false)
+	{
+		if (isset($array[$key]))
+		{
+			return $array[$key];
+		}
+
+		return $default;
+	}
+
+	static public function snakeCaseToPascalCase($str)
+	{
+		return ucfirst(self::snakeCaseToCamelCase($str));
+	}
+
+	static public function snakeCaseToCamelCase($str)
+	{
+		$func = create_function('$c', 'return strtoupper($c[1]);');
+		return preg_replace_callback('/_([a-z])/', $func, $str);
+	}
 }
 /*
 class Utils
