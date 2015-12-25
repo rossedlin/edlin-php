@@ -5,7 +5,7 @@ namespace Cryslo;
  * Minecraft Server Status Query
  * @author Julian Spravil <julian.spr@t-online.de> https://github.com/FunnyItsElmo
  * @license Free to use but dont remove the author, license and copyright
- * @copyright © 2013 Julian Spravil
+ * @copyright ï¿½ 2013 Julian Spravil
  */
 class MinecraftServerStatus
 {
@@ -73,7 +73,7 @@ class MinecraftServerStatus
             $serverdata['maxplayers'] = $data->players->max;
 
             $motd = $data->description;
-            $motd = preg_replace("/(§.)/", "",$motd);
+            $motd = preg_replace("/(ï¿½.)/", "",$motd);
             $motd = preg_replace("/[^[:alnum:][:punct:] ]/", "", $motd);
 
             $serverdata['motd'] = $motd;
@@ -106,16 +106,16 @@ class MinecraftServerStatus
 
             } else {
 
-                $result = explode('§', mb_convert_encoding(substr((String)$data, 3), 'UTF-8', 'UCS-2'));
+                $result = explode('ï¿½', mb_convert_encoding(substr((String)$data, 3), 'UTF-8', 'UCS-2'));
                     foreach ($result as $key => $string) {
                         if($key != sizeof($result)-1 && $key != sizeof($result)-2 && $key != 0) {
-                            $motd .= '§'.$string;
+                            $motd .= 'ï¿½'.$string;
                         }
                     }
                     $motdraw = $motd;
                 }
 
-                $motd = preg_replace("/(§.)/", "", $motd);
+                $motd = preg_replace("/(ï¿½.)/", "", $motd);
                 $motd = preg_replace("/[^[:alnum:][:punct:] ]/", "", $motd); //Remove all special characters from a string
 
                 $serverdata['version'] = $result[0];
