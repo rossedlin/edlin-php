@@ -3,6 +3,12 @@
 define("CRYSLO_CORE_VERSION", "1.1");
 define("DIR_ROOT", $_SERVER['DOCUMENT_ROOT']);
 
+define("DB_DRIVER", 'mysqli');
+define("DB_HOSTNAME", 'localhost');
+define("DB_USERNAME", 'cryslo');
+define("DB_PASSWORD", 'K4HFK98UJODoQGnrhpTB');
+define("DB_DATABASE", 'cryslo_api');
+
 /**
  * @param bool|false $var
  */

@@ -18,7 +18,7 @@ class Mysqli extends _Sql
 		$result = $this->_connection->query($sql);
 
 		$rows = [];
-		if ($result instanceof mysqli_result)
+		if ($result instanceof \mysqli_result)
 		{
 			while($row = $result->fetch_assoc())
 			{
