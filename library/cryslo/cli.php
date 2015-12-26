@@ -31,29 +31,7 @@ class Cli
      */
     static public function getArguments(array $keys = [])
     {
-        GLOBAL $argc, $argv;
-
-        $args = [];
-        foreach ($argv as $key => $arg)
-        {
-            if (in_array($arg, $keys))
-            {
-                $k = self::getArgument($key);
-                $v = self::getArgument($key+1);
-
-                if ($k && $v)
-                {
-                    $args[trim($k, '-')] = $v;
-                }
-            }
-        }
-
-        return $args;
-        return array
-        (
-            'argc' => $argc,
-            'argv' => $argv,
-            'args' => $args,
-        );
+        GLOBAL $argv;
+        return Utils::getArrayFromArguments($argv, $keys);
     }
 }

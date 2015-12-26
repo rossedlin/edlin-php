@@ -3,6 +3,10 @@ namespace Cryslo;
 
 class Utils
 {
+	/**
+	 * @param $timestamp
+	 * @return bool
+	 */
 	static public function isValidTimeStamp($timestamp)
 	{
 		return ((string) (int) $timestamp === $timestamp) 
@@ -10,18 +14,34 @@ class Utils
 			&& ($timestamp >= ~PHP_INT_MAX);
 	}
 
+	/**
+	 * @param $haystack
+	 * @param $needle
+	 * @return bool
+	 */
 	static public function startsWith($haystack, $needle)
 	{
 		// search backwards starting from haystack length characters from the end
 		return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
 	}
 
+	/**
+	 * @param $haystack
+	 * @param $needle
+	 * @return bool
+	 */
 	static public function endsWith($haystack, $needle)
 	{
 		// search forward starting from end minus needle length characters
 		return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== FALSE);
 	}
 
+	/**
+	 * @param $array
+	 * @param $key
+	 * @param bool $default
+	 * @return bool
+	 */
 	static public function getFromArray(&$array, $key, $default = false)
 	{
 		if (isset($array[$key]))
@@ -32,11 +52,39 @@ class Utils
 		return $default;
 	}
 
+	static public function getArrayFromArguments(array $args, array $keys = [])
+	{
+		$array = [];
+		foreach ($args as $key => $arg)
+		{
+			if (in_array($arg, $keys))
+			{
+				$k = self::getFromArray($args, $key);
+				$v = self::getFromArray($args, $key+1);
+
+				if ($k && $v)
+				{
+					$array[trim($k, '-')] = $v;
+				}
+			}
+		}
+
+		return $array;
+	}
+
+	/**
+	 * @param $str
+	 * @return string
+	 */
 	static public function snakeCaseToPascalCase($str)
 	{
 		return ucfirst(self::snakeCaseToCamelCase($str));
 	}
 
+	/**
+	 * @param $str
+	 * @return mixed
+	 */
 	static public function snakeCaseToCamelCase($str)
 	{
 		$func = create_function('$c', 'return strtoupper($c[1]);');
@@ -65,13 +113,6 @@ class Utils
 		if (!isset($string)) return "";
 		if ($string == "1") return "checked=\"checked\"";
 		return "";
-	}
-
-	function DumpVar(&$var)
-	{
-		print '<pre style="line-height: 120%; font-size: 10px; font-family: Lucida Console; clear: both;">';
-		var_dump($var);
-		print '</pre>';
 	}
 
 	function TruncateString($str, $maxlen)
@@ -286,4 +327,3 @@ class Utils
 
 }
 */
-?>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" promptOnRemoteOverwrite="CHECK_CONTENT" serverName="swc.cryslo.com" notifyRemoteChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" promptOnRemoteOverwrite="CHECK_CONTENT" serverName="cloud.cryslo.com" notifyRemoteChanges="true">
     <serverData>
       <paths name="cloud.cryslo.com">
         <serverdata>
           <mappings>
-            <mapping deploy="/library/cryslo_core" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/cryslolib/php/cryslo_core_v1" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
