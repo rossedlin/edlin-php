@@ -18,8 +18,8 @@ class Request
      */
     static public function post($key, $default = false)
     {
-        if (isset($_POST[$key])) return self::_validate($_POST[$key]);
-        return self::_validate($default);
+        if (isset($_POST[$key])) return self::_clean($_POST[$key]);
+        return self::_clean($default);
     }
 
     /**
@@ -31,18 +31,83 @@ class Request
      */
     static public function get($key, $default = false)
     {
-        if (isset($_GET[$key])) return self::_validate($_GET[$key]);
-        return self::_validate($default);
+        if (isset($_GET[$key])) return self::_clean($_GET[$key]);
+        return self::_clean($default);
     }
 
     /**
-     * Validates the data passed
+     * Returns a validated server result if set, else the default
+     *
+     * @param $key
+     * @param bool $default
+     * @return array|string
+     */
+    static public function server($key, $default = false)
+    {
+        if (isset($_SERVER[$key])) return self::_clean($_SERVER[$key]);
+        return self::_clean($default);
+    }
+
+    /**
+     * Returns a validated cookie result if set, else the default
+     *
+     * @param $key
+     * @param bool $default
+     * @return array|string
+     */
+    static public function cookie($key, $default = false)
+    {
+        if (isset($_COOKIE[$key])) return self::_clean($_COOKIE[$key]);
+        return self::_clean($default);
+    }
+
+    /**
+     * Returns a validated files result if set, else the default
+     *
+     * @param $key
+     * @param bool $default
+     * @return array|string
+     */
+    static public function files($key, $default = false)
+    {
+        if (isset($_FILES[$key])) return self::_clean($_FILES[$key]);
+        return self::_clean($default);
+    }
+
+    /**
+     * Cleans the data up
      *
      * @param $data
-     * @return string
+     * @return array|string
      */
-    static private function _validate($data)
+    private static function _clean($data)
     {
-        return strip_tags(trim($data));
+        if ($data === false) return false;
+        if ($data === true) return true;
+
+        if (is_array($data))
+        {
+            foreach ($data as $key => $value)
+            {
+                unset($data[$key]);
+                $data[self::_clean($key)] = self::_clean($value);
+            }
+        }
+        else
+        {
+            $data = htmlspecialchars($data, ENT_COMPAT, 'UTF-8');
+        }
+
+        return $data;
+    }
+
+    /**
+     * Check if we have post data
+     *
+     * @return bool
+     */
+    public static function isPost()
+    {
+        return (self::server('REQUEST_METHOD') == 'POST');
     }
 }
