@@ -3,11 +3,17 @@
 define("CRYSLO_CORE_VERSION", "1.1");
 define("DIR_ROOT", $_SERVER['DOCUMENT_ROOT']);
 
-define("DB_DRIVER", 'mysqli');
-define("DB_HOSTNAME", 'localhost');
-define("DB_USERNAME", 'cryslo');
-define("DB_PASSWORD", 'K4HFK98UJODoQGnrhpTB');
-define("DB_DATABASE", 'cryslo_api');
+
+define("TIMESTAMP", time());
+define("DATETIME_NOW", date('Y-m-d H-i-s', TIMESTAMP));
+define("DATE_NOW", date('Y-m-d', TIMESTAMP));
+define("TIME_NOW", date('H-i-s', TIMESTAMP));
+
+if (!defined('DB_DRIVER')) define("DB_DRIVER", 'mysqli');
+if (!defined('DB_HOSTNAME')) define("DB_HOSTNAME", 'localhost');
+if (!defined('DB_USERNAME')) define("DB_USERNAME", '');
+if (!defined('DB_PASSWORD')) define("DB_PASSWORD", '');
+if (!defined('DB_DATABASE')) define("DB_DATABASE", '');
 
 /**
  * @param bool|false $var
