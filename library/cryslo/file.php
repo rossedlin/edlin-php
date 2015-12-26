@@ -10,6 +10,11 @@ namespace Cryslo;
 
 class File
 {
+    /**
+     * @param $filename
+     * @param $data
+     * @return Response
+     */
     static public function write($filename, $data)
     {
         $response = new Response();
