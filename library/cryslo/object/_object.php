@@ -11,13 +11,22 @@ use Cryslo;
 abstract class _Object
 {
     /**
-     * @param $data
+     * _Object constructor.
+     * @param bool $source
      */
-    public function __construct($data = false)
+    public function __construct($source = false)
     {
-        if (is_array($data))
+        if ($source === false)
         {
-            $this->load($data);
+            $this->defaultObject();
+        }
+        elseif (is_int($source))
+        {
+            //$this->retrieve($source);
+        }
+        elseif (is_array($source))
+        {
+            $this->setFromData($source);
         }
 
         $this->init();
@@ -29,8 +38,17 @@ abstract class _Object
     abstract public function init();
 
     /**
-     * @param array $data
-     * @return bool
+     * @return mixed
      */
-    abstract public function load(array $data);
+    abstract public function defaultObject();
+
+    /**
+     * @param $source
+     */
+    abstract public function setFromData($source);
+
+    /**
+     * @return array
+     */
+    abstract public function getAsArray();
 }
