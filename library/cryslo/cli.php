@@ -9,7 +9,11 @@ namespace Cryslo;
 
 class Cli
 {
-
+    /**
+     * @param $key
+     * @param bool $default
+     * @return bool
+     */
     static public function getArgument($key, $default = false)
     {
         GLOBAL $argv;
@@ -33,5 +37,10 @@ class Cli
     {
         GLOBAL $argv;
         return Utils::getArrayFromArguments($argv, $keys);
+    }
+
+    static public function startScreen()
+    {
+
     }
 }
