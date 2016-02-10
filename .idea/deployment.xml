@@ -5,11 +5,18 @@
       <paths name="cloud.cryslo.com">
         <serverdata>
           <mappings>
-            <mapping deploy="/cryslolib/php/cryslo_core_v1" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/cryslo/php/cryslo_core_v1.2" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="rossedlin.utah.lineten.net">
+      <paths name="fiveguys.lineten.net">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="rossedlin.lineten.net">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
@@ -19,7 +26,7 @@
       <paths name="swc.cryslo.com">
         <serverdata>
           <mappings>
-            <mapping deploy="/cryslolib/php/cryslo_core_v1" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="" local="$PROJECT_DIR$" web="" />
           </mappings>
         </serverdata>
       </paths>
