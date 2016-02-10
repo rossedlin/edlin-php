@@ -1,13 +1,14 @@
 <?php
 
-define("CRYSLO_CORE_VERSION", "1.1");
-define("DIR_ROOT", $_SERVER['DOCUMENT_ROOT']);
+define("CRYSLO_CORE_VERSION", "1.2");
+define("DIR_ROOT", __DIR__);
 
 
-define("TIMESTAMP", time());
-define("DATETIME_NOW", date('Y-m-d H-i-s', TIMESTAMP));
-define("DATE_NOW", date('Y-m-d', TIMESTAMP));
-define("TIME_NOW", date('H-i-s', TIMESTAMP));
+define("NOW_TIMESTAMP", time());
+define("NOW_DATETIME", date('Y-m-d H-i-s', NOW_TIMESTAMP));
+define("NOW_DATE_AT_TIME", date('Y-m-d @ H-i-s', NOW_TIMESTAMP));
+define("NOW_DATE", date('Y-m-d', NOW_TIMESTAMP));
+define("NOW_TIME", date('H-i-s', NOW_TIMESTAMP));
 
 /**
  * @param bool|false $var
@@ -63,23 +64,33 @@ function loadClass($path, $class)
 }
 
 /**
- * @param $filename
+ * @param $file
  * @return bool
  */
-function load($filename)
+function load($file)
 {
     //core
-    if (file_exists($filename))
+    if (file_exists(DIR_ROOT.'/'.$file))
     {
-        include_once($filename);
+        include_once(DIR_ROOT.'/'.$file);
         return true;
     }
     return false;
 }
 
 //autoload
-spl_autoload_register(function($class)
+spl_autoload_register(function($class_name)
 {
+    //load pre defined autoloaded files
+    $classes = include('autoload.php');
+    if (isset($classes[$class_name]))
+    {
+        if (load($classes[$class_name])) return;
+    }
+
+    prt($class_name);
+    exit;
+
     //load library
-    if (loadClass('/library/', $class)) return;
+    if (loadClass('/library/', $class_name)) return;
 });

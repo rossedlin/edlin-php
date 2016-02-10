@@ -10,10 +10,10 @@ namespace Cryslo\Object;
 class Query
 {
     /** @var array */
-    private $_rows;
+    private $rows;
 
     /** @var int|bool */
-    private $_count = false;
+    private $count = false;
 
     /**
      * Query constructor.
@@ -21,7 +21,7 @@ class Query
      */
     public function __construct(array $rows = [])
     {
-        $this->_rows = $rows;
+        $this->rows = $rows;
     }
 
     /**
@@ -29,7 +29,7 @@ class Query
      */
     public function getRows()
     {
-        return $this->_rows;
+        return $this->rows;
     }
 
     /**
@@ -38,7 +38,7 @@ class Query
      */
     public function getRow($key = 0)
     {
-        if (isset($this->_rows[$key])) return $this->_rows[$key];
+        if (isset($this->rows[$key])) return $this->rows[$key];
         return [];
     }
 
@@ -47,11 +47,11 @@ class Query
      */
     public function getCount()
     {
-        if ($this->_count === false)
+        if ($this->count === false)
         {
-            $this->_count = count($this->_rows);
+            $this->count = count($this->rows);
         }
 
-        return $this->_count;
+        return $this->count;
     }
 }

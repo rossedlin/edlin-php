@@ -6,16 +6,16 @@ use Cryslo\Object\Query;
 class Mysqli extends _Sql
 {
 	/** @var \mysqli */
-	private $_connection;
+	private $connection;
 
 	protected function init()
 	{
-		$this->_connection = new \mysqli($this->_ip, $this->_username, $this->_password, $this->_database);
+		$this->connection = new \mysqli($this->ip, $this->username, $this->password, $this->database);
 	}
 
 	public function query($sql)
 	{
-		$result = $this->_connection->query($sql);
+		$result = $this->connection->query($sql);
 
 		$rows = [];
 		if ($result instanceof \mysqli_result)
@@ -31,7 +31,7 @@ class Mysqli extends _Sql
 
 	public function escape($str)
 	{
-		return $this->_connection->real_escape_string($str);
+		return $this->connection->real_escape_string($str);
 	}
 
 

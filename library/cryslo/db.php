@@ -11,7 +11,7 @@ class Db
 {
     const DRIVER_MYSQLI = 'mysqli';
 
-    private $_db;
+    private $db;
 
     /**
      * @param $driver
@@ -25,7 +25,7 @@ class Db
         switch ($driver)
         {
             case self::DRIVER_MYSQLI:
-                $this->_db = new Mysqli($ip, $username, $password, $database);
+                $this->db = new Mysqli($ip, $username, $password, $database);
                 break;
             default:
                 die_r("Bad DB driver: ".$driver);
@@ -39,11 +39,11 @@ class Db
      */
     public function query($sql)
     {
-        return $this->_db->query($sql);
+        return $this->db->query($sql);
     }
 
     public function escape($str)
     {
-        return $this->_db->escape($str);
+        return $this->db->escape($str);
     }
 }

@@ -9,10 +9,10 @@ namespace Cryslo;
 
 abstract Class _Sql
 {
-    protected $_ip;
-    protected $_database;
-    protected $_username;
-    protected $_password;
+    protected $ip;
+    protected $database;
+    protected $username;
+    protected $password;
 
     /**
      * _Sql constructor.
@@ -23,10 +23,10 @@ abstract Class _Sql
      */
     public function __construct($ip, $username, $password, $database)
     {
-        $this->_ip = $ip;
-        $this->_username = $username;
-        $this->_password = $password;
-        $this->_database = $database;
+        $this->ip = $ip;
+        $this->username = $username;
+        $this->password = $password;
+        $this->database = $database;
 
         $this->init();
     }

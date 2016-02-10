@@ -23,7 +23,7 @@ final class Registry
             if (!defined('DB_HOSTNAME')) die("DB_HOSTNAME not set!");
             if (!defined('DB_USERNAME')) die("DB_USERNAME not set!");
             if (!defined('DB_PASSWORD')) die("DB_PASSWORD not set!");
-            if (!defined('DB_DATABASE')) die("DB_DATABASE not set!");
+            if (!defined('DB_DATABASE')) define("DB_DATABASE", false);
 
             self::$db = new Db(DB_DRIVER, DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
         }
