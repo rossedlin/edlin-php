@@ -1,6 +1,5 @@
 <?php
-
-define("CRYSLO_CORE_VERSION", "1.2");
+define("CRYSLO_CORE_VERSION", "1.3");
 define("DIR_ROOT", __DIR__);
 
 
@@ -9,6 +8,9 @@ define("NOW_DATETIME", date('Y-m-d H-i-s', NOW_TIMESTAMP));
 define("NOW_DATE_AT_TIME", date('Y-m-d @ H-i-s', NOW_TIMESTAMP));
 define("NOW_DATE", date('Y-m-d', NOW_TIMESTAMP));
 define("NOW_TIME", date('H-i-s', NOW_TIMESTAMP));
+
+//Loader
+require_once(DIR_ROOT.'/library/loader.php');
 
 /**
  * @param bool|false $var
@@ -23,6 +25,9 @@ function pre($var = false)
     }
 }
 
+/**
+ * @param bool $var
+ */
 function prt($var = false)
 {
     if ($var)
@@ -50,34 +55,6 @@ function die_r($var = false)
     exit;
 }
 
-/**
- * @param $path
- * @param $class
- * @return bool
- */
-function loadClass($path, $class)
-{
-    $filename = str_replace("\\", "/", $class);
-    $file = __DIR__ . $path . strtolower($filename) . '.php';
-
-    return load($file);
-}
-
-/**
- * @param $file
- * @return bool
- */
-function load($file)
-{
-    //core
-    if (file_exists(DIR_ROOT.'/'.$file))
-    {
-        include_once(DIR_ROOT.'/'.$file);
-        return true;
-    }
-    return false;
-}
-
 //autoload
 spl_autoload_register(function($class_name)
 {
@@ -85,12 +62,8 @@ spl_autoload_register(function($class_name)
     $classes = include('autoload.php');
     if (isset($classes[$class_name]))
     {
-        if (load($classes[$class_name])) return;
+        if (\Cryslo\Loader::load($classes[$class_name])) return;
     }
 
-    prt($class_name);
-    exit;
-
-    //load library
-    if (loadClass('/library/', $class_name)) return;
+    die("Failed to load: ".$class_name);
 });

@@ -16,7 +16,7 @@ class Pid
      */
     static public function isScreenOnline($screen)
     {
-        if (self::retrieveScreenPid($screen))
+        if (self::getScreenPid($screen))
         {
             return true;
         }
@@ -28,7 +28,7 @@ class Pid
      * @param $screen
      * @return bool|int
      */
-    static public function retrieveScreenPid($screen)
+    static public function getScreenPid($screen)
     {
         exec("pgrep -f -l \"".$screen."\"", $result);
         if (count($result) > 0)

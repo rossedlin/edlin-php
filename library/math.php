@@ -8,7 +8,7 @@ class Math
      * @param $b
      * @return mixed
      */
-	static public function Add($a, $b)
+	static public function add($a, $b)
 	{
 		return $a+$b;
 	}
@@ -17,7 +17,7 @@ class Math
      * @param $num int
      * @return bool
      */
-    static public function IsEven($num)
+    static public function isEven($num)
     {
         if ($num % 2 == 0)
         {
@@ -26,8 +26,8 @@ class Math
         return false;
     }
 
-    static public function IsOdd($num)
+    static public function isOdd($num)
     {
-        return !self::IsEven($num);
+        return !self::isEven($num);
     }
 }
