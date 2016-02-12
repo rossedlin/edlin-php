@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Object;
 /**
  * Created by PhpStorm.
  * User: Ross Edlin
@@ -10,16 +10,16 @@ namespace Cryslo;
 class Response
 {
     /** @var array */
-    private $_response = [];
+    private $response = [];
 
-    private $_success = false;
+    private $success = false;
 
     /**
      * @return array
      */
     public function getResponse()
     {
-        return $this->_response;
+        return $this->response;
     }
 
     /**
@@ -27,7 +27,7 @@ class Response
      */
     public function addResponse($response)
     {
-        $this->_response[] = $response;
+        $this->response[] = $response;
     }
 
     /**
@@ -35,7 +35,7 @@ class Response
      */
     public function isSuccess()
     {
-        return $this->_success;
+        return $this->success;
     }
 
     /**
@@ -43,6 +43,6 @@ class Response
      */
     public function setSuccess($success)
     {
-        $this->_success = $success;
+        $this->success = $success;
     }
 }

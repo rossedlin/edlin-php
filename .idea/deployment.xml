@@ -5,7 +5,7 @@
       <paths name="cloud.cryslo.com">
         <serverdata>
           <mappings>
-            <mapping deploy="/cryslo/php/cryslo_core_v1.2" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/cryslo/php/cryslo_core_v1.3" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
@@ -26,7 +26,7 @@
       <paths name="swc.cryslo.com">
         <serverdata>
           <mappings>
-            <mapping deploy="" local="$PROJECT_DIR$" web="" />
+            <mapping deploy="/cryslo/php/cryslo_core_v1.3" local="$PROJECT_DIR$" web="" />
           </mappings>
         </serverdata>
       </paths>

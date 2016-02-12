@@ -13,11 +13,11 @@ class File
     /**
      * @param $filename
      * @param $data
-     * @return Response
+     * @return Object\Response
      */
     static public function write($filename, $data)
     {
-        $response = new Response();
+        $response = new Object\Response();
         if ((file_exists($filename)) && (!is_writable($filename)))
         {
             $response->addResponse("SaveData() file is not writable!");

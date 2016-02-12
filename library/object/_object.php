@@ -16,20 +16,16 @@ abstract class _Object
      */
     public function __construct($source = false)
     {
-        if ($source === false)
+        $this->init();
+
+        if ((is_int($source)) && (method_exists($this, 'retrieve')))
         {
-            $this->defaultObject();
-        }
-        elseif (is_int($source))
-        {
-            //$this->retrieve($source);
+            $this->retrieve($source);
         }
         elseif (is_array($source))
         {
             $this->setFromData($source);
         }
-
-        $this->init();
     }
 
     /**
