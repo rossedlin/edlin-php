@@ -13,6 +13,12 @@ class Output extends _Object
     const RENDER_ARRAY = 'array';
     const RENDER_JSON = 'json';
 
+    private static $RENDER = array
+    (
+        self::RENDER_ARRAY,
+        self::RENDER_JSON,
+    );
+
     /** @var bool */
     private $success;
 
@@ -29,14 +35,6 @@ class Output extends _Object
      * @return null
      */
     public function init()
-    {
-        // TODO: Implement init() method.
-    }
-
-    /**
-     * @return mixed
-     */
-    public function defaultObject()
     {
         $this->setSuccess(false);
         $this->setRender(self::RENDER_JSON);
@@ -98,7 +96,10 @@ class Output extends _Object
      */
     public function setRender($render)
     {
-        $this->render = $render;
+        if (in_array($render, self::$RENDER))
+        {
+            $this->render = $render;
+        }
     }
 
     /**

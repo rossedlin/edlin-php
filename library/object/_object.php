@@ -36,7 +36,7 @@ abstract class _Object
     /**
      * @return mixed
      */
-    abstract public function defaultObject();
+//    abstract public function defaultObject();
 
     /**
      * @param $source
