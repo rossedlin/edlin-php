@@ -18,6 +18,8 @@ return array
     'Cryslo\Directory'          => 'library/directory.php',
     'Cryslo\File'               => 'library/file.php',
     'Cryslo\Loader'             => 'library/loader.php',
+    'Cryslo\Log'                => 'library/log.php',
+    'Cryslo\Mail'               => 'library/mail.php',
     'Cryslo\Math'               => 'library/math.php',
     'Cryslo\Pid'                => 'library/pid.php',
     'Cryslo\Registry'           => 'library/registry.php',

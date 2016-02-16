@@ -10,6 +10,20 @@ namespace Cryslo;
 class Request
 {
     /**
+     * Returns a validated array result if set, else the default
+     *
+     * @param array $array
+     * @param $key
+     * @param bool $default
+     * @return string
+     */
+    public static function getFromArray(array &$array, $key, $default = false)
+    {
+        if (isset($array[$key])) return self::_clean($array[$key]);
+        return self::_clean($default);
+    }
+
+    /**
      * Returns a validated post result if set, else the default
      *
      * @param $key

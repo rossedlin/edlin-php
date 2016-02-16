@@ -62,8 +62,8 @@ spl_autoload_register(function($class_name)
     $classes = include('autoload.php');
     if (isset($classes[$class_name]))
     {
-        if (\Cryslo\Loader::load($classes[$class_name])) return;
+        if (\Cryslo\Loader::load(DIR_ROOT.'/'.$classes[$class_name])) return;
     }
 
-    die("Failed to load: ".$class_name);
+    die("Failed to load: ".DIR_ROOT.'/'.$classes[$class_name]);
 });
