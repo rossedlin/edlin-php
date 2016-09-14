@@ -1,5 +1,5 @@
 <?php
-define("CRYSLO_CORE_VERSION", "1.3");
+define("CRYSLO_CORE_VERSION", "1.3.1");
 define("DIR_ROOT", __DIR__);
 
 
@@ -64,6 +64,4 @@ spl_autoload_register(function($class_name)
     {
         if (\Cryslo\Loader::load(DIR_ROOT.'/'.$classes[$class_name])) return;
     }
-
-    die("Failed to load: ".DIR_ROOT.'/'.$classes[$class_name]);
 });
