@@ -134,7 +134,7 @@ class Directory
         }
         catch (\Exception $e)
         {
-
+			prt("Exception: " . $e->getMessage());
         }
 
         return $contents;
