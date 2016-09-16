@@ -4,5 +4,8 @@
   "dist": {
     "url": "https://github.com/Cryslo-PHP/cryslo_core/archive/v1.3.1.zip",
     "type": "zip"
+  },
+  "autoload": {
+    "psr-4": { "Cryslo\\" : "library/" }
   }
 }
