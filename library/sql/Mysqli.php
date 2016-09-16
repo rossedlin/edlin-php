@@ -3,6 +3,15 @@ namespace Cryslo;
 
 use Cryslo\Object\Query;
 
+/**
+ * Created by PhpStorm.
+ * User: Ross Edlin
+ * Date: 25/12/2015
+ * Time: 23:22
+ *
+ * Class Mysqli
+ * @package Cryslo
+ */
 class Mysqli extends _Sql
 {
 	/** @var \mysqli */
@@ -20,7 +29,7 @@ class Mysqli extends _Sql
 		$rows = [];
 		if ($result instanceof \mysqli_result)
 		{
-			while($row = $result->fetch_assoc())
+			while ($row = $result->fetch_assoc())
 			{
 				$rows[] = $row;
 			}
@@ -96,4 +105,5 @@ class Mysqli extends _Sql
 	}
 	*/
 }
+
 ?>
