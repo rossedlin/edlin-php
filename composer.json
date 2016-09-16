@@ -6,6 +6,6 @@
     "type": "zip"
   },
   "autoload": {
-    "psr-4": { "Cryslo\\" : "library/" }
+    "psr-4": { "Cryslo\\Core\\" : "src/" }
   }
 }
