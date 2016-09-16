@@ -1,6 +1,15 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core;
 
+/**
+ * Created by PhpStorm.
+ * User: Ross Edlin
+ * Date: 01/01/2016
+ * Time: 14:57
+ * 
+ * Class Math
+ * @package Cryslo\Core
+ */
 class Math
 {
 	/**

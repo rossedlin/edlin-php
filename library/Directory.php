@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core;
 /**
  * Created by PhpStorm.
  * User: Ross Edlin
@@ -137,7 +137,7 @@ class Directory
 		}
 		catch (\Exception $e)
 		{
-			prt("Exception: " . $e->getMessage());
+			Cryslo::prt("Exception: " . $e->getMessage());
 		}
 
 		return $contents;

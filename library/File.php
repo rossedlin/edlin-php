@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core;
 /**
  * Created by PhpStorm.
  * User: Ross Edlin
@@ -16,14 +16,14 @@ class File
 	 *
 	 * @return Object\Response
 	 */
-	static public function write($filename, $data)
-	{
-		$response = new Object\Response();
-		if ((file_exists($filename)) && (!is_writable($filename)))
-		{
-			$response->addResponse("SaveData() file is not writable!");
-			$response->setSuccess(false);
-			return $response;
-		}
-	}
+//	static public function write($filename, $data)
+//	{
+//		$response = new Object\Response();
+//		if ((file_exists($filename)) && (!is_writable($filename)))
+//		{
+//			$response->addResponse("SaveData() file is not writable!");
+//			$response->setSuccess(false);
+//			return $response;
+//		}
+//	}
 }

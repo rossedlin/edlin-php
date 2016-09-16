@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core;
 
 /**
  * Created by PhpStorm.
@@ -36,7 +36,7 @@ class Mail
 		$to      = Request::getFromArray($args, 'to', false);
 		$cc      = Request::getFromArray($args, 'cc', false);
 		$from    = Request::getFromArray($args, 'from', 'noreply@cryslo.com');
-		$sender  = Request::getFromArray($args, 'sender', false);
+//		$sender  = Request::getFromArray($args, 'sender', false);
 		$subject = Request::getFromArray($args, 'subject', false);
 		$text    = Request::getFromArray($args, 'text', false);
 //        $html       = Request::getFromArray($args, 'html', false);

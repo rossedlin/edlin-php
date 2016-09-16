@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core;
 
 class Utils
 {
