@@ -1,5 +1,8 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core;
+
+use \Cryslo\Core\Sql\Db as Db;
+
 /**
  * Created by PhpStorm.
  * User: Ross Edlin

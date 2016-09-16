@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core;
 /**
  * Created by PhpStorm.
  * User: Ross Edlin
