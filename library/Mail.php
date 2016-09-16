@@ -9,48 +9,50 @@ namespace Cryslo;
  */
 class Mail
 {
-    const CRLF = "\r\n";
+	const CRLF = "\r\n";
 
-    /**
-     * @param $from
-     * @param $cc
-     * @return string
-     */
-    private static function buildTextHeaders($from, $cc)
-    {
-        $headers = [];
-        $headers[] = "From: " . $from;
-        if ($cc) $headers[] = "CC: " . $cc;
+	/**
+	 * @param $from
+	 * @param $cc
+	 *
+	 * @return string
+	 */
+	private static function buildTextHeaders($from, $cc)
+	{
+		$headers   = [];
+		$headers[] = "From: " . $from;
+		if ($cc) $headers[] = "CC: " . $cc;
 
-        return implode(self::CRLF, $headers);
-    }
+		return implode(self::CRLF, $headers);
+	}
 
-    /**
-     * @param $args
-     * @return bool
-     */
-    public static function send($args)
-    {
-        $to         = Request::getFromArray($args, 'to', false);
-        $cc         = Request::getFromArray($args, 'cc', false);
-        $from       = Request::getFromArray($args, 'from', 'noreply@cryslo.com');
-        $sender     = Request::getFromArray($args, 'sender', false);
-        $subject    = Request::getFromArray($args, 'subject', false);
-        $text       = Request::getFromArray($args, 'text', false);
+	/**
+	 * @param $args
+	 *
+	 * @return bool
+	 */
+	public static function send($args)
+	{
+		$to      = Request::getFromArray($args, 'to', false);
+		$cc      = Request::getFromArray($args, 'cc', false);
+		$from    = Request::getFromArray($args, 'from', 'noreply@cryslo.com');
+		$sender  = Request::getFromArray($args, 'sender', false);
+		$subject = Request::getFromArray($args, 'subject', false);
+		$text    = Request::getFromArray($args, 'text', false);
 //        $html       = Request::getFromArray($args, 'html', false);
 
-        if (is_array($to)) $to = implode(',', $to);
+		if (is_array($to)) $to = implode(',', $to);
 
 
-        try
-        {
-            mail($to, $subject, $text, self::buildTextHeaders($from, $cc));
-            return true;
-        }
-        catch (\Exception $e)
-        {
-            return false;
-        }
+		try
+		{
+			mail($to, $subject, $text, self::buildTextHeaders($from, $cc));
+			return true;
+		}
+		catch (\Exception $e)
+		{
+			return false;
+		}
 
 //        $boundary = '----=_NextPart_' . md5(time());
 //
@@ -375,5 +377,5 @@ class Mail
 //                fclose($handle);
 //            }
 //        }
-    }
+	}
 }
