@@ -1,4 +1,5 @@
 <?php
+namespace Cryslo\Core\Object;
 
 /**
  * Created by PhpStorm.
