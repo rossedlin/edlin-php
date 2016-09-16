@@ -1,5 +1,8 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core\Sql;
+
+use Cryslo\Core\Cryslo as Cryslo;
+use Cryslo\Core\Object\Query as Query;
 
 /**
  * Created by PhpStorm.
@@ -11,6 +14,9 @@ class Db
 {
 	const DRIVER_MYSQLI = 'mysqli';
 
+	/**
+	 * @var _Sql
+	 */
 	private $db;
 
 	/**
@@ -28,7 +34,7 @@ class Db
 				$this->db = new Mysqli($ip, $username, $password, $database);
 				break;
 			default:
-				die_r("Bad DB driver: " . $driver);
+				Cryslo::die_r("Bad DB driver: " . $driver);
 				break;
 		}
 	}
@@ -36,13 +42,18 @@ class Db
 	/**
 	 * @param $sql
 	 *
-	 * @return Object\Query
+	 * @return Query
 	 */
 	public function query($sql)
 	{
 		return $this->db->query($sql);
 	}
 
+	/**
+	 * @param $str
+	 *
+	 * @return string
+	 */
 	public function escape($str)
 	{
 		return $this->db->escape($str);

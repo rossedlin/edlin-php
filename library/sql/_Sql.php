@@ -1,12 +1,12 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core\Sql;
+
 /**
  * Created by PhpStorm.
  * User: Ross Edlin
  * Date: 25/12/2015
  * Time: 23:22
  */
-
 abstract Class _Sql
 {
 	protected $ip;
@@ -32,7 +32,22 @@ abstract Class _Sql
 		$this->init();
 	}
 
+	/**
+	 * @return void
+	 */
 	abstract protected function init();
 
+	/**
+	 * @param $sql
+	 *
+	 * @return \Cryslo\Core\Object\Query
+	 */
 	abstract public function query($sql);
+
+	/**
+	 * @param $str
+	 *
+	 * @return string
+	 */
+	abstract public function escape($str);
 }

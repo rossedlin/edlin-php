@@ -1,7 +1,7 @@
 <?php
-namespace Cryslo;
+namespace Cryslo\Core\Sql;
 
-use Cryslo\Object\Query;
+use Cryslo\Core\Object\Query;
 
 /**
  * Created by PhpStorm.
@@ -17,11 +17,19 @@ class Mysqli extends _Sql
 	/** @var \mysqli */
 	private $connection;
 
+	/**
+	 * @return void
+	 */
 	protected function init()
 	{
 		$this->connection = new \mysqli($this->ip, $this->username, $this->password, $this->database);
 	}
 
+	/**
+	 * @param $sql
+	 *
+	 * @return Query
+	 */
 	public function query($sql)
 	{
 		$result = $this->connection->query($sql);
@@ -38,72 +46,13 @@ class Mysqli extends _Sql
 		return new Query($rows);
 	}
 
+	/**
+	 * @param $str
+	 *
+	 * @return string
+	 */
 	public function escape($str)
 	{
 		return $this->connection->real_escape_string($str);
 	}
-
-
-	/*
-	function __construct($ip, $database, $username, $password)
-	{
-		//echo 'MySQLiDB<br />';
-		$this->ip = $ip;
-		$this->database = $database;
-		$this->username = $username;
-		$this->password = $password;
-	}
-
-
-
-
-
-
-
-
-
-	
-	private function Connect()
-	{
-		$this->connection = new mysqli($this->ip, $this->username, $this->password);
-		if (!$this->connection)
-		{
-			//die("Connection failed: " . mysqli_connect_error());
-			return false;
-		}
-		return true;
-	}
-	
-	private function Close()
-	{
-		if (!$this->connection) return;
-		$this->connection->close();
-	}
-	
-	public function GetMultipleRows($sql)
-	{
-		$this->Connect();
-		$result = $this->connection->query($sql);
-		
-		$rows = array();
-		while($row = $result->fetch_assoc())
-		{
-			$rows[] = $row;
-		}
-		$this->Close();
-		return $rows;
-	}
-	
-	public function GetSingleRow($sql)
-	{
-		$this->Connect();
-		$result = $this->connection->query($sql);
-		
-		$row = $result->fetch_assoc();
-		$this->Close();
-		return $row;
-	}
-	*/
 }
-
-?>
