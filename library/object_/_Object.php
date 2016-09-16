@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo\Object;
+namespace Cryslo\Core\Object;
 
 use Cryslo;
 
