@@ -1,15 +1,17 @@
 {
   "name": "cryslo/cryslo_core",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "dist": {
-    "url": "https://github.com/Cryslo-PHP/cryslo_core/archive/v1.4.3.zip",
+    "url": "https://github.com/Cryslo-PHP/cryslo_core/archive/v1.4.4.zip",
     "type": "zip"
   },
   "require": {
-    "php": ">=5.5.0"
+    "php": ">=5.6.4"
   },
   "autoload": {
-    "psr-4": { "Cryslo\\Core\\" : "src/" },
+    "psr-4": {
+      "Cryslo\\Core\\": "src/"
+    },
     "files": [
       "src/Core.php"
     ]
