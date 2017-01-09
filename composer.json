@@ -1,8 +1,8 @@
 {
   "name": "cryslo/cryslo_core",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "dist": {
-    "url": "https://github.com/Cryslo-PHP/cryslo_core/archive/v1.4.4.zip",
+    "url": "https://github.com/Cryslo-PHP/cryslo_core/archive/v1.4.5.zip",
     "type": "zip"
   },
   "require": {
