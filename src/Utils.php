@@ -76,7 +76,6 @@ class Utils
 
 	/**
 	 * @param mixed      $object
-	 * @param string     $instanceOf
 	 * @param string     $key
 	 * @param bool|mixed $default
 	 *
