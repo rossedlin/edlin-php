@@ -40,8 +40,8 @@ class Utils
 	}
 
 	/**
-	 * @param $array
-	 * @param $key
+	 * @param      $array
+	 * @param      $key
 	 * @param bool $default
 	 *
 	 * @return bool
@@ -56,6 +56,48 @@ class Utils
 		return $default;
 	}
 
+	/**
+	 * @param mixed      $object
+	 * @param string     $key
+	 * @param bool|mixed $default
+	 *
+	 * @return bool
+	 */
+	static public function getVarObject(&$object, $key, $default = false)
+	{
+		/** @var $object \stdClass */
+		if (isset($object->$key))
+		{
+			return $object->$key;
+		}
+
+		return $default;
+	}
+
+	/**
+	 * @param mixed      $object
+	 * @param string     $instanceOf
+	 * @param string     $key
+	 * @param bool|mixed $default
+	 *
+	 * @return bool
+	 */
+	static public function getMethodObject(&$object, $key, $default = false)
+	{
+		if (method_exists($object, $key))
+		{
+			return $object->$key();
+		}
+
+		return $default;
+	}
+
+	/**
+	 * @param array $args
+	 * @param array $keys
+	 *
+	 * @return array
+	 */
 	static public function getArrayFromArguments(array $args, array $keys = [])
 	{
 		$array = [];
