@@ -137,4 +137,19 @@ class Utils
 		$func = create_function('$c', 'return strtoupper($c[1]);');
 		return preg_replace_callback('/_([a-z])/', $func, $str);
 	}
+
+	/**
+	 * @param $ip
+	 *
+	 * @return bool
+	 */
+	public static function isValidIP($ip)
+	{
+		if (filter_var($ip, FILTER_VALIDATE_IP))
+		{
+			return true;
+		}
+
+		return false;
+	}
 }
