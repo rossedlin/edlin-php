@@ -6,6 +6,8 @@ namespace Cryslo\Core\Object;
  * User: Ross Edlin
  * Date: 26/12/2015
  * Time: 15:55
+ * 
+ * @deprecated 
  */
 
 class Output extends _Object
