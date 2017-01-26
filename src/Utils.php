@@ -4,30 +4,6 @@ namespace Cryslo\Core;
 class Utils
 {
 	/**
-	 * @param $timestamp
-	 *
-	 * @return bool
-	 */
-	static public function isValidTimeStamp($timestamp)
-	{
-		return ((string)(int)$timestamp === $timestamp)
-		&& ($timestamp <= PHP_INT_MAX)
-		&& ($timestamp >= ~PHP_INT_MAX);
-	}
-
-	/**
-	 * @param $haystack
-	 * @param $needle
-	 *
-	 * @return bool
-	 */
-	static public function startsWith($haystack, $needle)
-	{
-		// search backwards starting from haystack length characters from the end
-		return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
-	}
-
-	/**
 	 * @param $haystack
 	 * @param $needle
 	 *
@@ -37,58 +13,6 @@ class Utils
 	{
 		// search forward starting from end minus needle length characters
 		return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
-	}
-
-	/**
-	 * @param      $array
-	 * @param      $key
-	 * @param bool $default
-	 *
-	 * @return bool
-	 */
-	static public function getFromArray(&$array, $key, $default = false)
-	{
-		if (isset($array[$key]))
-		{
-			return $array[$key];
-		}
-
-		return $default;
-	}
-
-	/**
-	 * @param mixed      $object
-	 * @param string     $key
-	 * @param bool|mixed $default
-	 *
-	 * @return bool
-	 */
-	static public function getVarObject(&$object, $key, $default = false)
-	{
-		/** @var $object \stdClass */
-		if (isset($object->$key))
-		{
-			return $object->$key;
-		}
-
-		return $default;
-	}
-
-	/**
-	 * @param mixed      $object
-	 * @param string     $key
-	 * @param bool|mixed $default
-	 *
-	 * @return bool
-	 */
-	static public function getMethodObject(&$object, $key, $default = false)
-	{
-		if (method_exists($object, $key))
-		{
-			return $object->$key();
-		}
-
-		return $default;
 	}
 
 	/**
@@ -118,6 +42,85 @@ class Utils
 	}
 
 	/**
+	 * @param      $array
+	 * @param      $key
+	 * @param bool $default
+	 *
+	 * @return bool
+	 */
+	static public function getFromArray(&$array, $key, $default = false)
+	{
+		if (isset($array[$key]))
+		{
+			return $array[$key];
+		}
+
+		return $default;
+	}
+
+	/**
+	 * @param mixed      $object
+	 * @param string     $key
+	 * @param bool|mixed $default
+	 *
+	 * @return bool
+	 */
+	static public function getMethodObject(&$object, $key, $default = false)
+	{
+		if (method_exists($object, $key))
+		{
+			return $object->$key();
+		}
+
+		return $default;
+	}
+
+	/**
+	 * @param mixed      $object
+	 * @param string     $key
+	 * @param bool|mixed $default
+	 *
+	 * @return bool
+	 */
+	static public function getVarObject(&$object, $key, $default = false)
+	{
+		/** @var $object \stdClass */
+		if (isset($object->$key))
+		{
+			return $object->$key;
+		}
+
+		return $default;
+	}
+
+	/**
+	 * @param $ip
+	 *
+	 * @return bool
+	 */
+	public static function isValidIP($ip)
+	{
+		if (filter_var($ip, FILTER_VALIDATE_IP))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * @param $timestamp
+	 *
+	 * @return bool
+	 */
+	static public function isValidTimeStamp($timestamp)
+	{
+		return ((string)(int)$timestamp === $timestamp)
+		&& ($timestamp <= PHP_INT_MAX)
+		&& ($timestamp >= ~PHP_INT_MAX);
+	}
+
+	/**
 	 * @param $str
 	 *
 	 * @return string
@@ -139,17 +142,14 @@ class Utils
 	}
 
 	/**
-	 * @param $ip
+	 * @param $haystack
+	 * @param $needle
 	 *
 	 * @return bool
 	 */
-	public static function isValidIP($ip)
+	static public function startsWith($haystack, $needle)
 	{
-		if (filter_var($ip, FILTER_VALIDATE_IP))
-		{
-			return true;
-		}
-
-		return false;
+		// search backwards starting from haystack length characters from the end
+		return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
 	}
 }
