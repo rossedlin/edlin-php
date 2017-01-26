@@ -54,6 +54,10 @@ class Api
 				{
 					$this->request = $data->request;
 				}
+				else
+				{
+					$this->request = new \stdClass();
+				}
 
 				/**
 				 * Response
@@ -62,6 +66,10 @@ class Api
 				{
 					$this->response = $data->response;
 				}
+				else
+				{
+					$this->response = new \stdClass();
+				}
 
 				/**
 				 * Payload
@@ -69,6 +77,10 @@ class Api
 				if (isset($data->payload))
 				{
 					$this->payload = $data->payload;
+				}
+				else
+				{
+					$this->payload = new \stdClass();
 				}
 				
 				break;
