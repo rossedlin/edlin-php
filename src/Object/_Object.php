@@ -8,6 +8,8 @@ use Cryslo;
  * User: Ross Edlin
  * Date: 30/09/2015
  * Time: 20:50
+ * 
+ * @deprecated 
  */
 abstract class _Object
 {
