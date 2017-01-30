@@ -98,7 +98,7 @@ class Utils
 	 *
 	 * @return bool
 	 */
-	public static function isValidIP($ip)
+	public static function isValidIp($ip)
 	{
 		if (filter_var($ip, FILTER_VALIDATE_IP))
 		{
