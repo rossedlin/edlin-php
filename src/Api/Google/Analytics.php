@@ -68,23 +68,27 @@ class Analytics
 	}
 
 	/**
+	 * @param string $code
+	 * 
 	 * @return string - HTML
 	 */
-	public static function getHtml()
+	public static function getHtml($code)
 	{
 		return Core\View::render('Api/Google/Analytics', [
-			'code' => 'UA-61673839-1',
+			'code' => $code,
 		]);
 	}
 
 	/**
+	 * @param string $code
+	 * 
 	 * @return string - HTML
 	 */
-	public static function getHtmlIfIpAllowed()
+	public static function getHtmlIfIpAllowed($code)
 	{
 		if (!self::isMyIpExcluded())
 		{
-			return self::getHtml();
+			return self::getHtml($code);
 		}
 		
 		return "";
