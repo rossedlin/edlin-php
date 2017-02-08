@@ -9,10 +9,30 @@ namespace Cryslo\Core\Object;
 
 class Response
 {
-	/** @var array */
+	/** @var \Exception[] $exception */
+	private $exception = [];
+
+	/** @var array $response */
 	private $response = [];
 
+	/** @var bool $success */
 	private $success = false;
+
+	/**
+	 * @return \Exception[]
+	 */
+	public function getExceptions()
+	{
+		return $this->exception;
+	}
+
+	/**
+	 * @param \Exception $exception
+	 */
+	public function addException(\Exception $exception)
+	{
+		$this->exception[] = $exception;
+	}
 
 	/**
 	 * @return array
