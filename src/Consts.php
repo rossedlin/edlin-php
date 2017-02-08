@@ -11,4 +11,9 @@ class Consts
 {
 	const CRLF = "\r\n";
 	const LF   = "\n";
+
+	/**
+	 * PHP Server Global Vars
+	 */
+	const DOCUMENT_ROOT = 'DOCUMENT_ROOT';
 }
