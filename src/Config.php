@@ -30,16 +30,9 @@ class Config
 			self::_generate();
 
 			/**
-			 *
+			 * Get Real
 			 */
-			$file = self::_getRealJsonFile();
-			$raw  = File::read(self::_getRealJsonFile());
-			$data = json_decode($raw);
-
-			if ($data instanceof \stdClass)
-			{
-				return $data;
-			}
+			return self::_getReal();
 		}
 		catch (\Exception $e)
 		{
