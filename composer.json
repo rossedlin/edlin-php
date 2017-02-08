@@ -1,8 +1,8 @@
 {
   "name": "cryslo/cryslo_core",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "dist": {
-    "url": "https://github.com/Cryslo-PHP/cryslo_core/archive/v1.7.2.zip",
+    "url": "https://github.com/Cryslo-PHP/cryslo_core/archive/v1.7.3.zip",
     "type": "zip"
   },
   "require": {
