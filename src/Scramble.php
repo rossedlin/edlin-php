@@ -6,10 +6,44 @@ namespace Cryslo\Core;
  * User: Ross Edlin
  * Date: 25/08/15
  * Time: 12:52
+ *
+ * Class Scramble
+ * @package Cryslo\Core
  */
 class Scramble
 {
-	const RANDOM_VALUE = "gb830ng03gh34087g9h394b798";
+	const SCRAMBLE_KEY = "scramble_key";
+
+	/**
+	 * @param $key
+	 *
+	 * @return bool
+	 */
+	public static function isValidKey($key)
+	{
+		if (strlen($key) !== 32)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * @return bool
+	 *
+	 * @throws \Exception
+	 */
+	public static function getKey()
+	{
+		$key = Config::get(self::SCRAMBLE_KEY);
+		if (!self::isValidKey($key))
+		{
+			throw new \Exception("Scramble - Not Valid Key");
+		}
+
+		return $key;
+	}
 
 	/**
 	 * @param $value
@@ -24,7 +58,7 @@ class Scramble
 			$key = implode('-', $key);
 		}
 
-		return $value . '.' . md5($value . $key . self::RANDOM_VALUE);
+		return $value . '.' . md5($value . $key . self::getKey());
 	}
 
 	/**
@@ -43,7 +77,7 @@ class Scramble
 				$key = implode('-', $key);
 			}
 
-			$check = md5($parts[0] . $key . self::RANDOM_VALUE);
+			$check = md5($parts[0] . $key . self::getKey());
 			if ($check == $parts[1])
 			{
 				return true;
@@ -60,7 +94,7 @@ class Scramble
 	 *
 	 * @return mixed
 	 */
-	public static function get_if_valid($scrambled_value, $key)
+	public static function getIfValid($scrambled_value, $key)
 	{
 		if (self::validate($scrambled_value, $key))
 		{
@@ -71,13 +105,13 @@ class Scramble
 	}
 
 	/**
-	 * Gets the un-validate value, this is UNSECURE!!!
+	 * Gets the un-validate value, this is UN-SECURE!!!
 	 *
 	 * @param $scrambled_value
 	 *
 	 * @return mixed
 	 */
-	public static function get_unsecured($scrambled_value)
+	public static function getUnsecured($scrambled_value)
 	{
 		$parts = explode('.', $scrambled_value);
 		return $parts[0];
