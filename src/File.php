@@ -11,19 +11,60 @@ namespace Cryslo\Core;
 class File
 {
 	/**
-	 * @param $filename
-	 * @param $data
+	 * @param $file
+	 *
+	 * @return string
+	 * @throws \Exception
+	 */
+	public static function read($file)
+	{
+		if (!file_exists($file))
+		{
+			throw new \Exception("File not found: " . $file);
+		}
+
+		try
+		{
+			$raw = file_get_contents($file);
+			return $raw;
+		}
+		catch (\Exception $e)
+		{
+			Log::write($e);
+			throw $e;
+		}
+	}
+
+	/**
+	 * @param $file
+	 * @param $raw
 	 *
 	 * @return Object\Response
 	 */
-//	static public function write($filename, $data)
-//	{
-//		$response = new Object\Response();
-//		if ((file_exists($filename)) && (!is_writable($filename)))
-//		{
-//			$response->addResponse("SaveData() file is not writable!");
-//			$response->setSuccess(false);
-//			return $response;
-//		}
-//	}
+	public static function write($file, $raw)
+	{
+		$response = new Object\Response();
+		$response->setSuccess(false);
+
+		if ((file_exists($file)) && (!is_writable($file)))
+		{
+			$response->addResponse("SaveData() file is not writable!");
+			return $response;
+		}
+
+		try
+		{
+			file_put_contents($file, $raw);
+
+			$response->setSuccess(true);
+			return $response;
+		}
+		catch (\Exception $e)
+		{
+			Log::write($e);
+			$response->addException($e);
+		}
+		
+		return $response;
+	}
 }
