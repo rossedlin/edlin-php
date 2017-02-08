@@ -22,8 +22,7 @@ class Analytics
 	 */
 	public static function getExcludedIps()
 	{
-		$ips   = Core\Api::get(self::URL_EXCLUDE_IP)->getPayload();
-		$ips[] = "81.111.95.119";
+		$ips = Core\Api::get(self::URL_EXCLUDE_IP)->getPayload();
 
 		$return = [];
 		foreach ($ips as $ip)
@@ -69,7 +68,7 @@ class Analytics
 
 	/**
 	 * @param string $code
-	 * 
+	 *
 	 * @return string - HTML
 	 */
 	public static function getHtml($code)
@@ -81,7 +80,7 @@ class Analytics
 
 	/**
 	 * @param string $code
-	 * 
+	 *
 	 * @return string - HTML
 	 */
 	public static function getHtmlIfIpAllowed($code)
@@ -90,7 +89,7 @@ class Analytics
 		{
 			return self::getHtml($code);
 		}
-		
+
 		return "";
 	}
 }
