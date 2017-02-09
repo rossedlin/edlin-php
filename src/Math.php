@@ -6,7 +6,7 @@ namespace Cryslo\Core;
  * User: Ross Edlin
  * Date: 01/01/2016
  * Time: 14:57
- * 
+ *
  * Class Math
  * @package Cryslo\Core
  */
@@ -18,9 +18,19 @@ class Math
 	 *
 	 * @return mixed
 	 */
-	static public function add($a, $b)
+	public static function add($a, $b)
 	{
 		return $a + $b;
+	}
+
+	/**
+	 * @param $num
+	 *
+	 * @return bool
+	 */
+	public static function isOdd($num)
+	{
+		return !self::isEven($num);
 	}
 
 	/**
@@ -28,17 +38,12 @@ class Math
 	 *
 	 * @return bool
 	 */
-	static public function isEven($num)
+	public static function isEven($num)
 	{
 		if ($num % 2 == 0)
 		{
 			return true;
 		}
 		return false;
-	}
-
-	static public function isOdd($num)
-	{
-		return !self::isEven($num);
 	}
 }
