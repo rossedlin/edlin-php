@@ -13,14 +13,14 @@ namespace Cryslo\Core;
 class Math
 {
 	/**
-	 * @param $a
-	 * @param $b
+	 * @param int $a
+	 * @param int $b
 	 *
-	 * @return mixed
+	 * @return int
 	 */
 	public static function add($a, $b)
 	{
-		return $a + $b;
+		return (int)$a + (int)$b;
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Math
 	 */
 	public static function isOdd($num)
 	{
-		return !self::isEven($num);
+		return !self::isEven((int)$num);
 	}
 
 	/**
@@ -40,7 +40,7 @@ class Math
 	 */
 	public static function isEven($num)
 	{
-		if ($num % 2 == 0)
+		if ((int)$num % 2 == 0)
 		{
 			return true;
 		}
