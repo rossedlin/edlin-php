@@ -16,12 +16,29 @@ class Core
 	 */
 	public static function pre($var = false)
 	{
-		if ($var)
+		if ($var === true)
 		{
 			echo '<pre>';
-			print_r($var);
+			print_r("TRUE (boolean)");
 			echo '</pre>';
+
+			return;
 		}
+
+		if ($var === false)
+		{
+			echo '<pre>';
+			print_r("FALSE (boolean)");
+			echo '</pre>';
+
+			return;
+		}
+
+		echo '<pre>';
+		print_r($var);
+		echo '</pre>';
+		
+		return;
 	}
 
 	/**
