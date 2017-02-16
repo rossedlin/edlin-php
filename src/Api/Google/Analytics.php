@@ -73,7 +73,7 @@ class Analytics
 	 */
 	public static function getHtml($code)
 	{
-		return Core\View::render('Api/Google/Analytics', [
+		return Core\View::getHtml('Api/Google/Analytics', [
 			'code' => $code,
 		]);
 	}

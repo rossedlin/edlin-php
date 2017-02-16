@@ -12,30 +12,142 @@ namespace Cryslo\Core;
  */
 class View
 {
+	//*********************************************************************************
+	//
+	// Css
+	//
+	//*********************************************************************************
+	/**
+	 * @param       $file
+	 * @param array $args
+	 *
+	 * @return string
+	 * @throws \Exception
+	 */
+	public static function getCss($file, $args = [])
+	{
+		if (self::cssExists($file))
+		{
+			return self::_get(self::_getCss($file), $args);
+		}
+
+		return "";
+	}
+
 	/**
 	 * @param $file
-	 * @param $args
+	 *
+	 * @return bool
+	 */
+	public static function cssExists($file)
+	{
+		return self::_exists(self::_getCss($file));
+	}
+
+	/**
+	 * @param $file
 	 *
 	 * @return string
 	 */
-	public static function render($file, $args = [])
+	private static function _getCss($file)
 	{
-		$file = __DIR__ . '/../view/' . $file . '.html';
+		return __DIR__ . '/../view/' . $file . '.css';
+	}
 
+	//*********************************************************************************
+	//
+	// Html
+	//
+	//*********************************************************************************
+	/**
+	 * @param       $file
+	 * @param array $args
+	 *
+	 * @return string
+	 * @throws \Exception
+	 */
+	public static function getHtml($file, $args = [])
+	{
+		if (self::htmlExists($file))
+		{
+			return self::_get(self::_getHtml($file), $args);
+		}
+
+		return "";
+	}
+
+	/**
+	 * @param $file
+	 *
+	 * @return bool
+	 */
+	public static function htmlExists($file)
+	{
+		return self::_exists(self::_getHtml($file));
+	}
+
+	/**
+	 * @param $file
+	 *
+	 * @return string
+	 */
+	private static function _getHtml($file)
+	{
+		return __DIR__ . '/../view/' . $file . '.html';
+	}
+
+	//*********************************************************************************
+	//
+	// Core
+	//
+	//*********************************************************************************
+
+	/**
+	 * @param $file
+	 *
+	 * @return bool
+	 */
+	private static function _exists($file)
+	{
 		if (file_exists($file))
 		{
-			ob_start();
-			require($file);
-			$contents = ob_get_contents();
+			return true;
+		}
 
-			foreach ($args as $key => $arg)
+		return false;
+	}
+
+	/**
+	 * @param       $file
+	 * @param array $args
+	 *
+	 * @return string
+	 * @throws \Exception
+	 */
+	private static function _get($file, array $args = [])
+	{
+		if (self::_exists($file))
+		{
+			try
 			{
-				$contents = str_replace('{{' . $key . '}}', $arg, $contents);
+				ob_start();
+				require($file);
+				$contents = ob_get_contents();
+
+				foreach ($args as $key => $arg)
+				{
+					$contents = str_replace('{{' . $key . '}}', $arg, $contents);
+				}
+
+				ob_end_clean();
+
+				return (string)$contents;
 			}
-
-			ob_end_clean();
-
-			return $contents;
+			catch (\Exception $e)
+			{
+				Log::write($e);
+				throw $e;
+			}
 		}
 
 		return "";
