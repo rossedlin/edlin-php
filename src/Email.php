@@ -16,15 +16,21 @@ class Email
 	const DATE = 'D, d M Y H:i:s O';
 
 	/**
+	 * Content Types
+	 */
+	const CONTENT_TYPE_HTML = 'text/html';
+
+	/**
 	 * @param array  $to
 	 * @param array  $from
 	 * @param string $subject - Subject must satisfy » RFC 2047.
 	 * @param string $message
+	 * @param string $contentType
 	 *
 	 * @return bool
 	 * @throws \Exception
 	 */
-	public static function send(array $to, array $from, $subject, $message)
+	public static function send(array $to, array $from, $subject, $message, $contentType = self::CONTENT_TYPE_HTML)
 	{
 		/*
 		//SMTP Transport Type
@@ -53,7 +59,7 @@ class Email
 			->setTo($to)
 			->setFrom($from)
 			->setSubject($subject)
-			->setContentType('text/html')
+			->setContentType($contentType)
 			->setBody($message);
 
 		try
