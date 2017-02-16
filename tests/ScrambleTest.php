@@ -27,14 +27,7 @@ final class ScrambleTest extends TestCase
 		 */
 		for ($i = 0; $i < 100; $i++)
 		{
-			$value = md5(rand());
-			$key   = md5(rand());
-
-			$scrambled = Scramble::generate($value, $key);
-
-			$this->assertTrue(Scramble::validate($scrambled, $key));
-			$this->assertEquals($value, Scramble::getIfValid($scrambled, $key));
-			$this->assertEquals($value, Scramble::getUnsecured($scrambled));
+			$this->_testScrambleUnscramble(md5(rand()), md5(rand()));
 		}
 
 		/**
@@ -43,14 +36,7 @@ final class ScrambleTest extends TestCase
 		 */
 		for ($i = 0; $i < 100; $i++)
 		{
-			$value = rand();
-			$key   = md5(rand());
-
-			$scrambled = Scramble::generate($value, $key);
-
-			$this->assertTrue(Scramble::validate($scrambled, $key));
-			$this->assertEquals($value, Scramble::getIfValid($scrambled, $key));
-			$this->assertEquals($value, Scramble::getUnsecured($scrambled));
+			$this->_testScrambleUnscramble(rand(), md5(rand()));
 		}
 
 		/**
@@ -59,14 +45,7 @@ final class ScrambleTest extends TestCase
 		 */
 		for ($i = 0; $i < 100; $i++)
 		{
-			$value = md5(rand());
-			$key   = rand();
-
-			$scrambled = Scramble::generate($value, $key);
-
-			$this->assertTrue(Scramble::validate($scrambled, $key));
-			$this->assertEquals($value, Scramble::getIfValid($scrambled, $key));
-			$this->assertEquals($value, Scramble::getUnsecured($scrambled));
+			$this->_testScrambleUnscramble(md5(rand()), rand());
 		}
 
 		/**
@@ -75,14 +54,34 @@ final class ScrambleTest extends TestCase
 		 */
 		for ($i = 0; $i < 100; $i++)
 		{
-			$value = rand();
-			$key   = rand();
-
-			$scrambled = Scramble::generate($value, $key);
-
-			$this->assertTrue(Scramble::validate($scrambled, $key));
-			$this->assertEquals($value, Scramble::getIfValid($scrambled, $key));
-			$this->assertEquals($value, Scramble::getUnsecured($scrambled));
+			$this->_testScrambleUnscramble(rand(), rand());
 		}
+	}
+
+	/**
+	 * @param mixed $value
+	 * @param mixed $key
+	 */
+	private function _testScrambleUnscramble($value, $key)
+	{
+		$scrambled = Scramble::generate($value, $key);
+
+		/**
+		 * Validated a scrambled value using our original key
+		 */
+		$this->assertTrue(Scramble::validate($scrambled, $key));
+		$this->assertEquals($value, Scramble::getIfValid($scrambled, $key));
+
+		/**
+		 * Validated a BAD scrambled value using our original key
+		 */
+		$this->assertFalse(Scramble::validate($value . "." . md5(rand()), $key));
+		$this->assertFalse(Scramble::getIfValid($value . "." . md5(rand()), $key));
+
+		/**
+		 * Validated a scrambled value using a BAD key
+		 */
+		$this->assertFalse(Scramble::validate($scrambled, rand()));
+		$this->assertFalse(Scramble::getIfValid($scrambled, rand()));
 	}
 }
