@@ -18,7 +18,38 @@ class Email
 	/**
 	 * Content Types
 	 */
-	const CONTENT_TYPE_HTML = 'text/html';
+	const CONTENT_TYPE_PLAIN = 'text/plain';
+	const CONTENT_TYPE_HTML  = 'text/html';
+
+	/**
+	 * @param array $to
+	 * @param array $from
+	 * @param       $subject - Subject must satisfy » RFC 2047.
+	 * @param       $message
+	 *
+	 * @return bool
+	 * @throws \Exception
+	 */
+	public static function sendPlain(array $to, array $from, $subject, $message)
+	{
+		return self::send($to, $from, $subject, $message, self::CONTENT_TYPE_PLAIN);
+	}
+
+	/**
+	 * @param array $to
+	 * @param array $from
+	 * @param       $subject - Subject must satisfy » RFC 2047.
+	 * @param       $message
+	 *
+	 * @return bool
+	 * @throws \Exception
+	 */
+	public static function sendHtml(array $to, array $from, $subject, $message)
+	{
+		return self::send($to, $from, $subject, $message, self::CONTENT_TYPE_HTML);
+	}
+
+
 
 	/**
 	 * @param array  $to
@@ -30,7 +61,7 @@ class Email
 	 * @return bool
 	 * @throws \Exception
 	 */
-	public static function send(array $to, array $from, $subject, $message, $contentType = self::CONTENT_TYPE_HTML)
+	public static function send(array $to, array $from, $subject, $message, $contentType = self::CONTENT_TYPE_PLAIN)
 	{
 		/*
 		//SMTP Transport Type
@@ -94,12 +125,12 @@ class Email
 	public static function getTemplate($file = '', array $data = [])
 	{
 		$data = array_merge([
-			'title'     => 'Cryslo',
-			'logo_href' => 'https://cfmedia.deadline.com/2016/07/logo-tv-logo.png',
+			'title'      => 'Cryslo',
+			'logo_href'  => 'https://cfmedia.deadline.com/2016/07/logo-tv-logo.png',
 			'logo_width' => '100',
-			'logo_alt'  => 'Cryslo Logo',
-			'content'   => 'Hello World',
-			'year'      => date('Y'),
+			'logo_alt'   => 'Cryslo Logo',
+			'content'    => 'Hello World',
+			'year'       => date('Y'),
 		], $data);
 
 		/**
