@@ -30,7 +30,12 @@ final class ViewTest extends TestCase
 			'content' => md5(time()),
 		];
 
+		/**
+		 * Render Content & Compare
+		 */
 		$this->assertEquals(View::getHtml('Test/TestHtml', $args), $this->render($file, $args));
+		$this->assertNotEquals(View::getHtml('Test/TestHtml'), $this->render($file, $args));
+		$this->assertNotEquals(View::getHtml('Test/TestHtml', $args), $this->render($file));
 	}
 
 	/**
@@ -46,7 +51,12 @@ final class ViewTest extends TestCase
 			'font-size' => time() . 'px',
 		];
 
+		/**
+		 * Render Content & Compare
+		 */
 		$this->assertEquals(View::getCss('Test/TestCss', $args), $this->render($file, $args));
+		$this->assertNotEquals(View::getCss('Test/TestCss'), $this->render($file, $args));
+		$this->assertNotEquals(View::getCss('Test/TestCss', $args), $this->render($file));
 	}
 
 	/**
