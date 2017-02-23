@@ -152,4 +152,24 @@ class Utils
 		// search backwards starting from haystack length characters from the end
 		return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
 	}
+
+	/**
+	 * @param string $str
+	 *
+	 * @return string
+	 */
+	public static function getOnlyLetters($str)
+	{
+		return preg_replace('/[^a-zA-Z]+/', '', $str);
+	}
+
+	/**
+	 * @param string $str
+	 *
+	 * @return string
+	 */
+	public static function getOnlyNumbers($str)
+	{
+		return preg_replace('/[^0-9]+/', '', $str);
+	}
 }
