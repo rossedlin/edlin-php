@@ -11,6 +11,27 @@ use Cryslo\Core;
  */
 class Directory
 {
+	/**
+	 * @param $path
+	 *
+	 * @return bool
+	 */
+	public static function exists($path)
+	{
+		if (file_exists($path))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * @param $path
+	 *
+	 * @throws \Exception
+	 * @return bool
+	 */
 	public static function make($path)
 	{
 		try
@@ -20,10 +41,9 @@ class Directory
 		}
 		catch (\Exception $e)
 		{
-
+			Log::write($e);
+			throw $e;
 		}
-
-		return false;
 	}
 
 	/**
@@ -31,6 +51,7 @@ class Directory
 	 *
 	 * @param $path
 	 *
+	 * @throws \Exception
 	 * @return bool
 	 */
 	public static function remove($path)
@@ -58,8 +79,10 @@ class Directory
 		}
 		catch (\Exception $e)
 		{
-			return false;
+			Log::write($e);
+			throw $e;
 		}
+		
 		return true;
 	}
 
@@ -69,6 +92,7 @@ class Directory
 	 * @param $source
 	 * @param $destination
 	 *
+	 * @throws \Exception
 	 * @return bool
 	 */
 	public static function copy($source, $destination)
@@ -102,8 +126,10 @@ class Directory
 		}
 		catch (\Exception $e)
 		{
-			return false;
+			Log::write($e);
+			throw $e;
 		}
+		
 		return true;
 	}
 
@@ -112,6 +138,7 @@ class Directory
 	 *
 	 * @param $path
 	 *
+	 * @throws \Exception
 	 * @return array
 	 */
 	public static function getContents($path)
@@ -140,7 +167,8 @@ class Directory
 		}
 		catch (\Exception $e)
 		{
-			Core::prt("Exception: " . $e->getMessage());
+			Log::write($e);
+			throw $e;
 		}
 
 		return $contents;
