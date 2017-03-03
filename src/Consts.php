@@ -16,4 +16,5 @@ class Consts
 	 * PHP Server Global Vars
 	 */
 	const DOCUMENT_ROOT = 'DOCUMENT_ROOT';
+	const REMOTE_ADDR   = 'REMOTE_ADDR';
 }
