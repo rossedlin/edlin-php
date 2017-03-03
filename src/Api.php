@@ -12,7 +12,7 @@ namespace Cryslo\Core;
  */
 class Api
 {
-	const URL = "https://www.cryslo.com/api/v3/";
+	const URL = "https://api.cryslo.com/v3/";
 
 	/**
 	 * @param $subUrl
