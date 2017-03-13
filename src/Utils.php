@@ -59,6 +59,30 @@ class Utils
 	}
 
 	/**
+	 * @return mixed
+	 */
+	public static function getClientIp()
+	{
+		/**
+		 * Check ip from share internet
+		 */
+		if (!empty($_SERVER['HTTP_CLIENT_IP']))
+		{
+			return $_SERVER['HTTP_CLIENT_IP'];
+		}
+
+		/**
+		 * To check ip is pass from proxy
+		 */
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+		{
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+		}
+
+		return $_SERVER['REMOTE_ADDR'];
+	}
+
+	/**
 	 * @param mixed      $object
 	 * @param string     $key
 	 * @param bool|mixed $default
@@ -73,6 +97,26 @@ class Utils
 		}
 
 		return $default;
+	}
+
+	/**
+	 * @param string $str
+	 *
+	 * @return string
+	 */
+	public static function getOnlyLetters($str)
+	{
+		return preg_replace('/[^a-zA-Z]+/', '', $str);
+	}
+
+	/**
+	 * @param string $str
+	 *
+	 * @return string
+	 */
+	public static function getOnlyNumbers($str)
+	{
+		return preg_replace('/[^0-9]+/', '', $str);
 	}
 
 	/**
@@ -151,25 +195,5 @@ class Utils
 	{
 		// search backwards starting from haystack length characters from the end
 		return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
-	}
-
-	/**
-	 * @param string $str
-	 *
-	 * @return string
-	 */
-	public static function getOnlyLetters($str)
-	{
-		return preg_replace('/[^a-zA-Z]+/', '', $str);
-	}
-
-	/**
-	 * @param string $str
-	 *
-	 * @return string
-	 */
-	public static function getOnlyNumbers($str)
-	{
-		return preg_replace('/[^0-9]+/', '', $str);
 	}
 }

@@ -41,7 +41,7 @@ class Analytics
 	 */
 	public static function isMyIpExcluded()
 	{
-		$myIP = Core\Request::server('REMOTE_ADDR');
+		$myIP = Core\Utils::getClientIp();
 
 		/**
 		 * Check if we have a cookie set
@@ -85,6 +85,8 @@ class Analytics
 	 */
 	public static function getHtmlIfIpAllowed($code)
 	{
+		//todo - need to add something for when api.cryslo.com is un-reachable
+		//todo - it killed cloud.cryslo.com
 		if (!self::isMyIpExcluded())
 		{
 			return self::getHtml($code);
