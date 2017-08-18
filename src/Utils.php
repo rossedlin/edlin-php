@@ -196,4 +196,14 @@ class Utils
 		// search backwards starting from haystack length characters from the end
 		return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
 	}
+
+	/**
+	 * @param $file
+	 *
+	 * @return int
+	 */
+	public static function getFileModifyTime($file)
+	{
+		return filemtime($file);
+	}
 }
