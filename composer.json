@@ -1,8 +1,8 @@
 {
   "name": "cuttingweb/cryslo_core",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "dist": {
-    "url": "https://github.com/CuttingWeb/cryslo_core/archive/v1.9.0.zip",
+    "url": "https://github.com/CuttingWeb/cryslo_core/archive/v1.9.1.zip",
     "type": "zip"
   },
   "require": {
