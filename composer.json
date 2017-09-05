@@ -1,8 +1,8 @@
 {
-  "name": "cuttingweb/cryslo_core",
-  "version": "1.9.1",
+  "name": "rossedlin/cryslo_core",
+  "version": "1.9.2",
   "dist": {
-    "url": "https://github.com/CuttingWeb/cryslo_core/archive/v1.9.1.zip",
+    "url": "https://github.com/rossedlin/cryslo-php-core/archive/v1.9.2.zip",
     "type": "zip"
   },
   "require": {
