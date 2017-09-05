@@ -206,4 +206,14 @@ class Utils
 	{
 		return filemtime($file);
 	}
+
+	/**
+	 * @param $path
+	 *
+	 * @return string
+	 */
+	public static function addVersionToCssFile($path)
+	{
+		return $path .'?v=' .filemtime($_SERVER['DOCUMENT_ROOT'] . $path);
+	}
 }
