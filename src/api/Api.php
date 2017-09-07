@@ -1,6 +1,7 @@
 <?php
 namespace Cryslo;
 
+use Cryslo\Core\Request;
 use Cryslo\Api\Object;
 
 /**
