@@ -131,4 +131,24 @@ class Request
 	{
 		return (self::server('REQUEST_METHOD') == 'POST');
 	}
+
+	/**
+	 * @param string $type
+	 *
+	 * @return bool
+	 */
+	public static function isValidType($type)
+	{
+		switch ((string)$type)
+		{
+			case 'GET':
+				return true;
+			case 'POST':
+				return true;
+			case 'PUT':
+				return true;
+		}
+
+		return false;
+	}
 }
