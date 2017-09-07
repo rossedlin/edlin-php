@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo\Core\Object;
+namespace Cryslo\Api\Object;
 
 /**
  * Created by PhpStorm.

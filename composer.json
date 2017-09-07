@@ -15,13 +15,14 @@
   },
   "autoload": {
     "psr-4": {
-      "Cryslo\\Core\\": "src/core/",
       "Cryslo\\Api\\": "src/api/",
+      "Cryslo\\Core\\": "src/core/",
       "Cryslo\\Feed\\": "src/feed/"
     },
     "files": [
-      "src/Core.php",
-      "src/Helpers.php"
+      "src/api/Api.php",
+      "src/core/Core.php",
+      "src/core/Helpers.php"
     ]
   }
 }
