@@ -15,7 +15,9 @@
   },
   "autoload": {
     "psr-4": {
-      "Cryslo\\Core\\": "src/"
+      "Cryslo\\Core\\": "src/core/",
+      "Cryslo\\Api\\": "src/api/",
+      "Cryslo\\Feed\\": "src/feed/"
     },
     "files": [
       "src/Core.php",
