@@ -1,8 +1,8 @@
 {
   "name": "rossedlin/cryslo-php",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "dist": {
-    "url": "https://github.com/rossedlin/cryslo-php/archive/v2.0.2.zip",
+    "url": "https://github.com/rossedlin/cryslo-php/archive/v2.0.3.zip",
     "type": "zip"
   },
   "require": {
@@ -19,11 +19,6 @@
   "autoload": {
     "psr-4": {
       "Cryslo\\": "src"
-    },
-    "files": [
-      "src/api/Api.php",
-      "src/core/Core.php",
-      "src/core/Helpers.php"
-    ]
+    }
   }
 }
