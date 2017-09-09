@@ -3,7 +3,8 @@ namespace Cryslo\Object;
 
 /**
  * Created by PhpStorm.
- * User: Ross Edlin
+ * @author Ross Edlin <contact@rossedlin.com>
+ *
  * Date: 26/12/2015
  * Time: 15:55
  *
