@@ -19,9 +19,9 @@
   "autoload": {
     "psr-4": {
       "Cryslo\\": "src"
-    }
-  },
-  "files": [
-    "src/Helpers.php"
-  ]
+    },
+    "files": [
+      "src/Helpers.php"
+    ]
+  }
 }
