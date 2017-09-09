@@ -20,5 +20,8 @@
     "psr-4": {
       "Cryslo\\": "src"
     }
-  }
+  },
+  "files": [
+    "src/Helpers.php"
+  ]
 }
