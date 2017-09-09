@@ -13,85 +13,58 @@ namespace Cryslo\Object;
 class Api
 {
 	const RENDER_ARRAY = 'array';
-	const RENDER_JSON = 'json';
+	const RENDER_JSON  = 'json';
 
 	/**
-	 * @var \stdClass $request
+	 * @var array $request
 	 */
-	private $request;
+	private $request = [];
 
 	/**
-	 * @var \stdClass $response
+	 * @var array $response
 	 */
-	private $response;
+	private $response = [
+		'success' => false,
+	];
 
 	/**
-	 * @var \stdClass $payload
+	 * @var array $payload
 	 */
-	private $payload;
+	private $payload = [];
 
 	/**
-	 * Api constructor.
-	 *
-	 * @param string $raw
-	 * @param string $type
+	 * @param array $request
 	 */
-	public function __construct($raw, $type = self::RENDER_JSON)
+	public function addRequest(array $request)
 	{
-		switch ($type)
-		{
-			case self::RENDER_JSON:
-
-				/**
-				 * @var \stdClass $data
-				 */
-				$data = json_decode($raw);
-
-				/**
-				 * Request
-				 */
-				if (isset($data->request))
-				{
-					$this->request = $data->request;
-				}
-				else
-				{
-					$this->request = new \stdClass();
-				}
-
-				/**
-				 * Response
-				 */
-				if (isset($data->response))
-				{
-					$this->response = $data->response;
-				}
-				else
-				{
-					$this->response = new \stdClass();
-				}
-
-				/**
-				 * Payload
-				 */
-				if (isset($data->payload))
-				{
-					$this->payload = $data->payload;
-				}
-				else
-				{
-					$this->payload = new \stdClass();
-				}
-				
-				break;
-		}
+		$this->request = $request;
 	}
 
 	/**
-	 * @return \stdClass
+	 * @param bool $success
 	 */
-	public function getPayload()
+	public function setSuccess($success)
 	{
-		return $this->payload;
+		$this->response['success'] = (bool)$success;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getResponseAsJson()
+	{
+		return json_encode($this->getResponse());
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getResponse()
+	{
+		return [
+			'request'  => $this->request,
+			'response' => $this->response,
+			'payload'  => $this->payload,
+		];
 	}
 }
