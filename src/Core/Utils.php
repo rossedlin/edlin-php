@@ -214,6 +214,31 @@ class Utils
 	 */
 	public static function addVersionToCssFile($path)
 	{
-		return $path .'?v=' .filemtime($_SERVER['DOCUMENT_ROOT'] . $path);
+		return $path . '?v=' . filemtime($_SERVER['DOCUMENT_ROOT'] . $path);
+	}
+
+	/**
+	 * Converts an object like StdClass into an array
+	 * Nested so sub-objects will convert too
+	 *
+	 * @param $object
+	 *
+	 * @return array
+	 */
+	public static function convertToArrayFromStdClass($object)
+	{
+		//convert the object into an array
+		if ($object instanceof \stdClass) $object = (array)$object;
+
+		//loop through each array and call ME again
+		if (is_array($object))
+		{
+			foreach ($object as $key => $value)
+			{
+				$object[$key] = self::convertToArrayFromStdClass($value);
+			}
+		}
+
+		return $object;
 	}
 }
