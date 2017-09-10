@@ -11,6 +11,7 @@ use Cryslo\Api\Object;
  * Time: 18:45
  *
  * Class Api
+ *
  * @package Cryslo\Core
  */
 class Api
@@ -40,15 +41,15 @@ class Api
 	 * @param string $url
 	 * @param array  $args
 	 *
-	 * @return mixed
+	 * @return string
 	 * @throws \Exception
 	 */
 	public static function query($url, $args = [])
 	{
-		$requestType   = Request::getFromArray($args, 'requestType', 'GET');
-		$requestHeader = Request::getFromArray($args, 'requestHeader', []);
-		$requestBody   = Request::getFromArray($args, 'requestBody', []);
-		$requestResponseHeaders   = Request::getFromArray($args, 'requestResponseHeaders', false);
+		$requestType            = Request::getFromArray($args, 'requestType', 'GET');
+		$requestHeader          = Request::getFromArray($args, 'requestHeader', []);
+		$requestBody            = Request::getFromArray($args, 'requestBody', []);
+		$requestResponseHeaders = Request::getFromArray($args, 'requestResponseHeaders', false);
 
 		/**
 		 * Check Request Method
@@ -81,6 +82,11 @@ class Api
 		 * Execute CURL Request
 		 */
 		$response = curl_exec($ch);
+
+		if (!is_string($response))
+		{
+			throw new \Exception("Response not string");
+		}
 
 		return $response;
 	}

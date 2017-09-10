@@ -3,7 +3,7 @@ namespace Cryslo\Object;
 
 /**
  * Created by PhpStorm.
- * @author Ross Edlin <contact@rossedlin.com>
+ * @author  Ross Edlin <contact@rossedlin.com>
  *
  * Date: 26/12/2015
  * Time: 15:55
@@ -17,26 +17,74 @@ class Api
 	const RENDER_JSON  = 'json';
 
 	/**
+	 * @var array $debug
+	 */
+	private $debug = [];
+	/**
+	 * @var array $payload
+	 */
+	private $payload = [];
+	/**
 	 * @var array $request
 	 */
 	private $request = [];
-
 	/**
 	 * @var array $response
 	 */
 	private $response = [
 		'success' => false,
+		'message' => '',
 	];
 
 	/**
-	 * @var array $payload
+	 * @param string $debug
 	 */
-	private $payload = [];
+	public function addDebug($debug)
+	{
+		$this->debug[] = (string)$debug;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function renderAsJson()
+	{
+		return json_encode($this->render(), JSON_PRETTY_PRINT);
+	}
+
+	/**
+	 * @return array
+	 */
+	public function render()
+	{
+		return [
+			'debug'    => $this->debug,
+			'request'  => $this->request,
+			'response' => $this->response,
+			'payload'  => $this->payload,
+		];
+	}
+
+	/**
+	 * @param string $message
+	 */
+	public function setMessage($message)
+	{
+		$this->response['message'] = (string)$message;
+	}
+
+	/**
+	 * @param array $payload
+	 */
+	public function setPayload(array $payload)
+	{
+		$this->payload = $payload;
+	}
 
 	/**
 	 * @param array $request
 	 */
-	public function addRequest(array $request)
+	public function setRequest(array $request)
 	{
 		$this->request = $request;
 	}
@@ -47,25 +95,5 @@ class Api
 	public function setSuccess($success)
 	{
 		$this->response['success'] = (bool)$success;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getResponseAsJson()
-	{
-		return json_encode($this->getResponse());
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getResponse()
-	{
-		return [
-			'request'  => $this->request,
-			'response' => $this->response,
-			'payload'  => $this->payload,
-		];
 	}
 }
