@@ -241,4 +241,14 @@ class Utils
 
 		return $object;
 	}
+
+	/**
+	 * @param $str
+	 *
+	 * @return string
+	 */
+	public static function codify($str)
+	{
+		return strtolower(trim(preg_replace('/[^a-zA-Z0-9]+/', '-', $str), '-'));
+	}
 }
