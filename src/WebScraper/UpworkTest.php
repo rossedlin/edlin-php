@@ -36,6 +36,7 @@ class UpworkTest extends _WebScraper
 	 */
 	public function scrap($baseUrl, array $args = [])
 	{
+		$baseUrl       = 'http://archive-grbj-2.s3-website-us-west-1.amazonaws.com/';
 		$this->baseUrl = $baseUrl;
 		$html          = $this->getHtmlFromUrl($baseUrl);
 
