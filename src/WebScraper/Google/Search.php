@@ -122,4 +122,20 @@ class Search extends WebScraper\_WebScraper
 			return "";
 		}
 	}
+
+	/**
+	 * @param $str
+	 *
+	 * @return mixed
+	 */
+	public static function searchify($str)
+	{
+		$str = strip_tags($str);
+		$str = strtolower($str);
+
+		$str = str_replace(' ', '+', $str);
+		$str = Core\Utils::replaceMultipleWithOne($str, '+', '+');
+
+		return $str;
+	}
 }
