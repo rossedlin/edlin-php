@@ -43,7 +43,7 @@ class UpworkTest extends _WebScraper
 		/**
 		 *
 		 */
-		$articles = $this->filterHtml($html, '.record');
+		$articles = $this->filterHtmlArray($html, '.record');
 
 		foreach ($articles as $article)
 		{
@@ -51,7 +51,7 @@ class UpworkTest extends _WebScraper
 			 * Extract Author
 			 * Only take articles with an author
 			 */
-			$author = $this->filterHtml($article, '.author > a');
+			$author = $this->filterHtmlArray($article, '.author > a');
 			if (isset($author[0]))
 			{
 				$author = $this->cleanAuthor($author[0]);
@@ -64,7 +64,7 @@ class UpworkTest extends _WebScraper
 				/**
 				 * Extract Title
 				 */
-				$title = $this->filterHtml($article, '.headline > a');
+				$title = $this->filterHtmlArray($article, '.headline > a');
 				if (isset($title[0]))
 				{
 					$title = $this->cleanTitle($title[0]);
@@ -77,12 +77,12 @@ class UpworkTest extends _WebScraper
 				/**
 				 * Extract Article URL
 				 */
-				$articleUrl = $this->filterHtml($article, '.headline > a');
+				$articleUrl = $this->filterHtmlArray($article, '.headline > a');
 
 				/**
 				 * Extract Author URL
 				 */
-				$authorUrl = $this->filterHtml($article, '.author > a');
+				$authorUrl = $this->filterHtmlArray($article, '.author > a');
 
 				$this->addItem($author, $authorUrl, $title, $articleUrl);
 			}
@@ -130,7 +130,7 @@ class UpworkTest extends _WebScraper
 		 * Extract Article Date
 		 */
 		$articleDate = false;
-		$data        = $this->filterHtml($html, '.record .meta .date');
+		$data        = $this->filterHtmlArray($html, '.record .meta .date');
 		if (isset($data[0]) && trim($data[0]) != '')
 		{
 			$articleDate = trim($data[0]);
@@ -167,7 +167,7 @@ class UpworkTest extends _WebScraper
 			/**
 			 * Extract Bio
 			 */
-			$data = $this->filterHtml($html, '.author-bio .abstract');
+			$data = $this->filterHtmlArray($html, '.author-bio .abstract');
 			if (isset($data[0]) && trim($data[0]) != '')
 			{
 				$authorBio = trim($data[0]);
@@ -176,7 +176,7 @@ class UpworkTest extends _WebScraper
 			/**
 			 * Extract Twitter Handle
 			 */
-			$data = $this->filterHtml($html, '.author-bio .abstract a');
+			$data = $this->filterHtmlArray($html, '.author-bio .abstract a');
 			if (isset($data[0]) && trim($data[0]) != '')
 			{
 				$authorTwitterHandle = trim($data[0]);
