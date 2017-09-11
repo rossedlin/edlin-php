@@ -251,4 +251,38 @@ class Utils
 	{
 		return strtolower(trim(preg_replace('/[^a-zA-Z0-9]+/', '-', $str), '-'));
 	}
+
+	/**
+	 * @param string $str
+	 * @param string $multiple
+	 * @param string $one
+	 *
+	 * @return mixed
+	 */
+	public static function replaceMultipleWithOne($str, $multiple, $one)
+	{
+		/**
+		 * Special Case
+		 */
+		switch ((string)$multiple)
+		{
+			case ' ':
+				return preg_replace('/\s+/', ' ', $str);
+
+			case '+':
+				return preg_replace('/\++/', '+', $str);
+		}
+
+		/**
+		 * Default
+		 */
+		try
+		{
+			return preg_replace('!' . $multiple . '+!', $one, $str);
+		}
+		catch (\Exception $e)
+		{
+			return $str;
+		}
+	}
 }
