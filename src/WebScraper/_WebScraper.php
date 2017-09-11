@@ -21,7 +21,7 @@ abstract class _WebScraper
 	 * @param string $baseUrl
 	 * @param array  $args
 	 *
-	 * @return string
+	 * @return array
 	 * @throws \Exception
 	 */
 	abstract public function scrap($baseUrl, array $args = []);
@@ -55,7 +55,7 @@ abstract class _WebScraper
 	 *
 	 * @return array
 	 */
-	protected static function filterHtml($html, $filter)
+	protected static function filterHtmlArray($html, $filter)
 	{
 		try
 		{
@@ -66,6 +66,27 @@ abstract class _WebScraper
 				{
 					return $node->html();
 				});
+
+			return $articles;
+		}
+		catch (\Exception $e)
+		{
+			return false;
+		}
+	}
+
+	/**
+	 * @param $html
+	 * @param $filter
+	 *
+	 * @return array
+	 */
+	protected static function filterHtmlSingle($html, $filter)
+	{
+		try
+		{
+			$crawler  = new Crawler($html);
+			$articles = $crawler->filter($filter)->html();
 
 			return $articles;
 		}
