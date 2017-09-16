@@ -43,4 +43,36 @@ class Item
 	{
 		return (string)$this->data['title'];
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getLink()
+	{
+		return (string)$this->data['link'];
+	}
+
+	/**
+	 * @param $link
+	 */
+	public function setLink($link)
+	{
+		$this->data['link'] = (string)$link;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPublishDate()
+	{
+		return (string)$this->data['pubDate'];
+	}
+
+	/**
+	 * @param $date
+	 */
+	public function setPublishDate($date)
+	{
+		$this->data['pubDate'] = (string)$date;
+	}
 }
