@@ -285,4 +285,16 @@ class Utils
 			return $str;
 		}
 	}
+
+	/**
+	 * @param $xmlRaw
+	 *
+	 * @return mixed
+	 */
+	public static function xmlToArray($xmlRaw)
+	{
+		$xmlObj = simplexml_load_string($xmlRaw);
+		$json   = json_encode($xmlObj);
+		return json_decode($json, true);
+	}
 }
