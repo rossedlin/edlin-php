@@ -20,35 +20,33 @@ use Cryslo\Object;
 class WordPress
 {
 	/**
-	 * @var string $url
-	 */
-	private $url;
-
-	/**
-	 * @return string
-	 */
-	public function getUrl()
-	{
-		return (string)$this->url;
-	}
-
-	/**
 	 * @param string $url
-	 */
-	public function setUrl($url)
-	{
-		$this->url = (string)$url;
-	}
-
-	/**
-	 * @return Object\WordPress\Posts
+	 *
+	 * @return Object\WordPress\Post
 	 * @throws \Exception
 	 */
-	public function getFeed()
+	public static function getPost($url)
 	{
-		$obj = new Object\WordPress\Posts();
-		$obj->setData(Core\Utils::xmlToArray(Api::query($this->getUrl())));
+		$post = new Object\WordPress\Post();
+		$json = Api::query((string)$url);
 
-		return $obj;
+		//todo - json schema validation
+
+		/** @var \stdClass $obj */
+		$array = json_decode($json);
+
+		foreach ($array as $obj)
+		{
+			$post->setId($obj->id);
+			$post->setSlug($obj->slug);
+			$post->setDate($obj->date);
+			$post->setStatus($obj->status);
+			$post->setTitle($obj->title->rendered);
+			$post->setContent($obj->content->rendered);
+			$post->setExcerpt($obj->excerpt->rendered);
+			break;
+		}
+
+		return $post;
 	}
 }
