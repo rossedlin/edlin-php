@@ -17,4 +17,15 @@ class Consts
 	 */
 	const DOCUMENT_ROOT = 'DOCUMENT_ROOT';
 	const REMOTE_ADDR   = 'REMOTE_ADDR';
+
+	/**
+	 * Content Types
+	 */
+	const CONTENT_TYPE_PLAIN = 'text/plain';
+	const CONTENT_TYPE_HTML  = 'text/html';
+
+	/**
+	 * WordPress
+	 */
+	const WORDPRESS_DATE_FORMAT = 'jS F Y';
 }

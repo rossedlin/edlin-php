@@ -1,6 +1,8 @@
 <?php
 namespace Cryslo\Object\WordPress;
 
+use Cryslo\Core\Consts;
+
 /**
  * Created by PhpStorm.
  *
@@ -74,6 +76,16 @@ class Post
 	public function getDate()
 	{
 		return $this->date;
+	}
+
+	/**
+	 * @param string $format
+	 *
+	 * @return bool|string
+	 */
+	public function getDateFormatted($format = Consts::WORDPRESS_DATE_FORMAT)
+	{
+		return date($format, strtotime($this->getDate()));
 	}
 
 	/**
