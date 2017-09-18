@@ -1,6 +1,7 @@
 <?php
 namespace Cryslo\Core;
 
+use \Cryslo\Object;
 use \Cryslo\Core\Log;
 use \Cryslo\Core\View;
 use \TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
@@ -16,52 +17,12 @@ class Email
 	const DATE = 'D, d M Y H:i:s O';
 
 	/**
-	 * Content Types
-	 */
-	const CONTENT_TYPE_PLAIN = 'text/plain';
-	const CONTENT_TYPE_HTML  = 'text/html';
-
-	/**
-	 * @param array $to
-	 * @param array $from
-	 * @param       $subject - Subject must satisfy » RFC 2047.
-	 * @param       $message
+	 * @param Object\Email $email
 	 *
 	 * @return bool
 	 * @throws \Exception
 	 */
-	public static function sendPlain(array $to, array $from, $subject, $message)
-	{
-		return self::send($to, $from, $subject, $message, self::CONTENT_TYPE_PLAIN);
-	}
-
-	/**
-	 * @param array $to
-	 * @param array $from
-	 * @param       $subject - Subject must satisfy » RFC 2047.
-	 * @param       $message
-	 *
-	 * @return bool
-	 * @throws \Exception
-	 */
-	public static function sendHtml(array $to, array $from, $subject, $message)
-	{
-		return self::send($to, $from, $subject, $message, self::CONTENT_TYPE_HTML);
-	}
-
-
-
-	/**
-	 * @param array  $to
-	 * @param array  $from
-	 * @param string $subject - Subject must satisfy » RFC 2047.
-	 * @param string $message
-	 * @param string $contentType
-	 *
-	 * @return bool
-	 * @throws \Exception
-	 */
-	public static function send(array $to, array $from, $subject, $message, $contentType = self::CONTENT_TYPE_PLAIN)
+	public static function send(Object\Email $email)
 	{
 		/*
 		//SMTP Transport Type
@@ -76,7 +37,17 @@ class Email
 		$transport = Swift_MailTransport::newInstance();
 		*/
 
-		$transport = \Swift_SmtpTransport::newInstance('aspmx.l.google.com', 25);
+		/**
+		 * @var \Swift_SmtpTransport $transport
+		 */
+		if ($email->getTransport())
+		{
+			$transport = $email->getTransport();
+		}
+		else
+		{
+			$transport = \Swift_SmtpTransport::newInstance('aspmx.l.google.com', 25);
+		}
 
 		// Create the Mailer using your created Transport
 		$mailer = \Swift_Mailer::newInstance($transport);
@@ -87,11 +58,11 @@ class Email
 		 * @var \Swift_Mime_Message $message
 		 */
 		$message = \Swift_Message::newInstance()
-			->setTo($to)
-			->setFrom($from)
-			->setSubject($subject)
-			->setContentType($contentType)
-			->setBody($message);
+			->setTo($email->getTo())
+			->setFrom($email->getFrom())
+			->setSubject($email->getSubject())
+			->setContentType($email->getContentType())
+			->setBody($email->getBody());
 
 		try
 		{
