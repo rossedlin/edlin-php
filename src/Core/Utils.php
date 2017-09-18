@@ -214,7 +214,13 @@ class Utils
 	 */
 	public static function addVersionToCssFile($path)
 	{
-		return $path . '?v=' . filemtime($_SERVER['DOCUMENT_ROOT'] . $path);
+		$file = $_SERVER['DOCUMENT_ROOT'] . $path;
+		if (file_exists($file))
+		{
+			return $path . '?v=' . filemtime($file);
+		}
+
+		return "";
 	}
 
 	/**
