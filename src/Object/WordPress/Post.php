@@ -89,6 +89,14 @@ class Post
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getYear()
+	{
+		return date('Y', strtotime($this->getDate()));
+	}
+
+	/**
 	 * @param string $date
 	 */
 	public function setDate($date)
