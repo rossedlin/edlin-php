@@ -49,4 +49,37 @@ class WordPress
 
 		return $post;
 	}
+
+	/**
+	 * @param string $url
+	 *
+	 * @return Object\WordPress\Post
+	 * @throws \Exception
+	 */
+	public static function getPosts($url)
+	{
+		$json = Api::query((string)$url);
+
+		//todo - json schema validation
+
+		/** @var \stdClass $obj */
+		$array = json_decode($json);
+
+		$posts = [];
+		foreach ($array as $obj)
+		{
+			$post = new Object\WordPress\Post();
+			$post->setId($obj->id);
+			$post->setSlug($obj->slug);
+			$post->setDate($obj->date);
+			$post->setStatus($obj->status);
+			$post->setTitle($obj->title->rendered);
+			$post->setContent($obj->content->rendered);
+			$post->setExcerpt($obj->excerpt->rendered);
+
+			$posts[] = $post;
+		}
+
+		return $posts;
+	}
 }
