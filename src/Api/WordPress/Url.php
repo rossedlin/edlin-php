@@ -34,7 +34,7 @@ class Url
 	 */
 	public static function getPostsBySlug($slug)
 	{
-		return "/wp-json/wp/v2/posts?slug=" . (string)$slug;
+		return "/wp-json/wp/v2/posts?_embed&slug=" . (string)$slug;
 	}
 
 	/**
