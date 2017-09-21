@@ -44,6 +44,36 @@ class WordPress
 			$post->setTitle($obj->title->rendered);
 			$post->setContent($obj->content->rendered);
 			$post->setExcerpt($obj->excerpt->rendered);
+
+			foreach ($obj->_embedded as $_embedded)
+			{
+				foreach ($_embedded as $image)
+				{
+					if (isset($image->media_type) && $image->media_type == 'image' && isset($image->media_details->sizes))
+					{
+						/**
+						 * @var \stdClass $sizes
+						 */
+						$sizes = $image->media_details->sizes;
+
+						$featuredMedia = [];
+
+						/**
+						 * Thumbnail
+						 */
+						if (isset($sizes->thumbnail->source_url))
+							$featuredMedia[$post::SIZE_THUMBNAIL] = $sizes->thumbnail->source_url;
+
+						/**
+						 * Original
+						 */
+						if (isset($sizes->full->source_url))
+							$featuredMedia[$post::SIZE_ORIGINAL] = $sizes->full->source_url;
+
+						$post->setFeaturedMedia($featuredMedia);
+					}
+				}
+			}
 			break;
 		}
 
