@@ -303,4 +303,24 @@ class Utils
 		$json   = json_encode($xmlObj);
 		return json_decode($json, true);
 	}
+
+	/**
+	 * @param $url
+	 *
+	 * @return string
+	 */
+	public static function addHttp($url)
+	{
+		if (self::startsWith($url, 'http://'))
+		{
+			return $url;
+		}
+
+		if (self::startsWith($url, 'https://'))
+		{
+			return $url;
+		}
+
+		return 'http://'. $url;
+	}
 }
