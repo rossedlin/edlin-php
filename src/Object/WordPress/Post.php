@@ -17,6 +17,9 @@ use Cryslo\Core\Consts;
  */
 class Post
 {
+	const SIZE_ORIGINAL  = 'original';
+	const SIZE_THUMBNAIL = '150x150';
+
 	/** @var int $id */
 	private $id;
 
@@ -37,6 +40,9 @@ class Post
 
 	/** @var string $content */
 	private $content;
+
+	/** @var string[] $featuredMedia */
+	private $featuredMedia = [];
 
 	/**
 	 * @return int
@@ -166,5 +172,23 @@ class Post
 	public function setContent($content)
 	{
 		$this->content = $content;
+	}
+
+	/**
+	 * @param bool|string $size
+	 *
+	 * @return string
+	 */
+	public function getFeaturedMedia($size = self::SIZE_ORIGINAL)
+	{
+		return $this->featuredMedia[$size];
+	}
+
+	/**
+	 * @param \string[] $featuredMedia
+	 */
+	public function setFeaturedMedia(array $featuredMedia)
+	{
+		$this->featuredMedia = $featuredMedia;
 	}
 }
