@@ -19,6 +19,7 @@ class Post
 {
 	const SIZE_ORIGINAL  = 'original';
 	const SIZE_THUMBNAIL = '150x150';
+	const SIZE_MINI_BLOG = '500x650';
 
 	/** @var int $id */
 	private $id;
@@ -175,13 +176,19 @@ class Post
 	}
 
 	/**
-	 * @param bool|string $size
+	 * @param string $size
+	 * @param string $default
 	 *
 	 * @return string
 	 */
-	public function getFeaturedMedia($size = self::SIZE_ORIGINAL)
+	public function getFeaturedMedia($size = self::SIZE_ORIGINAL, $default = "")
 	{
-		return $this->featuredMedia[$size];
+		if (isset($this->featuredMedia[$size]))
+		{
+			return $this->featuredMedia[$size];
+		}
+
+		return $default;
 	}
 
 	/**

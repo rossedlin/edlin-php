@@ -27,7 +27,6 @@ class WordPress
 	 */
 	public static function getPost($url)
 	{
-		$post = new Object\WordPress\Post();
 		$json = Api::query((string)$url);
 
 		//todo - json schema validation
@@ -37,14 +36,55 @@ class WordPress
 
 		foreach ($array as $obj)
 		{
-			$post->setId($obj->id);
-			$post->setSlug($obj->slug);
-			$post->setDate($obj->date);
-			$post->setStatus($obj->status);
-			$post->setTitle($obj->title->rendered);
-			$post->setContent($obj->content->rendered);
-			$post->setExcerpt($obj->excerpt->rendered);
+			return self::_buildPost($obj);
+		}
 
+		return new Object\WordPress\Post();
+	}
+
+	/**
+	 * @param string $url
+	 *
+	 * @return Object\WordPress\Post[]
+	 * @throws \Exception
+	 */
+	public static function getPosts($url)
+	{
+		$json = Api::query((string)$url);
+
+		//todo - json schema validation
+
+		/** @var \stdClass $obj */
+		$array = json_decode($json);
+
+		$posts = [];
+		foreach ($array as $obj)
+		{
+			$posts[] = self::_buildPost($obj);
+		}
+
+		return $posts;
+	}
+
+	/**
+	 * @param \stdClass $obj
+	 *
+	 * @return Object\WordPress\Post
+	 */
+	private static function _buildPost(\stdClass $obj)
+	{
+		$post = new Object\WordPress\Post();
+
+		$post->setId($obj->id);
+		$post->setSlug($obj->slug);
+		$post->setDate($obj->date);
+		$post->setStatus($obj->status);
+		$post->setTitle($obj->title->rendered);
+		$post->setContent($obj->content->rendered);
+		$post->setExcerpt($obj->excerpt->rendered);
+
+		if (isset($obj->_embedded))
+		{
 			foreach ($obj->_embedded as $_embedded)
 			{
 				foreach ($_embedded as $image)
@@ -74,42 +114,8 @@ class WordPress
 					}
 				}
 			}
-			break;
 		}
 
 		return $post;
-	}
-
-	/**
-	 * @param string $url
-	 *
-	 * @return Object\WordPress\Post
-	 * @throws \Exception
-	 */
-	public static function getPosts($url)
-	{
-		$json = Api::query((string)$url);
-
-		//todo - json schema validation
-
-		/** @var \stdClass $obj */
-		$array = json_decode($json);
-
-		$posts = [];
-		foreach ($array as $obj)
-		{
-			$post = new Object\WordPress\Post();
-			$post->setId($obj->id);
-			$post->setSlug($obj->slug);
-			$post->setDate($obj->date);
-			$post->setStatus($obj->status);
-			$post->setTitle($obj->title->rendered);
-			$post->setContent($obj->content->rendered);
-			$post->setExcerpt($obj->excerpt->rendered);
-
-			$posts[] = $post;
-		}
-
-		return $posts;
 	}
 }

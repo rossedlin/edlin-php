@@ -22,7 +22,7 @@ class Url
 	 *
 	 * @return string
 	 */
-	public static function getPostsById($id)
+	public static function getPostById($id)
 	{
 		return "/wp-json/wp/v2/posts/" . (int)$id;
 	}
@@ -32,7 +32,7 @@ class Url
 	 *
 	 * @return string
 	 */
-	public static function getPostsBySlug($slug)
+	public static function getPostBySlug($slug)
 	{
 		return "/wp-json/wp/v2/posts?_embed&slug=" . (string)$slug;
 	}
@@ -42,10 +42,18 @@ class Url
 	 *
 	 * @return string
 	 */
-	public static function getLatestPosts($args = [])
+	public static function getPosts($args = [])
 	{
 		$per_page = (int)Request::getFromArray($args, 'per_page', 5);
+		$_embed   = (bool)Request::getFromArray($args, '_embed', false);
 
-		return "/wp-json/wp/v2/posts?per_page=" . $per_page; //&tags=3
+		$return = "/wp-json/wp/v2/posts?per_page=" . $per_page;
+
+		if ($_embed)
+		{
+			$return .= "&_embed";
+		}
+
+		return  $return;
 	}
 }
