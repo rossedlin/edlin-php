@@ -67,6 +67,49 @@ class WordPress
 	}
 
 	/**
+	 * @param $url
+	 *
+	 * @return array
+	 * @throws \Exception
+	 */
+	public static function getTag($url)
+	{
+		$json = Api::query((string)$url);
+
+		//todo - json schema validation
+
+		/** @var \stdClass $obj */
+		$array = json_decode($json);
+
+		die_r($array);
+	}
+
+	/**
+	 * @param $url
+	 *
+	 * @return Object\WordPress\Tag[]
+	 * @throws \Exception
+	 */
+	public static function getTags($url)
+	{
+		$json = Api::query((string)$url);
+
+		//todo - json schema validation
+
+		/** @var \stdClass $obj */
+		$array = json_decode($json);
+
+		$tags = [];
+		foreach ($array as $obj)
+		{
+			$tag = self::_buildTag($obj);
+			$tags[$tag->getId()] = $tag;
+		}
+
+		return $tags;
+	}
+
+	/**
 	 * @param \stdClass $obj
 	 *
 	 * @return Object\WordPress\Post
@@ -75,6 +118,9 @@ class WordPress
 	{
 		$post = new Object\WordPress\Post();
 
+		/**
+		 * 
+		 */
 		$post->setId($obj->id);
 		$post->setSlug($obj->slug);
 		$post->setDate($obj->date);
@@ -83,6 +129,22 @@ class WordPress
 		$post->setContent($obj->content->rendered);
 		$post->setExcerpt($obj->excerpt->rendered);
 
+		/**
+		 * Tags
+		 */
+		foreach ($obj->tags as $key => $id)
+		{
+			$tag = new Object\WordPress\Tag();
+			$tag->setId($id);
+			$tag->setName($obj->tag_names[$key]);
+			$tag->setSlug($obj->tag_slugs[$key]);
+
+			$post->addTag($tag);
+		}
+
+		/**
+		 * Embedded Items
+		 */
 		if (isset($obj->_embedded))
 		{
 			foreach ($obj->_embedded as $_embedded)
@@ -117,5 +179,19 @@ class WordPress
 		}
 
 		return $post;
+	}
+
+	public static function _buildTag(\stdClass $obj)
+	{
+		$tag = new Object\WordPress\Tag();
+
+		/**
+		 *
+		 */
+		$tag->setId($obj->id);
+		$tag->setSlug($obj->slug);
+		$tag->setName($obj->name);
+
+		return $tag;
 	}
 }

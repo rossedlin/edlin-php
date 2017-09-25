@@ -42,6 +42,9 @@ class Post
 	/** @var string $content */
 	private $content;
 
+	/** @var int[] $content */
+	private $tags = [];
+
 	/** @var string[] $featuredMedia */
 	private $featuredMedia = [];
 
@@ -173,6 +176,33 @@ class Post
 	public function setContent($content)
 	{
 		$this->content = $content;
+	}
+
+	/**
+	 * @return Tag[]
+	 */
+	public function getTags()
+	{
+		return $this->tags;
+	}
+
+	/**
+	 * @param Tag $tag
+	 */
+	public function addTag(Tag $tag)
+	{
+		$this->tags[$tag->getId()] = $tag;
+	}
+
+	/**
+	 * @param Tag[] $tags
+	 */
+	public function setTags($tags)
+	{
+		foreach ($tags as $tag)
+		{
+			$this->addTag($tag);
+		}
 	}
 
 	/**
