@@ -29,12 +29,24 @@ class Url
 
 	/**
 	 * @param string $slug
+	 * @param array  $args
 	 *
 	 * @return string
 	 */
-	public static function getPostBySlug($slug)
+	public static function getPostBySlug($slug, $args = [])
 	{
-		return "/wp-json/wp/v2/posts?_embed&slug=" . (string)$slug;
+		$return = "/wp-json/wp/v2/posts?";
+
+		/**
+		 * Embed
+		 */
+		$_embed = (bool)Request::getFromArray($args, '_embed', false);
+		if ($_embed)
+		{
+			$return .= "_embed&";
+		}
+
+		return $return . "slug=" . (string)$slug;
 	}
 
 	/**
@@ -44,16 +56,46 @@ class Url
 	 */
 	public static function getPosts($args = [])
 	{
-		$per_page = (int)Request::getFromArray($args, 'per_page', 5);
+		$return = "/wp-json/wp/v2/posts?";
+
+		/**
+		 * Embed
+		 */
 		$_embed   = (bool)Request::getFromArray($args, '_embed', false);
-
-		$return = "/wp-json/wp/v2/posts?per_page=" . $per_page;
-
 		if ($_embed)
 		{
-			$return .= "&_embed";
+			$return .= "_embed&";
 		}
 
-		return  $return;
+		/**
+		 * Per Page
+		 */
+		$per_page = (int)Request::getFromArray($args, 'per_page', 5);
+		if ($per_page)
+		{
+			$return .= "per_page=" . $per_page;
+		}
+
+		return $return;
+	}
+
+	/**
+	 * @param int $id
+	 *
+	 * @return string
+	 */
+	public static function getTag($id)
+	{
+		return "/wp-json/wp/v2/tags/" . (int)$id;
+	}
+
+	/**
+	 * @param array $args
+	 *
+	 * @return string
+	 */
+	public static function getTags($args = [])
+	{
+		return "/wp-json/wp/v2/tags";
 	}
 }
