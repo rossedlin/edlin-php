@@ -130,6 +130,14 @@ class WordPress
 		$post->setExcerpt($obj->excerpt->rendered);
 
 		/**
+		 * Author
+		 */
+		$author = new Object\WordPress\Author();
+		$author->setId($obj->author_meta->id);
+		$author->setDisplayName($obj->author_meta->display_name);
+		$post->setAuthor($author);
+
+		/**
 		 * Tags
 		 */
 		foreach ($obj->tags as $key => $id)
