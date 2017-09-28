@@ -42,6 +42,9 @@ class Post
 	/** @var string $content */
 	private $content;
 
+	/** @var Author $author */
+	private $author;
+
 	/** @var int[] $content */
 	private $tags = [];
 
@@ -176,6 +179,22 @@ class Post
 	public function setContent($content)
 	{
 		$this->content = $content;
+	}
+
+	/**
+	 * @return Author
+	 */
+	public function getAuthor()
+	{
+		return $this->author;
+	}
+
+	/**
+	 * @param Author $author
+	 */
+	public function setAuthor(Author $author)
+	{
+		$this->author = $author;
 	}
 
 	/**
