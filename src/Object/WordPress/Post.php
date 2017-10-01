@@ -17,9 +17,10 @@ use Cryslo\Core\Consts;
  */
 class Post
 {
-	const SIZE_ORIGINAL  = 'original';
-	const SIZE_THUMBNAIL = '150x150';
-	const SIZE_MINI_BLOG = '500x650';
+	const SIZE_ORIGINAL     = 'original';
+	const SIZE_BLOG_100x100 = 'blog-100x100';
+	const SIZE_THUMBNAIL    = '150x150';
+	const SIZE_MINI_BLOG    = '500x650';
 
 	/** @var int $id */
 	private $id;

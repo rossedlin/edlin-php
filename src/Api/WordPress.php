@@ -149,14 +149,6 @@ class WordPress
 		$post->setExcerpt($obj->excerpt->rendered);
 
 		/**
-		 * Author
-		 */
-		$author = new Object\WordPress\User();
-		$author->setId($obj->author_meta->id);
-		$author->setDisplayName($obj->author_meta->display_name);
-		$post->setUser($author);
-
-		/**
 		 * Tags
 		 */
 		foreach ($obj->tags as $key => $id)
@@ -174,33 +166,32 @@ class WordPress
 		 */
 		if (isset($obj->_embedded))
 		{
-			foreach ($obj->_embedded as $_embedded)
+			$_embedded = (array)$obj->_embedded;
+
+			if (isset($_embedded['author']) && is_array($_embedded['author']))
 			{
-				foreach ($_embedded as $image)
+				foreach ($_embedded['author'] as $author)
 				{
-					if (isset($image->media_type) && $image->media_type == 'image' && isset($image->media_details->sizes))
-					{
-						/**
-						 * @var \stdClass $sizes
-						 */
-						$sizes = $image->media_details->sizes;
+					/**
+					 * Author / User
+					 */
+					$post->setUser(self::_buildUser($author));
 
-						$featuredMedia = [];
+					break;
+				}
 
-						/**
-						 * Thumbnail
-						 */
-						if (isset($sizes->thumbnail->source_url))
-							$featuredMedia[$post::SIZE_THUMBNAIL] = $sizes->thumbnail->source_url;
+			}
 
-						/**
-						 * Original
-						 */
-						if (isset($sizes->full->source_url))
-							$featuredMedia[$post::SIZE_ORIGINAL] = $sizes->full->source_url;
+			if (isset($_embedded['wp:featuredmedia']) && is_array($_embedded['wp:featuredmedia']))
+			{
+				foreach ($_embedded['wp:featuredmedia'] as $img)
+				{
+					/**
+					 * Author / User
+					 */
+					$post->setFeaturedMedia(self::_buildImage($img));
 
-						$post->setFeaturedMedia($featuredMedia);
-					}
+					break;
 				}
 			}
 		}
@@ -257,5 +248,45 @@ class WordPress
 		$user->setGithub($obj->contact->github);
 
 		return $user;
+	}
+
+	/**
+	 * @param \stdClass $obj
+	 *
+	 * @return array|null
+	 */
+	public static function _buildImage(\stdClass $obj)
+	{
+		if (isset($obj->media_type) && $obj->media_type == 'image' && isset($obj->media_details->sizes))
+		{
+			/**
+			 * @var \stdClass $sizes
+			 */
+			$sizes = (array)$obj->media_details->sizes;
+
+			$featuredMedia = [];
+
+			/**
+			 *
+			 */
+			if (isset($sizes['blog-100x100']->source_url))
+				$featuredMedia[Object\WordPress\Post::SIZE_BLOG_100x100] = $sizes['blog-100x100']->source_url;
+
+			/**
+			 * Thumbnail
+			 */
+			if (isset($sizes['thumbnail']->source_url))
+				$featuredMedia[Object\WordPress\Post::SIZE_THUMBNAIL] = $sizes['thumbnail']->source_url;
+
+			/**
+			 * Original
+			 */
+			if (isset($sizes['full']->source_url))
+				$featuredMedia[Object\WordPress\Post::SIZE_ORIGINAL] = $sizes['full']->source_url;
+
+			return $featuredMedia;
+		}
+
+		return null;
 	}
 }
