@@ -98,4 +98,14 @@ class Url
 	{
 		return "/wp-json/wp/v2/tags";
 	}
+
+	/**
+	 * @param int $id
+	 *
+	 * @return string
+	 */
+	public static function getUser($id)
+	{
+		return "/wp-json/wp/v2/users/" . (int)$id;
+	}
 }
