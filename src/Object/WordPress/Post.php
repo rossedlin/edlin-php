@@ -24,6 +24,9 @@ class Post
 	/** @var int $id */
 	private $id;
 
+	/** @var int $authorId */
+	private $authorId;
+
 	/** @var string $slug */
 	private $slug;
 
@@ -42,8 +45,8 @@ class Post
 	/** @var string $content */
 	private $content;
 
-	/** @var Author $author */
-	private $author;
+	/** @var User $user */
+	private $user;
 
 	/** @var int[] $content */
 	private $tags = [];
@@ -64,7 +67,23 @@ class Post
 	 */
 	public function setId($id)
 	{
-		$this->id = $id;
+		$this->id = (int)$id;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getAuthorId()
+	{
+		return $this->authorId;
+	}
+
+	/**
+	 * @param int $authorId
+	 */
+	public function setAuthorId($authorId)
+	{
+		$this->authorId = (int)$authorId;
 	}
 
 	/**
@@ -182,19 +201,19 @@ class Post
 	}
 
 	/**
-	 * @return Author
+	 * @return User
 	 */
-	public function getAuthor()
+	public function getUser()
 	{
-		return $this->author;
+		return $this->user;
 	}
 
 	/**
-	 * @param Author $author
+	 * @param User $user
 	 */
-	public function setAuthor(Author $author)
+	public function setUser(User $user)
 	{
-		$this->author = $author;
+		$this->user = $user;
 	}
 
 	/**

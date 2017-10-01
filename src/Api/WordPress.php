@@ -102,11 +102,29 @@ class WordPress
 		$tags = [];
 		foreach ($array as $obj)
 		{
-			$tag = self::_buildTag($obj);
+			$tag                 = self::_buildTag($obj);
 			$tags[$tag->getId()] = $tag;
 		}
 
 		return $tags;
+	}
+
+	/**
+	 * @param $url
+	 *
+	 * @return array
+	 * @throws \Exception
+	 */
+	public static function getUser($url)
+	{
+		$json = Api::query((string)$url);
+
+		//todo - json schema validation
+
+		/** @var \stdClass $obj */
+		$obj = json_decode($json);
+
+		return self::_buildUser($obj);
 	}
 
 	/**
@@ -119,9 +137,10 @@ class WordPress
 		$post = new Object\WordPress\Post();
 
 		/**
-		 * 
+		 *
 		 */
 		$post->setId($obj->id);
+		$post->setAuthorId($obj->author);
 		$post->setSlug($obj->slug);
 		$post->setDate($obj->date);
 		$post->setStatus($obj->status);
@@ -132,10 +151,10 @@ class WordPress
 		/**
 		 * Author
 		 */
-		$author = new Object\WordPress\Author();
+		$author = new Object\WordPress\User();
 		$author->setId($obj->author_meta->id);
 		$author->setDisplayName($obj->author_meta->display_name);
-		$post->setAuthor($author);
+		$post->setUser($author);
 
 		/**
 		 * Tags
@@ -189,6 +208,11 @@ class WordPress
 		return $post;
 	}
 
+	/**
+	 * @param \stdClass $obj
+	 *
+	 * @return Object\WordPress\Tag
+	 */
 	public static function _buildTag(\stdClass $obj)
 	{
 		$tag = new Object\WordPress\Tag();
@@ -201,5 +225,37 @@ class WordPress
 		$tag->setName($obj->name);
 
 		return $tag;
+	}
+
+	/**
+	 * @param \stdClass $obj
+	 *
+	 * @return Object\WordPress\User
+	 */
+	public static function _buildUser(\stdClass $obj)
+	{
+		$user = new Object\WordPress\User();
+
+		/**
+		 *
+		 */
+		$user->setId($obj->id);
+		$user->setEmail($obj->contact->email);
+		$user->setDisplayName($obj->name);
+		$user->setDescription($obj->description);
+
+		foreach ($obj->avatar_urls as $key => $url)
+		{
+			$user->addAvatar($key, $url);
+		}
+
+		$user->setGooglePlus($obj->contact->googleplus);
+		$user->setFacebook($obj->contact->facebook);
+		$user->setTwitter($obj->contact->twitter);
+		$user->setLinkedin($obj->contact->linkedin);
+		$user->setInstagram($obj->contact->instagram);
+		$user->setGithub($obj->contact->github);
+
+		return $user;
 	}
 }
