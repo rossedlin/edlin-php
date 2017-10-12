@@ -59,7 +59,7 @@ class Email
 		 */
 		$message = \Swift_Message::newInstance()
 			->setTo($email->getTo())
-			->setFrom($email->getFrom())
+			->setFrom($email->getFrom(), $email->getFromName())
 			->setSubject($email->getSubject())
 			->setContentType($email->getContentType())
 			->setBody($email->getBody());
