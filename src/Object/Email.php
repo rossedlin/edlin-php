@@ -25,6 +25,9 @@ class Email
 	/** @var string $from */
 	private $from = false;
 
+	/** @var string $from */
+	private $fromName = false;
+
 	/** @var string $subject */
 	private $subject = false;
 
@@ -80,6 +83,22 @@ class Email
 	public function setFrom($from)
 	{
 		$this->from = $from;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFromName()
+	{
+		return $this->fromName;
+	}
+
+	/**
+	 * @param string $fromName
+	 */
+	public function setFromName($fromName)
+	{
+		$this->fromName = $fromName;
 	}
 
 	/**
