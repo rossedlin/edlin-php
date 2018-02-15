@@ -34,8 +34,8 @@ class Email
 	/** @var string $to */
 	private $to = false;
 
-	/** @var \Swift_SmtpTransport|bool */
-	private $transport = false;
+	/** @var array $args */
+	private $args = [];
 
 	/**
 	 * @return string
@@ -66,7 +66,16 @@ class Email
 	 */
 	public function setContentType($contentType)
 	{
-		$this->contentType = $contentType;
+		switch ((string)$contentType)
+		{
+			case Consts::CONTENT_TYPE_PLAIN:
+				$this->contentType = Consts::CONTENT_TYPE_PLAIN;
+				break;
+
+			case Consts::CONTENT_TYPE_HTML:
+				$this->contentType = Consts::CONTENT_TYPE_HTML;
+				break;
+		}
 	}
 
 	/**
@@ -134,31 +143,35 @@ class Email
 	}
 
 	/**
-	 * @return bool|\Swift_SmtpTransport
+	 * @return array
 	 */
-	public function getTransport()
+	public function getArgs()
 	{
-		return $this->transport;
+		return (array)$this->args;
 	}
 
 	/**
-	 * @param bool|\Swift_SmtpTransport $transport
-	 *
-	 * @throws \Exception
+	 * @param array $args
 	 */
-	public function setTransport($transport)
+	public function setArgs(array $args)
 	{
-		if ($transport === false)
-		{
-			$this->transport = false;
-		}
-		elseif ($transport instanceof \Swift_SmtpTransport)
-		{
-			$this->transport = $transport;
-		}
-		else
-		{
-			throw new \Exception('Bad Transport Type');
-		}
+		$this->args = $args;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getArg($key)
+	{
+		return $this->args[$key];
+	}
+
+	/**
+	 * @param string|int $key
+	 * @param mixed      $arg
+	 */
+	public function setArg($key, $arg)
+	{
+		$this->args[$key] = $arg;
 	}
 }
