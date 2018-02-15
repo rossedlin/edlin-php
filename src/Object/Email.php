@@ -159,6 +159,8 @@ class Email
 	}
 
 	/**
+	 * @param string|int $key
+	 * 
 	 * @return array
 	 */
 	public function getArg($key)
