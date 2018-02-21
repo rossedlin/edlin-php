@@ -6,7 +6,7 @@
     "type": "zip"
   },
   "require": {
-    "php": ">=5.6.4",
+    "php": ">=7.1",
     "tijsverkoyen/css-to-inline-styles": "^2.2",
     "symfony/css-selector": "^3.3",
     "symfony/dom-crawler": "^3.3",
