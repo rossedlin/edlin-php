@@ -1,7 +1,7 @@
 <?php
+namespace Cryslo\Core;
 
 use PHPUnit\Framework\TestCase;
-use Cryslo\Core\Math;
 
 /**
  * Created by PhpStorm.
