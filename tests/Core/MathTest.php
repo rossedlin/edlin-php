@@ -9,9 +9,9 @@ use PHPUnit\Framework\TestCase;
  * Date: 09/02/2017
  * Time: 12:10
  *
- * @covers Email
+ * @covers Math
  *
- * Class EmailTest
+ * Class MathTest
  */
 final class MathTest extends TestCase
 {
