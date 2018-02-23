@@ -2,6 +2,8 @@
 
 namespace Cryslo;
 
+use Cryslo\Enums;
+
 /**
  * Created by PhpStorm.
  * User: Ross Edlin
@@ -43,26 +45,40 @@ class Core
     }
 
     /**
-     * @param bool $var
+     * @param bool   $var
+     * @param string $color
      */
-    public static function prt($var = false)
+    public static function prt($var = false, $color = "")
     {
-        if ($var)
+        if ($var === true)
         {
-            if (is_array($var))
-            {
-                print_r($var);
-                return;
-            }
+            if ($color === "") $color = Enums\Cli::Green;
 
-            if ($var instanceof \stdClass)
-            {
-                print_r($var);
-                return;
-            }
+            echo($color . "TRUE (boolean)\n" . Enums\Cli::_Close);
+        }
+        else if ($var === false)
+        {
+            if ($color === "") $color = Enums\Cli::Red;
 
-            print $var . "\n";
-            return;
+            echo($color . "FALSE (boolean)\n" . Enums\Cli::_Close);
+        }
+        else if (is_array($var))
+        {
+            print_r($var);
+            echo("\n");
+        }
+        else if ($var instanceof \stdClass)
+        {
+            print_r($var);
+            echo("\n");
+        }
+        else if ($var)
+        {
+            echo($var . "\n");
+        }
+        else
+        {
+            echo("\n");
         }
     }
 
