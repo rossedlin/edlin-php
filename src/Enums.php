@@ -7,7 +7,7 @@ namespace Cryslo\Core;
  * Date: 18/09/2016
  * Time: 16:48
  */
-class Consts
+class Enums
 {
 	const CRLF = "\r\n";
 	const LF   = "\n";
@@ -23,9 +23,4 @@ class Consts
 	 */
 	const CONTENT_TYPE_PLAIN = 'text/plain';
 	const CONTENT_TYPE_HTML  = 'text/html';
-
-	/**
-	 * WordPress
-	 */
-	const WORDPRESS_DATE_FORMAT = 'jS F Y';
 }
