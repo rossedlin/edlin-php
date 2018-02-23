@@ -1,4 +1,5 @@
 <?php
+
 namespace Cryslo;
 
 /**
@@ -9,68 +10,68 @@ namespace Cryslo;
  */
 class Core
 {
-	/**
-	 * @param bool $var
-	 *
-	 * @return void
-	 */
-	public static function pre($var = false)
-	{
-		if ($var === true)
-		{
-			echo '<pre>';
-			print_r("TRUE (boolean)");
-			echo '</pre>';
+    /**
+     * @param bool $var
+     *
+     * @return void
+     */
+    public static function pre($var = false)
+    {
+        if ($var === true)
+        {
+            echo '<pre>';
+            print_r("TRUE (boolean)");
+            echo '</pre>';
 
-			return;
-		}
+            return;
+        }
 
-		if ($var === false)
-		{
-			echo '<pre>';
-			print_r("FALSE (boolean)");
-			echo '</pre>';
+        if ($var === false)
+        {
+            echo '<pre>';
+            print_r("FALSE (boolean)");
+            echo '</pre>';
 
-			return;
-		}
+            return;
+        }
 
-		echo '<pre>';
-		print_r($var);
-		echo '</pre>';
-		
-		return;
-	}
+        echo '<pre>';
+        print_r($var);
+        echo '</pre>';
 
-	/**
-	 * @param bool $var
-	 */
-	public static function prt($var = false)
-	{
-		if ($var)
-		{
-			if (is_array($var))
-			{
-				print_r($var);
-				return;
-			}
+        return;
+    }
 
-			if ($var instanceof \stdClass)
-			{
-				print_r($var);
-				return;
-			}
+    /**
+     * @param bool $var
+     */
+    public static function prt($var = false)
+    {
+        if ($var)
+        {
+            if (is_array($var))
+            {
+                print_r($var);
+                return;
+            }
 
-			print $var . "\n";
-			return;
-		}
-	}
+            if ($var instanceof \stdClass)
+            {
+                print_r($var);
+                return;
+            }
 
-	/**
-	 * @param bool $var
-	 */
-	public static function die_r($var = false)
-	{
-		self::pre($var);
-		exit;
-	}
+            print $var . "\n";
+            return;
+        }
+    }
+
+    /**
+     * @param bool $var
+     */
+    public static function die_r($var = false)
+    {
+        self::pre($var);
+        exit;
+    }
 }
