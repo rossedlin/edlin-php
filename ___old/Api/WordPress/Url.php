@@ -46,6 +46,15 @@ class Url
 			$return .= "_embed&";
 		}
 
+		/**
+		 * Status
+		 */
+		$status = (bool)Request::getFromArray($args, 'status', 'publish');
+		if ($status)
+		{
+//			$return .= "status=" . $status . "&";
+		}
+
 		return $return . "slug=" . (string)$slug;
 	}
 
@@ -61,7 +70,7 @@ class Url
 		/**
 		 * Embed
 		 */
-		$_embed   = (bool)Request::getFromArray($args, '_embed', false);
+		$_embed = (bool)Request::getFromArray($args, '_embed', false);
 		if ($_embed)
 		{
 			$return .= "_embed&";
