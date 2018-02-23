@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo\Core;
+namespace Cryslo;
 
 /**
  * Created by PhpStorm.
