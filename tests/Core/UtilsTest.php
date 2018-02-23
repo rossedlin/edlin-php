@@ -115,4 +115,27 @@ final class UtilsTest extends TestCase
         $this->assertFalse(Utils::startsWith($str, '98')); //Check reverse
         $this->assertFalse(Utils::startsWith($str, '98 ')); //Check reverse + space
     }
+
+    /**
+     * Testing Starts With
+     */
+    public function testEndsWith(): void
+    {
+        $str = 'H39dmUSQCsu3Kc98';
+
+        /**
+         * True
+         */
+        $this->assertTrue(Utils::endsWith($str, '98'));
+        $this->assertTrue(Utils::endsWith($str, '3Kc98'));
+        $this->assertTrue(Utils::endsWith($str, 'USQCsu3Kc98'));
+
+        /**
+         * False
+         */
+        $this->assertFalse(Utils::endsWith($str, 'QCsu3Kc98 ')); //Check space
+        $this->assertFalse(Utils::endsWith($str, '3KC98')); //Check case
+        $this->assertFalse(Utils::endsWith($str, 'H39')); //Check reverse
+        $this->assertFalse(Utils::endsWith($str, ' H39')); //Check reverse + space
+    }
 }
