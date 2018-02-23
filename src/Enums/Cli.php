@@ -1,6 +1,7 @@
 <?php
 
 namespace Cryslo\Enums;
+
 /**
  * Created by PhpStorm.
  *
@@ -9,8 +10,10 @@ namespace Cryslo\Enums;
  *
  * Date: 23/02/18
  * Time: 15:26
+ *
+ * Class Cli
+ * @package Cryslo\Enums
  */
-
 class Cli
 {
     const _Close = "\033[0m";
