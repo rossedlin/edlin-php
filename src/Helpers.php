@@ -19,12 +19,13 @@ if (!function_exists('pre'))
 
 if (!function_exists('prt'))
 {
-	/**
-	 * @param bool $var
-	 */
-	function prt($var = false)
+    /**
+     * @param mixed   $var
+     * @param string $color
+     */
+	function prt($var = false, $color = "")
 	{
-		\Cryslo\Core::prt($var);
+		\Cryslo\Core::prt($var, $color);
 	}
 }
 
