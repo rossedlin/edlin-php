@@ -144,7 +144,6 @@ class View
 		}
 		catch (\Exception $e)
 		{
-			Log::write($e);
 			throw $e;
 		}
 	}
