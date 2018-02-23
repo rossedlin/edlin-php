@@ -1,5 +1,4 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
 use Cryslo\Core\Utils;
@@ -91,5 +90,29 @@ final class UtilsTest extends TestCase
         {
             $this->assertNotSame($number, Utils::getOnlyNumbers($test));
         }
+    }
+
+    /**
+     * Testing Starts With
+     */
+    public function testStartsWith(): void
+    {
+        $str = 'H39dmUSQCsu3Kc98';
+
+        /**
+         * True
+         */
+        $this->assertTrue(Utils::startsWith($str, 'H'));
+        $this->assertTrue(Utils::startsWith($str, 'H39dm'));
+        $this->assertTrue(Utils::startsWith($str, 'H3'));
+
+        /**
+         * False
+         */
+        $this->assertFalse(Utils::startsWith($str, 'd236fc7ybu'));
+        $this->assertFalse(Utils::startsWith($str, ' H')); //Check space
+        $this->assertFalse(Utils::startsWith($str, 'h')); //Check case
+        $this->assertFalse(Utils::startsWith($str, '98')); //Check reverse
+        $this->assertFalse(Utils::startsWith($str, '98 ')); //Check reverse + space
     }
 }

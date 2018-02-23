@@ -1,5 +1,4 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
 use Cryslo\Core\Math;
@@ -21,7 +20,7 @@ final class MathTest extends TestCase
 	 */
 	public function testAdd()
 	{
-		$this->assertEquals(3, Math::add(1, 2));
+        $this->assertEquals(3, Math::add(1, 2));
 		$this->assertEquals(33, Math::add(11, 22));
 	}
 
