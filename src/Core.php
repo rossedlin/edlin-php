@@ -64,17 +64,24 @@ class Core
         }
         else if (is_array($var))
         {
+            echo($color);
             print_r($var);
+            echo(Enums\Cli::_Close);
             echo("\n");
         }
         else if ($var instanceof \stdClass)
         {
+            echo($color);
             print_r($var);
+            echo(Enums\Cli::_Close);
             echo("\n");
         }
         else if ($var)
         {
-            echo($var . "\n");
+            echo($color);
+            echo($var);
+            echo(Enums\Cli::_Close);
+            echo("\n");
         }
         else
         {
