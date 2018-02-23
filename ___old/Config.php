@@ -191,6 +191,6 @@ class Config
 	 */
 	private static function _getExampleJsonFile()
 	{
-		return __DIR__ . '/../config/cryslo_core.example.json';
+		return __DIR__ . '/../config/cryslo.example.json';
 	}
 }
