@@ -5,7 +5,7 @@ php:
 before_script:
   - composer install
 
-script: phpunit --coverage-text ./tests
+script: vendor/phpunit/phpunit/phpunit --coverage-text ./tests
 
 notifications:
   email:
