@@ -76,6 +76,13 @@ class Core
             echo(Enums\Cli::_Close);
             echo("\n");
         }
+        else if (is_object($var))
+        {
+            echo($color);
+            print_r($var);
+            echo(Enums\Cli::_Close);
+            echo("\n");
+        }
         else if ($var)
         {
             echo($color);
