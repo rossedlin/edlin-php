@@ -16,7 +16,7 @@ class Request
 	 * @param $key
 	 * @param bool $default
 	 *
-	 * @return string
+	 * @return mixed
 	 */
 	public static function getFromArray(array &$array, $key, $default = false)
 	{
@@ -129,7 +129,7 @@ class Request
 	 */
 	public static function isPost()
 	{
-		return (self::server('REQUEST_METHOD') == 'POST');
+		return (self::server('REQUEST_METHOD') === 'POST');
 	}
 
 	/**
