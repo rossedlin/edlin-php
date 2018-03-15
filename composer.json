@@ -2,7 +2,7 @@
   "name": "rossedlin/cryslo-php",
   "version": "2.2.5",
   "dist": {
-    "url": "https://github.com/rossedlin/cryslo-php/archive/v2.2.4.zip",
+    "url": "https://github.com/rossedlin/cryslo-php/archive/v2.2.5.zip",
     "type": "zip"
   },
   "require": {
