@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
 final class HtmlTest extends TestCase
 {
     /**
-     * Testing Adding Numbers
+     *
      */
     public function testSetFormInputSelected()
     {
@@ -40,5 +40,28 @@ final class HtmlTest extends TestCase
         $this->assertEquals($none, Html::setFormInputSelected('A', 'B'));
         $this->assertEquals($none, Html::setFormInputSelected(1, 2));
         $this->assertEquals($none, Html::setFormInputSelected(true, false));
+    }
+
+    /**
+     *
+     */
+    public function testSetFormInputChecked()
+    {
+        $selected = 'checked';
+        $none     = '';
+
+        /**
+         * Selected
+         */
+        $this->assertEquals($selected, Html::setFormInputChecked('A', 'A'));
+        $this->assertEquals($selected, Html::setFormInputChecked(1, 1));
+        $this->assertEquals($selected, Html::setFormInputChecked(true, true));
+
+        /**
+         * None
+         */
+        $this->assertEquals($none, Html::setFormInputChecked('A', 'B'));
+        $this->assertEquals($none, Html::setFormInputChecked(1, 2));
+        $this->assertEquals($none, Html::setFormInputChecked(true, false));
     }
 }

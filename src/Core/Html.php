@@ -27,4 +27,20 @@ class Html
 
         return "";
     }
+
+    /**
+     * @param $a
+     * @param $b
+     *
+     * @return string
+     */
+    public static function setFormInputChecked($a, $b): string
+    {
+        if ($a === $b)
+        {
+            return "checked";
+        }
+
+        return "";
+    }
 }
