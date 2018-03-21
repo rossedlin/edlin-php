@@ -12,7 +12,7 @@ namespace Cryslo\Core;
  *
  * Class SaltHash
  *
- * @package Cryslo\Core\Encryption
+ * @package Cryslo\Core
  */
 class SaltHash512
 {
