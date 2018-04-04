@@ -37,6 +37,15 @@ class Core
             return;
         }
 
+        if ($var === null)
+        {
+            echo '<pre>';
+            print_r("NULL");
+            echo '</pre>';
+
+            return;
+        }
+
         echo '<pre>';
         print_r($var);
         echo '</pre>';
