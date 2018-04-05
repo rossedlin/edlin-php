@@ -71,6 +71,12 @@ class Core
 
             echo($color . "FALSE (boolean)\n" . Enums\Cli::_Close);
         }
+        else if ($var === null)
+        {
+            if ($color === "") $color = Enums\Cli::Red;
+
+            echo($color . "NULL\n" . Enums\Cli::_Close);
+        }
         else if (is_array($var))
         {
             echo($color);
