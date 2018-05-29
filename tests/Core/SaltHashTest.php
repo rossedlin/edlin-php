@@ -74,7 +74,7 @@ final class SaltHashTest extends TestCase
         $passwords = [
             '8ZPu8G5vD8Fg2zJj' => ['salt' => 'M9CL2p1T5nXdXtyngDn2r5wM1134cESF', 'hash' => '30d3d20b6711b10399468ba468667ac1d5b27fbfb0700327530709779fea32430d93c1c8c69a1666e94d58f404c5096a8914d0563ad13beb35415263d71af3d3'],
             'H9qY3cyHp1xJ5N9T' => ['salt' => 'P4K1ZbDeC9K1h2PQi5hU6qEnXk68h3pc', 'hash' => '45fb9d348830152ff543bc5f281ff8c61943272196ba522f01cea9b5617bd1a37b50f83795605676e9b81726a2ef504c1848800b00a7c7b7db799955a150e453'],
-            'j63ki1VV6QiESiL8' => ['salt' => 'QWgXjm7jHc7n39c2GjnYd62YM5Lx6L7N', 'hash' => '45fb9d348830152ff543bc5f281ff8c61943272196ba522f01cea9b5617bd1a37b50f83795605676e9b81726a2ef504c1848800b00a7c7b7db799955a150e453'],
+            'j63ki1VV6QiESiL8' => ['salt' => 'QWgXjm7jHc7n39c2GjnYd62YM5Lx6L7N', 'hash' => '80492156c808e4585f0776b2f040e267a53daee9b54d8b1453637ff597ab9e1b0483feffba0351b8f94a80be42807c993340aaf2db631cc3599661656351d03d'],
         ];
 
         foreach ($passwords as $password => $saltHash)
