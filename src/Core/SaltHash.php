@@ -14,7 +14,7 @@ namespace Cryslo\Core;
  *
  * @package Cryslo\Core
  */
-class SaltHash512
+class SaltHash
 {
     /**
      * @param $value
@@ -35,23 +35,28 @@ class SaltHash512
     }
 
     /**
-     * @param string      $password
-     * @param string|null $salt
+     * @param string $password
      *
      * @return array
-     * @throws \Exception
      */
-    public static function generateSaltHashFromPassword(string $password, string $salt = null): array
+    public static function generateSaltHash(string $password): array
     {
-        if ($salt === null)
-        {
-            $salt = self::generateSalt();
-        }
-        elseif (strlen($salt) !== 32)
-        {
-            throw new \Exception('Salt not 32 characters');
-        }
+        $salt = self::generateSalt();
 
+        return [
+            'salt' => $salt,
+            'hash' => self::generateHash($salt . $password . $salt),
+        ];
+    }
+
+    /**
+     * @param string $password
+     * @param string $salt
+     *
+     * @return array
+     */
+    public static function validateSaltHash(string $password, string $salt): array
+    {
         return [
             'salt' => $salt,
             'hash' => self::generateHash($salt . $password . $salt),
