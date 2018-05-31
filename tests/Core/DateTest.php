@@ -49,7 +49,6 @@ final class DateTest extends TestCase
          * Older Full Dates
          */
         $this->assertEquals(29, Date::getYearsFrom(strtotime("1970-01-01"), strtotime("1999-02-01")));
-        $this->assertEquals(29, Date::getYearsFrom(strtotime("2001-01-01"), strtotime("1999-02-01")));
     }
 
     /**
