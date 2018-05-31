@@ -45,4 +45,29 @@ class Date
         $interval = $today->diff($date);
         return $interval->format('%y');
     }
+
+    /**
+     * @param int $today - Timestamp of today
+     *
+     * @return int
+     *
+     * @throws CrysloException
+     */
+    public static function getYesterday(int $today = null): int
+    {
+        if ($today === null) {
+            $today = time();
+        }
+
+        $t = date("Y-m-d", $today);
+        $y = date('Y-m-d', strtotime($t . "-1 days"));
+
+        $yesterday = strtotime($y);
+
+        if ($yesterday) {
+            return $yesterday;
+        }
+
+        throw new CrysloException("Something went wrong...");
+    }
 }
