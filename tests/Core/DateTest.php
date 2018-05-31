@@ -9,16 +9,21 @@ use PHPUnit\Framework\TestCase;
 /**
  * Created by PhpStorm.
  *
- * User: rossedlin
- * Contact: <contact@rossedlin.com>
+ * @author  Ross Edlin <contact@rossedlin.com>
  *
  * Date: 31/05/18
  * Time: 10:46
+ *
+ * Class DateTest
+ * @package Cryslo\Tests\Core
+ * @covers  \Cryslo\Core\Date
  */
 final class DateTest extends TestCase
 {
     /**
      * Testing Adding Numbers
+     *
+     * @covers \Cryslo\Core\Date::getYearsFrom
      *
      * @throws CrysloException
      */
@@ -52,6 +57,8 @@ final class DateTest extends TestCase
     }
 
     /**
+     * \Cryslo\Core\Date::getYesterday
+     *
      * @throws CrysloException
      */
     public function testGetYesterday()

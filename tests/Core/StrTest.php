@@ -1,25 +1,29 @@
 <?php
-namespace Cryslo\Core;
 
+namespace Cryslo\Tests\Core;
+
+use Cryslo\Core\Str;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Created by PhpStorm.
- * User: Ross Edlin
+ *
+ * @author  Ross Edlin <contact@rossedlin.com>
+ *
  * Date: 09/02/2017
  * Time: 12:10
  *
- * @covers Str
- *
  * Class StrTest
+ * @package Cryslo\Tests\Core
+ * @covers  \Cryslo\Core\Str
  */
 final class StrTest extends TestCase
 {
-	/**
-	 * Testing Adding Numbers
-	 */
-	public function testCacheFriendlyKey()
-	{
+    /**
+     * @covers \Cryslo\Core\Str::cacheFriendlyKey
+     */
+    public function testCacheFriendlyKey()
+    {
         $this->assertEquals('2018-9', Str::cacheFriendlyKey('2018/9'));
         $this->assertEquals('act.something.2018-9', Str::cacheFriendlyKey('act.something.2018/9'));
         $this->assertEquals('act.something.2018-9', Str::cacheFriendlyKey('$$$/act.something.2018/9'));
