@@ -1,68 +1,78 @@
 <?php
-namespace Cryslo\Core;
 
+namespace Cryslo\Tests\Core;
+
+use Cryslo\Core\Math;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Created by PhpStorm.
- * User: Ross Edlin
+ *
+ * @author  Ross Edlin <contact@rossedlin.com>
+ *
  * Date: 09/02/2017
  * Time: 12:10
  *
- * @covers Math
- *
  * Class MathTest
+ * @package Cryslo\Tests\Core
+ * @covers  \Cryslo\Core\Math
  */
 final class MathTest extends TestCase
 {
-	/**
-	 * Testing Adding Numbers
-	 */
-	public function testAdd()
-	{
+    /**
+     * Testing Adding Numbers
+     *
+     * @covers \Cryslo\Core\Math::add
+     */
+    public function testAdd()
+    {
         $this->assertEquals(3, Math::add(1, 2));
-		$this->assertEquals(33, Math::add(11, 22));
-	}
+        $this->assertEquals(33, Math::add(11, 22));
+    }
 
-	/**
-	 * Testing Even Numbers
-	 */
-	public function testEven()
-	{
-		$this->assertTrue(Math::isEven(0));
-		$this->assertTrue(Math::isEven(2));
-		$this->assertTrue(Math::isEven(4));
-		$this->assertTrue(Math::isEven(6));
-		$this->assertTrue(Math::isEven(8));
-		$this->assertTrue(Math::isEven(10));
-		$this->assertTrue(Math::isEven(20));
-		$this->assertTrue(Math::isEven(50));
-		$this->assertTrue(Math::isEven(100));
-		$this->assertTrue(Math::isEven(500));
-		$this->assertTrue(Math::isEven(1000));
-		$this->assertTrue(Math::isEven(10000));
-		$this->assertTrue(Math::isEven(100000));
-		$this->assertTrue(Math::isEven(1000000));
-	}
+    /**
+     * Testing Even Numbers
+     *
+     * @covers \Cryslo\Core\Math::isEven
+     */
+    public function testEven()
+    {
+        $this->assertTrue(Math::isEven(0));
+        $this->assertTrue(Math::isEven(2));
+        $this->assertTrue(Math::isEven(4));
+        $this->assertTrue(Math::isEven(6));
+        $this->assertTrue(Math::isEven(8));
+        $this->assertTrue(Math::isEven(10));
+        $this->assertTrue(Math::isEven(20));
+        $this->assertTrue(Math::isEven(50));
+        $this->assertTrue(Math::isEven(100));
+        $this->assertTrue(Math::isEven(500));
+        $this->assertTrue(Math::isEven(1000));
+        $this->assertTrue(Math::isEven(10000));
+        $this->assertTrue(Math::isEven(100000));
+        $this->assertTrue(Math::isEven(1000000));
+    }
 
-	/**
-	 * Testing odd Numbers
-	 */
-	public function testOdd()
-	{
-		$this->assertTrue(Math::isOdd(1));
-		$this->assertTrue(Math::isOdd(3));
-		$this->assertTrue(Math::isOdd(5));
-		$this->assertTrue(Math::isOdd(7));
-		$this->assertTrue(Math::isOdd(9));
-		$this->assertTrue(Math::isOdd(11));
-		$this->assertTrue(Math::isOdd(21));
-		$this->assertTrue(Math::isOdd(51));
-		$this->assertTrue(Math::isOdd(101));
-		$this->assertTrue(Math::isOdd(501));
-		$this->assertTrue(Math::isOdd(1001));
-		$this->assertTrue(Math::isOdd(10001));
-		$this->assertTrue(Math::isOdd(100001));
-		$this->assertTrue(Math::isOdd(1000001));
-	}
+    /**
+     * Testing odd Numbers
+     *
+     * @covers \Cryslo\Core\Math::isOdd
+     */
+    public function testOdd()
+    {
+        $this->assertTrue(Math::isOdd(1));
+        $this->assertTrue(Math::isOdd(3));
+        $this->assertTrue(Math::isOdd(5));
+        $this->assertTrue(Math::isOdd(7));
+        $this->assertTrue(Math::isOdd(9));
+        $this->assertTrue(Math::isOdd(11));
+        $this->assertTrue(Math::isOdd(21));
+        $this->assertTrue(Math::isOdd(51));
+        $this->assertTrue(Math::isOdd(101));
+        $this->assertTrue(Math::isOdd(501));
+        $this->assertTrue(Math::isOdd(1001));
+        $this->assertTrue(Math::isOdd(10001));
+        $this->assertTrue(Math::isOdd(100001));
+        $this->assertTrue(Math::isOdd(1000001));
+    }
 }
