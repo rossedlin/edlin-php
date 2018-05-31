@@ -1,25 +1,26 @@
 <?php
 
-namespace Cryslo\Core;
+namespace Cryslo\Tests\Core;
 
+use Cryslo\Core\SaltHash;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Created by PhpStorm.
  *
- * @author Ross Edlin <contact@rossedlin.com>
+ * @author  Ross Edlin <contact@rossedlin.com>
  *
  * Date: 11/10/2017
  * Time: 11:50
  *
- * @covers Email
- *
- * Class EncryptionTest
+ * Class SaltHashTest
+ * @package Cryslo\Tests\Core
+ * @covers  \Cryslo\Core\SaltHash
  */
 final class SaltHashTest extends TestCase
 {
     /**
-     *
+     * @covers \Cryslo\Core\SaltHash::generateHash
      */
     public function testGenerateHash()
     {
@@ -29,8 +30,7 @@ final class SaltHashTest extends TestCase
             'OnoM]D)ûp6vWP6_w«1~Iå}2%' => '5fbe83bf2b6c7ab5b0006c70205f7a839afa39abaf9be9ec03c79e2d600aaf23a3592b4a5ee33cf87000b6b6f9bae0c0ac4ad896338df9bd815b764736f46809',
         ];
 
-        foreach ($passwords as $password => $hash)
-        {
+        foreach ($passwords as $password => $hash) {
             $this->assertEquals(strlen(SaltHash::generateHash($password)), 128);
             $this->assertEquals(SaltHash::generateHash($password), $hash);
         }
@@ -47,6 +47,7 @@ final class SaltHashTest extends TestCase
     }
 
     /**
+     * @covers \Cryslo\Core\SaltHash::generateSaltHash
      * @throws \Exception
      */
     public function testGenerateSaltHash()
@@ -57,8 +58,7 @@ final class SaltHashTest extends TestCase
             'j63ki1VV6QiESiL8' => 'M9CL2p1T5nXdXtyngDn2r5wM1134cESF',
         ];
 
-        foreach ($passwords as $password => $salt)
-        {
+        foreach ($passwords as $password => $salt) {
             $saltHash = SaltHash::generateSaltHash($password);
 
             $this->assertEquals(32, strlen($saltHash['salt']));
@@ -67,6 +67,7 @@ final class SaltHashTest extends TestCase
     }
 
     /**
+     * @covers \Cryslo\Core\SaltHash::validateSaltHash
      * @throws \Exception
      */
     public function testValidateSaltHash()
@@ -77,8 +78,7 @@ final class SaltHashTest extends TestCase
             'j63ki1VV6QiESiL8' => ['salt' => 'QWgXjm7jHc7n39c2GjnYd62YM5Lx6L7N', 'hash' => '80492156c808e4585f0776b2f040e267a53daee9b54d8b1453637ff597ab9e1b0483feffba0351b8f94a80be42807c993340aaf2db631cc3599661656351d03d'],
         ];
 
-        foreach ($passwords as $password => $saltHash)
-        {
+        foreach ($passwords as $password => $saltHash) {
             $result = SaltHash::validateSaltHash($password, $saltHash['salt']);
 
             $this->assertEquals(32, strlen($result['salt']));

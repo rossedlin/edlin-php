@@ -1,28 +1,28 @@
 <?php
 
-namespace Cryslo\Core;
+namespace Cryslo\Tests\Core;
 
+use Cryslo\Core\Request;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Created by PhpStorm.
  *
- * User: rossedlin
- * Contact: <contact@rossedlin.com>
+ * @author  Ross Edlin <contact@rossedlin.com>
  *
  * Date: 23/02/18
  * Time: 17:09
- */
-
-/**
+ *
  * Class RequestTest
- * @package Cryslo\Core
- * @covers  Request
+ * @package Cryslo\Tests\Core
+ * @covers  \Cryslo\Core\Request
  */
 final class RequestTest extends TestCase
 {
     /**
      * Testing Array
+     *
+     * @covers \Cryslo\Core\Request::getFromArray
      */
     public function testGetFromArray()
     {
@@ -59,6 +59,8 @@ final class RequestTest extends TestCase
 
     /**
      * Testing Post
+     *
+     * @covers \Cryslo\Core\Request::isPost
      */
     public function testPost()
     {
@@ -99,6 +101,8 @@ final class RequestTest extends TestCase
 
     /**
      * Testing Get
+     *
+     * @covers \Cryslo\Core\Request::get
      */
     public function testGet()
     {

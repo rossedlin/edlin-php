@@ -1,26 +1,26 @@
 <?php
 
-namespace Cryslo\Core;
+namespace Cryslo\Tests\Core;
 
+use Cryslo\Core\Html;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Created by PhpStorm.
  *
- * User: rossedlin
- * Contact: <contact@rossedlin.com>
+ * @author  Ross Edlin <contact@rossedlin.com>
  *
  * Date: 20/03/18
  * Time: 12:11
  *
- * @covers Html
- *
  * Class HtmlTest
+ * @package Cryslo\Tests\Core
+ * @covers  \Cryslo\Core\Html
  */
 final class HtmlTest extends TestCase
 {
     /**
-     *
+     * @covers \Cryslo\Core\Html::setFormInputSelected
      */
     public function testSetFormInputSelected()
     {
@@ -43,7 +43,7 @@ final class HtmlTest extends TestCase
     }
 
     /**
-     *
+     * @covers \Cryslo\Core\Html::setFormInputChecked
      */
     public function testSetFormInputChecked()
     {
