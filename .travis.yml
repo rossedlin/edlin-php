@@ -5,7 +5,17 @@ php:
 before_script:
   - composer install
 
-script: vendor/phpunit/phpunit/phpunit --coverage-text ./tests
+addons:
+  sonarcloud:
+    organization: "rossedlin-github" # the key of the org you chose at step #3
+    token:
+      secure: 7dc2c53ae2da930dfd1daff58139325db09de0b7 # encrypted value of your token
+script:
+  # other script steps might be done before running the actual analysis
+  - vendor/phpunit/phpunit/phpunit
+  - sonar-scanner
+
+
 
 notifications:
   email:
