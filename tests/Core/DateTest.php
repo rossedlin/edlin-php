@@ -51,4 +51,15 @@ final class DateTest extends TestCase
         $this->assertEquals(29, Date::getYearsFrom(strtotime("1970-01-01"), strtotime("1999-02-01")));
         $this->assertEquals(29, Date::getYearsFrom(strtotime("2001-01-01"), strtotime("1999-02-01")));
     }
+
+    /**
+     * @throws CrysloException
+     */
+    public function testGetYesterday()
+    {
+        $this->assertEquals(1527638400, Date::getYesterday(1527724800)); //2018-05-31 00:00:00
+        $this->assertEquals(1527638400, Date::getYesterday(1527724801)); //2018-05-31 00:00:01
+        $this->assertEquals(1527638400, Date::getYesterday(1527768000)); //2018-05-31 12:00:00
+        $this->assertEquals(1527638400, Date::getYesterday(1527811199)); //2018-05-31 23:59:59
+    }
 }
