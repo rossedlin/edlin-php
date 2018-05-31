@@ -27,7 +27,7 @@ class Date
      *
      * @throws CrysloException
      */
-    public static function yearsFrom(int $from, int $to = null): int
+    public static function getYearsFrom(int $from, int $to = null): int
     {
         if ($to === null) {
             $to = time();
