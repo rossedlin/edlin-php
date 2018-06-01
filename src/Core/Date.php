@@ -62,13 +62,7 @@ class Date
         $t = date("Y-m-d", $today);
         $y = date('Y-m-d', strtotime($t . "-1 days"));
 
-        $yesterday = strtotime($y);
-
-        if ($yesterday) {
-            return $yesterday;
-        }
-
-        throw new CrysloException("Something went wrong...");
+        return strtotime($y);
     }
 
     /**
@@ -76,10 +70,12 @@ class Date
      *
      * @return bool
      */
-    public static function isValidTimeStamp($timestamp)
+    public static function isValidTimeStamp(int $timestamp): bool
     {
-        return ((string)(int)$timestamp === $timestamp)
-               && ($timestamp <= PHP_INT_MAX)
-               && ($timestamp >= ~PHP_INT_MAX);
+        if ($timestamp >= 0 && $timestamp <= PHP_INT_MAX) {
+            return true;
+        }
+
+        return false;
     }
 }
