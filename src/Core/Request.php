@@ -74,6 +74,7 @@ class Request
      * @param bool $default
      *
      * @return array|string
+     * @codeCoverageIgnore
      */
     public static function server($key, $default = false)
     {
@@ -182,6 +183,7 @@ class Request
 
     /**
      * @return mixed
+     * @codeCoverageIgnore
      */
     public static function getClientIp()
     {
