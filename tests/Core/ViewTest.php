@@ -20,8 +20,7 @@ use Cryslo\Core\View;
 final class ViewTest extends TestCase
 {
     /**
-     * Testing Html Renderer
-     *
+     * @covers \Cryslo\Core\View::getHtml
      * @throws \Exception
      */
     public function testHtml()
@@ -55,8 +54,7 @@ final class ViewTest extends TestCase
     }
 
     /**
-     * Testing Css Renderer
-     *
+     * @covers \Cryslo\Core\View::getCss
      * @throws \Exception
      */
     public function testCss()
