@@ -58,16 +58,7 @@ class Xml
         $xmlString = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3", $xmlString);
         $xmlObject = new \SimpleXMLElement($xmlString);
 
-        $array = self::convertToArrayFromSimpleXMLElement($xmlObject);
-
-        /**
-         * Finally have a sorted array (I hope) so lets just return it
-         */
-        if (!is_array($array)) {
-            throw new \Exception('Failed to convert SimpleXMLElement to array');
-        }
-
-        return $array;
+        return self::convertToArrayFromSimpleXMLElement($xmlObject);
     }
 
     /**
