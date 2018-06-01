@@ -179,4 +179,40 @@ class Request
                 return false;
         }
     }
+
+    /**
+     * @return mixed
+     */
+    public static function getClientIp()
+    {
+        /**
+         * Check ip from share internet
+         */
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            return $_SERVER['HTTP_CLIENT_IP'];
+        }
+
+        /**
+         * To check ip is pass from proxy
+         */
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+
+        return $_SERVER['REMOTE_ADDR'];
+    }
+
+    /**
+     * @param $ip
+     *
+     * @return bool
+     */
+    public static function isValidIp($ip)
+    {
+        if (filter_var($ip, FILTER_VALIDATE_IP)) {
+            return true;
+        }
+
+        return false;
+    }
 }
