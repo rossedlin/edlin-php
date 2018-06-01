@@ -86,12 +86,10 @@ class Str
 
             case '+':
                 return preg_replace('/\++/', $one, $str);
-        }
 
-        /**
-         * Default
-         */
-        return preg_replace('!' . $multiple . '+!', $one, $str);
+            default:
+                return preg_replace('!' . $multiple . '+!', $one, $str);
+        }
     }
 
     /**
