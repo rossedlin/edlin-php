@@ -19,8 +19,7 @@ class Core
      */
     public static function pre($var = false)
     {
-        if ($var === true)
-        {
+        if ($var === true) {
             echo '<pre>';
             print_r("TRUE (boolean)");
             echo '</pre>';
@@ -28,8 +27,7 @@ class Core
             return;
         }
 
-        if ($var === false)
-        {
+        if ($var === false) {
             echo '<pre>';
             print_r("FALSE (boolean)");
             echo '</pre>';
@@ -37,8 +35,7 @@ class Core
             return;
         }
 
-        if ($var === null)
-        {
+        if ($var === null) {
             echo '<pre>';
             print_r("NULL");
             echo '</pre>';
@@ -57,66 +54,48 @@ class Core
      * @param bool   $var
      * @param string $color
      */
-    public static function prt($var = false, $color = "")
+    public static function prt($var = false, $color = Enums\Cli::BLUE)
     {
-        if ($var === true)
-        {
-            if ($color === "") $color = Enums\Cli::Green;
+        /**
+         * TRUE
+         */
+        if ($var === true) {
+            echo(Enums\Cli::GREEN . "TRUE (boolean)" . Enums\Cli::_CLOSE);
+            echo Enums::LF;
 
-            echo($color . "TRUE (boolean)\n" . Enums\Cli::_Close);
+            return;
         }
-        else if ($var === false)
-        {
-            if ($color === "") $color = Enums\Cli::Red;
 
-            echo($color . "FALSE (boolean)\n" . Enums\Cli::_Close);
-        }
-        else if ($var === null)
-        {
-            if ($color === "") $color = Enums\Cli::Red;
+        /**
+         * FALSE
+         */
+        if ($var === false) {
+            echo(Enums\Cli::RED . "FALSE (boolean)" . Enums\Cli::_CLOSE);
+            echo Enums::LF;
 
-            echo($color . "NULL\n" . Enums\Cli::_Close);
+            return;
         }
-        else if (is_array($var))
-        {
+
+        /**
+         * Null
+         */
+        if ($var === null) {
+            echo(Enums\Cli::RED . "NULL" . Enums\Cli::_CLOSE);
+            echo Enums::LF;
+
+            return;
+        }
+
+        /**
+         * Everything else
+         */
+        if ($var) {
             echo($color);
             print_r($var);
-            echo(Enums\Cli::_Close);
-            echo("\n");
+            echo(Enums\Cli::_CLOSE);
         }
-        else if ($var instanceof \stdClass)
-        {
-            echo($color);
-            print_r($var);
-            echo(Enums\Cli::_Close);
-            echo("\n");
-        }
-        else if (is_object($var))
-        {
-            echo($color);
-            print_r($var);
-            echo(Enums\Cli::_Close);
-            echo("\n");
-        }
-        else if ($var)
-        {
-            echo($color);
-            echo($var);
-            echo(Enums\Cli::_Close);
-            echo("\n");
-        }
-        else
-        {
-            echo("\n");
-        }
-    }
 
-    /**
-     * @param bool $var
-     */
-    public static function die_r($var = false)
-    {
-        self::pre($var);
-        exit;
+        echo(Enums::LF);
+        return;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Cryslo;
 
 /**
@@ -9,18 +10,27 @@ namespace Cryslo;
  */
 class Enums
 {
-	const CRLF = "\r\n";
-	const LF   = "\n";
+    /**
+     * Line Endings
+     */
+    const CRLF = "\r\n";
+    const LF   = "\n";
 
-	/**
-	 * PHP Server Global Vars
-	 */
-	const DOCUMENT_ROOT = 'DOCUMENT_ROOT';
-	const REMOTE_ADDR   = 'REMOTE_ADDR';
+    /**
+     * Html
+     */
+    const PRE = "<pre>";
+    const PRE_END = "</pre>";
 
-	/**
-	 * Content Types
-	 */
-	const CONTENT_TYPE_PLAIN = 'text/plain';
-	const CONTENT_TYPE_HTML  = 'text/html';
+    /**
+     * PHP Server Global Vars
+     */
+    const DOCUMENT_ROOT = 'DOCUMENT_ROOT';
+    const REMOTE_ADDR   = 'REMOTE_ADDR';
+
+    /**
+     * Content Types
+     */
+    const CONTENT_TYPE_PLAIN = 'text/plain';
+    const CONTENT_TYPE_HTML  = 'text/html';
 }
