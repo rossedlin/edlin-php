@@ -55,6 +55,14 @@ final class RequestTest extends TestCase
         $this->assertEquals(Request::getFromArray($data, 'one'), 'one-123');
         $this->assertEquals(Request::getFromArray($data, 'two'), 'two-123');
         $this->assertEquals(Request::getFromArray($data, 'three'), 'three-123');
+
+        /**
+         * Default
+         */
+        $this->assertEquals(Request::getFromArray($data, 'nope'), false);
+        $this->assertEquals(Request::getFromArray($data, 'nope', 'yup'), 'yup');
+        $this->assertEquals(Request::getFromArray($data, 'nope', []), []);
+        $this->assertEquals(Request::getFromArray($data, 'nope', [['abc']]), [['abc']]);
     }
 
     /**
@@ -97,6 +105,13 @@ final class RequestTest extends TestCase
 //        $this->assertEquals(Request::post(6), '&amp;test&amp;');
         $this->assertEquals(Request::post(7), '&lt;test&lt;');
         $this->assertEquals(Request::post(8), '&gt;test&gt;');
+
+        /**
+         * Default
+         */
+        $this->assertEquals(Request::post('nope'), false);
+        $this->assertEquals(Request::post('nope', 'yup'), 'yup');
+        $this->assertEquals(Request::post('nope', []), []);
     }
 
     /**
@@ -131,6 +146,13 @@ final class RequestTest extends TestCase
 //        $this->assertEquals(Request::post(6), '&amp;test&amp;');
         $this->assertEquals(Request::get(7), '&lt;test&lt;');
         $this->assertEquals(Request::get(8), '&gt;test&gt;');
+
+        /**
+         * Default
+         */
+        $this->assertEquals(Request::get('nope'), false);
+        $this->assertEquals(Request::get('nope', 'yup'), 'yup');
+        $this->assertEquals(Request::get('nope', []), []);
     }
 
     /**
@@ -160,5 +182,24 @@ final class RequestTest extends TestCase
         $this->assertEquals(true, Request::isValidType('POST'));
         $this->assertEquals(true, Request::isValidType('PUT'));
         $this->assertEquals(false, Request::isValidType('ewdy'));
+    }
+
+    /**
+     * @covers \Cryslo\Core\Request::isValidIp
+     */
+    public function testIsValidIp()
+    {
+        /**
+         * Valid
+         */
+        $this->assertTrue(Request::isValidIp("8.8.8.8"));
+
+        /**
+         * Not Valid
+         */
+        $this->assertFalse(Request::isValidIp("8.8.8.8.8"));
+        $this->assertFalse(Request::isValidIp("8.8.8.8."));
+        $this->assertFalse(Request::isValidIp(".8.8.8.8"));
+        $this->assertFalse(Request::isValidIp("abc"));
     }
 }
