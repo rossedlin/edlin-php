@@ -150,8 +150,22 @@ final class StrTest extends TestCase
         }
     }
 
+    /**
+     * @covers \Cryslo\Core\Str::replaceMultipleWithOne
+     * @throws \Exception
+     */
     public function testReplaceMultipleWithOne()
     {
+        $this->assertEquals(
+            'ab££c',
+            Str::replaceMultipleWithOne('ab     c', ' ', '££')
+        );
+
+        $this->assertEquals(
+            'ab££c',
+            Str::replaceMultipleWithOne('ab++++++c', '+', '££')
+        );
+
         $this->assertEquals(
             'abd',
             Str::replaceMultipleWithOne('abcccc', 'c', 'd')
