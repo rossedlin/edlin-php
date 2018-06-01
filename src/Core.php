@@ -18,32 +18,32 @@ class Core
     public static function pre($var = false)
     {
         if ($var === true) {
-            echo '<pre>';
+            echo Enums::PRE;
             print_r("TRUE (boolean)");
-            echo '</pre>';
+            echo Enums::PRE_END;
 
             return;
         }
 
         if ($var === false) {
-            echo '<pre>';
+            echo Enums::PRE;
             print_r("FALSE (boolean)");
-            echo '</pre>';
+            echo Enums::PRE_END;
 
             return;
         }
 
         if ($var === null) {
-            echo '<pre>';
+            echo Enums::PRE;
             print_r("NULL");
-            echo '</pre>';
+            echo Enums::PRE_END;
 
             return;
         }
 
-        echo '<pre>';
+        echo Enums::PRE;
         print_r($var);
-        echo '</pre>';
+        echo Enums::PRE_END;
 
         return;
     }
