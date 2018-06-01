@@ -130,14 +130,8 @@ class Request
         /**
          * Core values
          */
-        if ($data === true) {
-            return true;
-        }
-        if ($data === false) {
-            return false;
-        }
-        if ($data === null) {
-            return null;
+        if ($data === true || $data === false || $data === null) {
+            return $data;
         }
 
         /**
@@ -179,8 +173,8 @@ class Request
                 return true;
             case 'PUT':
                 return true;
+            default:
+                return false;
         }
-
-        return false;
     }
 }
