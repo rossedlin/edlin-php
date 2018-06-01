@@ -91,6 +91,7 @@ class Request
      * @param bool $default
      *
      * @return array|string
+     * @codeCoverageIgnore
      */
     public static function cookie($key, $default = false)
     {
@@ -108,6 +109,7 @@ class Request
      * @param bool $default
      *
      * @return array|string
+     * @codeCoverageIgnore
      */
     public static function files($key, $default = false)
     {
