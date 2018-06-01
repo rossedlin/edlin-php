@@ -21,7 +21,7 @@ if (!function_exists('prt')) {
      * @param mixed  $var
      * @param string $color
      */
-    function prt($var = false, $color = "")
+    function prt($var = false, $color = \Cryslo\Enums\Cli::BLUE)
     {
         \Cryslo\Core::prt($var, $color);
     }
