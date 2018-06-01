@@ -70,4 +70,16 @@ class Date
 
         throw new CrysloException("Something went wrong...");
     }
+
+    /**
+     * @param $timestamp
+     *
+     * @return bool
+     */
+    public static function isValidTimeStamp($timestamp)
+    {
+        return ((string)(int)$timestamp === $timestamp)
+               && ($timestamp <= PHP_INT_MAX)
+               && ($timestamp >= ~PHP_INT_MAX);
+    }
 }
