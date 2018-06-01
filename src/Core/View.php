@@ -1,4 +1,5 @@
 <?php
+
 namespace Cryslo\Core;
 
 /**
@@ -13,138 +14,117 @@ namespace Cryslo\Core;
  */
 class View
 {
-	//*********************************************************************************
-	//
-	// Css
-	//
-	//*********************************************************************************
-	/**
-	 * @param       $file
-	 * @param array $args
-	 *
-	 * @return string
-	 * @throws \Exception
-	 */
-	public static function getCss($file, $args = [])
-	{
-		if (self::cssExists($file))
-		{
-			return self::_get(self::_getCss($file), $args);
-		}
+    //*********************************************************************************
+    //
+    // Css
+    //
+    //*********************************************************************************
+    /**
+     * @param       $file
+     * @param array $args
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public static function getCss($file, $args = [])
+    {
+        if (self::cssExists($file)) {
+            return self::get(self::getCssFile($file), $args);
+        }
 
-		throw new \Exception("CSS File missing: " . $file);
-	}
+        throw new \Exception("CSS File missing: " . $file);
+    }
 
-	/**
-	 * @param $file
-	 *
-	 * @return bool
-	 */
-	public static function cssExists($file)
-	{
-		return self::_exists(self::_getCss($file));
-	}
+    /**
+     * @param $file
+     *
+     * @return bool
+     */
+    public static function cssExists($file)
+    {
+        return file_exists(self::getCssFile($file));
+    }
 
-	/**
-	 * @param $file
-	 *
-	 * @return string
-	 */
-	private static function _getCss($file)
-	{
-		return __DIR__ . '/../../view/' . $file . '.css';
-	}
+    /**
+     * @param $file
+     *
+     * @return string
+     */
+    private static function getCssFile($file)
+    {
+        return __DIR__ . '/../../view/' . $file . '.css';
+    }
 
-	//*********************************************************************************
-	//
-	// Html
-	//
-	//*********************************************************************************
-	/**
-	 * @param       $file
-	 * @param array $args
-	 *
-	 * @return string
-	 * @throws \Exception
-	 */
-	public static function getHtml($file, $args = [])
-	{
-		if (self::htmlExists($file))
-		{
-			return self::_get(self::_getHtml($file), $args);
-		}
+    //*********************************************************************************
+    //
+    // Html
+    //
+    //*********************************************************************************
+    /**
+     * @param       $file
+     * @param array $args
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public static function getHtml($file, $args = [])
+    {
+        if (self::htmlExists($file)) {
+            return self::get(self::getHtmlFile($file), $args);
+        }
 
-		throw new \Exception("HTML File missing: " . $file);
-	}
+        throw new \Exception("HTML File missing: " . $file);
+    }
 
-	/**
-	 * @param $file
-	 *
-	 * @return bool
-	 */
-	public static function htmlExists($file)
-	{
-		return self::_exists(self::_getHtml($file));
-	}
+    /**
+     * @param $file
+     *
+     * @return bool
+     */
+    public static function htmlExists($file)
+    {
+        return file_exists(self::getHtmlFile($file));
+    }
 
-	/**
-	 * @param $file
-	 *
-	 * @return string
-	 */
-	private static function _getHtml($file)
-	{
-		return __DIR__ . '/../../view/' . $file . '.html';
-	}
+    /**
+     * @param $file
+     *
+     * @return string
+     */
+    private static function getHtmlFile($file)
+    {
+        return __DIR__ . '/../../view/' . $file . '.html';
+    }
 
-	//*********************************************************************************
-	//
-	// Core
-	//
-	//*********************************************************************************
+    //*********************************************************************************
+    //
+    // Core
+    //
+    //*********************************************************************************
 
-	/**
-	 * @param $file
-	 *
-	 * @return bool
-	 */
-	private static function _exists($file)
-	{
-		if (file_exists($file))
-		{
-			return true;
-		}
+    /**
+     * @param       $file
+     * @param array $args
+     *
+     * @return string
+     * @throws \Exception
+     */
+    private static function get($file, array $args = [])
+    {
+        try {
+            ob_start();
+            require($file);
+            $contents = ob_get_contents();
 
-		return false;
-	}
+            foreach ($args as $key => $arg) {
+                $contents = str_replace('{{' . $key . '}}', $arg, $contents);
+            }
 
-	/**
-	 * @param       $file
-	 * @param array $args
-	 *
-	 * @return string
-	 * @throws \Exception
-	 */
-	private static function _get($file, array $args = [])
-	{
-		try
-		{
-			ob_start();
-			require($file);
-			$contents = ob_get_contents();
+            ob_end_clean();
 
-			foreach ($args as $key => $arg)
-			{
-				$contents = str_replace('{{' . $key . '}}', $arg, $contents);
-			}
-
-			ob_end_clean();
-
-			return (string)$contents;
-		}
-		catch (\Exception $e)
-		{
-			throw $e;
-		}
-	}
+            return (string)$contents;
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
 }
