@@ -2,8 +2,6 @@
 
 namespace Cryslo;
 
-use Cryslo\Enums;
-
 /**
  * Created by PhpStorm.
  * User: Ross Edlin
@@ -60,7 +58,7 @@ class Core
          * TRUE
          */
         if ($var === true) {
-            echo(Enums\Cli::GREEN . "TRUE (boolean)" . Enums\Cli::_CLOSE);
+            echo Enums\Cli::GREEN . "TRUE (boolean)" . Enums\Cli::_CLOSE;
             echo Enums::LF;
 
             return;
@@ -70,7 +68,7 @@ class Core
          * FALSE
          */
         if ($var === false) {
-            echo(Enums\Cli::RED . "FALSE (boolean)" . Enums\Cli::_CLOSE);
+            echo Enums\Cli::RED . "FALSE (boolean)" . Enums\Cli::_CLOSE;
             echo Enums::LF;
 
             return;
@@ -80,7 +78,7 @@ class Core
          * Null
          */
         if ($var === null) {
-            echo(Enums\Cli::RED . "NULL" . Enums\Cli::_CLOSE);
+            echo Enums\Cli::RED . "NULL" . Enums\Cli::_CLOSE;
             echo Enums::LF;
 
             return;
@@ -90,12 +88,12 @@ class Core
          * Everything else
          */
         if ($var) {
-            echo($color);
+            echo $color;
             print_r($var);
-            echo(Enums\Cli::_CLOSE);
+            echo Enums\Cli::_CLOSE;
         }
 
-        echo(Enums::LF);
+        echo Enums::LF;
         return;
     }
 }
