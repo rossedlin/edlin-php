@@ -111,20 +111,16 @@ class View
      */
     private static function get($file, array $args = [])
     {
-        try {
-            ob_start();
-            require($file);
-            $contents = ob_get_contents();
+        ob_start();
+        require($file);
+        $contents = ob_get_contents();
 
-            foreach ($args as $key => $arg) {
-                $contents = str_replace('{{' . $key . '}}', $arg, $contents);
-            }
-
-            ob_end_clean();
-
-            return (string)$contents;
-        } catch (\Exception $e) {
-            throw $e;
+        foreach ($args as $key => $arg) {
+            $contents = str_replace('{{' . $key . '}}', $arg, $contents);
         }
+
+        ob_end_clean();
+
+        return (string)$contents;
     }
 }
