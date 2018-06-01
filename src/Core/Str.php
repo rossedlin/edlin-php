@@ -14,8 +14,6 @@ namespace Cryslo\Core;
 class Str
 {
     /**
-     * todo - unit test
-     *
      * @param $key
      * @return string
      */
