@@ -54,6 +54,26 @@ final class DateTest extends TestCase
          * Older Full Dates
          */
         $this->assertEquals(29, Date::getYearsFrom(strtotime("1970-01-01"), strtotime("1999-02-01")));
+
+        /**
+         * Test time()
+         *
+         * 1514764800 = 2018-01-01 00:00:00
+         */
+        $time = time();
+        $diff = $time - 1514764800;
+
+        $this->assertEquals(2, Date::getYearsFrom((strtotime("2016-01-01") + $diff)));
+        $this->assertEquals(8, Date::getYearsFrom((strtotime("2010-01-01") + $diff)));
+
+        /**
+         * Test Exception
+         */
+        try {
+            $this->assertEquals(9999999, Date::getYearsFrom(strtotime("2010-01-01"), strtotime("2000-01-01")));
+        } catch (CrysloException $e) {
+            $this->assertTrue(true);
+        }
     }
 
     /**
@@ -67,5 +87,25 @@ final class DateTest extends TestCase
         $this->assertEquals(1527638400, Date::getYesterday(1527724801)); //2018-05-31 00:00:01
         $this->assertEquals(1527638400, Date::getYesterday(1527768000)); //2018-05-31 12:00:00
         $this->assertEquals(1527638400, Date::getYesterday(1527811199)); //2018-05-31 23:59:59
+
+        /**
+         * Test time()
+         *
+         * 1527724800 = 2018-05-31 00:00:00
+         */
+        $time = time();
+        $diff = $time - 1527724800;
+        $days = floor($diff / 86400);
+
+        $this->assertEquals((1527724800 * $days), Date::getYesterday());
+    }
+
+    /**
+     * @covers \Cryslo\Core\Date::isValidTimeStamp
+     */
+    public function testIsValidTimeStamp()
+    {
+        $this->assertTrue(Date::isValidTimeStamp(1527811199));
+        $this->assertFalse(Date::isValidTimeStamp(-1));
     }
 }
