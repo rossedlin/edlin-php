@@ -92,6 +92,7 @@ class CoreTest extends TestCase
             "\e[0;31mNULL\e[0m\n"                      => null,
             "\e[0;34m" . $array . "\e[0m\n"            => ['one', 'two', true, false, [0 => 'abc']],
             "\e[0;34m" . $stdClassExpected . "\e[0m\n" => $stdClassActual,
+            "\e[0;34mHello World\e[0m\n"               => "Hello World",
         ];
 
         foreach ($a as $expected => $actual) {
