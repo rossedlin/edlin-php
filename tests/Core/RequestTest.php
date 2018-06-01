@@ -132,4 +132,29 @@ final class RequestTest extends TestCase
         $this->assertEquals(Request::get(7), '&lt;test&lt;');
         $this->assertEquals(Request::get(8), '&gt;test&gt;');
     }
+
+    /**
+     * @covers \Cryslo\Core\Request::isPost
+     */
+    public function testIsPost()
+    {
+        $this->assertEquals(false, Request::isPost());
+
+        /**
+         * Override SERVER var
+         */
+        $_SERVER['REQUEST_METHOD'] = "POST";
+        $this->assertEquals(true, Request::isPost());
+    }
+
+    /**
+     * @covers \Cryslo\Core\Request::isValidType
+     */
+    public function testIsValidType()
+    {
+        $this->assertEquals(true, Request::isValidType('GET'));
+        $this->assertEquals(true, Request::isValidType('POST'));
+        $this->assertEquals(true, Request::isValidType('PUT'));
+        $this->assertEquals(false, Request::isValidType('ewdy'));
+    }
 }
