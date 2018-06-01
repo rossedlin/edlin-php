@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <ns1:getAttendanceCheckInsResponse xmlns:ns1="http://campusm.gw.com/campusm">
+            <ns1:attendanceCheckIns>
+                <ns1:attendanceCheckIn>
+                    <ns1:checkInId>1234</ns1:checkInId>
+                    <ns1:personId>12345</ns1:personId>
+                    <ns1:isCheckOut>N</ns1:isCheckOut>
+                    <ns1:dateRecorded>2017-11-13T08:28:39.000+00:00</ns1:dateRecorded>
+                    <ns1:positionId>36692</ns1:positionId>
+                    <ns1:positionDescription>North Cloisters 12</ns1:positionDescription>
+                    <ns1:eventReference>ESS1701_L2/012017-11-13T08:35:00</ns1:eventReference>
+                    <ns1:eventStartDate>2017-11-13T08:35:00.000+00:00</ns1:eventStartDate>
+                    <ns1:eventEndDate>2017-11-13T09:25:00.000+00:00</ns1:eventEndDate>
+                    <ns1:eventDescription>Introduction To Statistics</ns1:eventDescription>
+                    <ns1:devicePlatform>IOS</ns1:devicePlatform>
+                    <ns1:deviceTime>2017-11-13T08:28:38.000+00:00</ns1:deviceTime>
+                    <ns1:queued>N</ns1:queued>
+                    <ns1:customerLocationReference>NCL/12</ns1:customerLocationReference>
+                    <ns1:typeOfCheckIn>1</ns1:typeOfCheckIn>
+                    <ns1:typeOfCheckInDescription>Auto Check-in driven by native background process</ns1:typeOfCheckInDescription>
+                    <ns1:emailAddress>gegwege@gwgger.ac.uk</ns1:emailAddress>
+                    <ns1:firstName>ewgewg</ns1:firstName>
+                    <ns1:lastName>gwegr</ns1:lastName>
+                    <ns1:orgCode>207</ns1:orgCode>
+                </ns1:attendanceCheckIn>
+                <ns1:attendanceCheckIn>
+                    <ns1:checkInId>gewq43</ns1:checkInId>
+                    <ns1:personId>43f4</ns1:personId>
+                    <ns1:isCheckOut>N</ns1:isCheckOut>
+                    <ns1:dateRecorded>2017-11-13T08:28:59.000+00:00</ns1:dateRecorded>
+                    <ns1:positionId>4543</ns1:positionId>
+                    <ns1:positionDescription>North Cloisters 12</ns1:positionDescription>
+                    <ns1:eventReference>ESS1701_L2/012017-11-13T08:35:00</ns1:eventReference>
+                    <ns1:eventStartDate>2017-11-13T08:35:00.000+00:00</ns1:eventStartDate>
+                    <ns1:eventEndDate>2017-11-13T09:25:00.000+00:00</ns1:eventEndDate>
+                    <ns1:eventDescription>Introduction To Statistics</ns1:eventDescription>
+                    <ns1:devicePlatform>IOS</ns1:devicePlatform>
+                    <ns1:deviceTime>2017-11-13T08:28:59.000+00:00</ns1:deviceTime>
+                    <ns1:queued>N</ns1:queued>
+                    <ns1:customerLocationReference>NCL/12</ns1:customerLocationReference>
+                    <ns1:typeOfCheckIn>1</ns1:typeOfCheckIn>
+                    <ns1:typeOfCheckInDescription>Auto Check-in driven by native background process</ns1:typeOfCheckInDescription>
+                    <ns1:emailAddress>34234235@exeter.ac.uk</ns1:emailAddress>
+                    <ns1:firstName>ergwwe</ns1:firstName>
+                    <ns1:lastName>Buregwrgewrns</ns1:lastName>
+                    <ns1:orgCode>207</ns1:orgCode>
+                </ns1:attendanceCheckIn>
+            </ns1:attendanceCheckIns>
+        </ns1:getAttendanceCheckInsResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
