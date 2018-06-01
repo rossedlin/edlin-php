@@ -41,6 +41,17 @@ final class ViewTest extends TestCase
         $this->assertEquals(View::getHtml('Test/TestHtml', $args), $this->render($file, $args));
         $this->assertNotEquals(View::getHtml('Test/TestHtml'), $this->render($file, $args));
         $this->assertNotEquals(View::getHtml('Test/TestHtml', $args), $this->render($file));
+
+        /**
+         * Exceptions
+         */
+        try {
+            $this->assertNotEquals(View::getHtml('Test/1TestHtml', $args), $this->render($file));
+
+            $this->fail("I should of thrown an Exception");
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+        }
     }
 
     /**
@@ -64,6 +75,17 @@ final class ViewTest extends TestCase
         $this->assertEquals(View::getCss('Test/TestCss', $args), $this->render($file, $args));
         $this->assertNotEquals(View::getCss('Test/TestCss'), $this->render($file, $args));
         $this->assertNotEquals(View::getCss('Test/TestCss', $args), $this->render($file));
+
+        /**
+         * Exception
+         */
+        try {
+            $this->assertNotEquals(View::getCss('Test/1TestCss', $args), $this->render($file));
+
+            $this->fail("I should of thrown an Exception");
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+        }
     }
 
     /**
@@ -75,24 +97,20 @@ final class ViewTest extends TestCase
      */
     private function render($file, array $args = [])
     {
-        try {
-            if (!file_exists($file)) {
-                throw new \Exception("Missing Test File: " . $file);
-            }
-
-            ob_start();
-            require($file);
-            $contents = ob_get_contents();
-
-            foreach ($args as $key => $arg) {
-                $contents = str_replace('{{' . $key . '}}', $arg, $contents);
-            }
-
-            ob_end_clean();
-
-            return (string)$contents;
-        } catch (\Exception $e) {
-            throw $e;
+        if (!file_exists($file)) {
+            throw new \Exception("Missing Test File: " . $file);
         }
+
+        ob_start();
+        require($file);
+        $contents = ob_get_contents();
+
+        foreach ($args as $key => $arg) {
+            $contents = str_replace('{{' . $key . '}}', $arg, $contents);
+        }
+
+        ob_end_clean();
+
+        return (string)$contents;
     }
 }
