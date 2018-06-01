@@ -138,13 +138,17 @@ final class RequestTest extends TestCase
      */
     public function testIsPost()
     {
-        $this->assertEquals(false, Request::isPost());
-
         /**
          * Override SERVER var
          */
         $_SERVER['REQUEST_METHOD'] = "POST";
         $this->assertEquals(true, Request::isPost());
+
+        /**
+         * Override SERVER var
+         */
+        $_SERVER['REQUEST_METHOD'] = "GET";
+        $this->assertEquals(false, Request::isPost());
     }
 
     /**
