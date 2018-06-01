@@ -73,6 +73,7 @@ class Str
      * @param string $one
      *
      * @return mixed
+     * @throws \Exception
      */
     public static function replaceMultipleWithOne($str, $multiple, $one)
     {
@@ -81,20 +82,16 @@ class Str
          */
         switch ((string)$multiple) {
             case ' ':
-                return preg_replace('/\s+/', ' ', $str);
+                return preg_replace('/\s+/', $one, $str);
 
             case '+':
-                return preg_replace('/\++/', '+', $str);
+                return preg_replace('/\++/', $one, $str);
         }
 
         /**
          * Default
          */
-        try {
-            return preg_replace('!' . $multiple . '+!', $one, $str);
-        } catch (\Exception $e) {
-            return $str;
-        }
+        return preg_replace('!' . $multiple . '+!', $one, $str);
     }
 
     /**
