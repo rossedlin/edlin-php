@@ -5,11 +5,13 @@ namespace Cryslo\Core;
 /**
  * Created by PhpStorm.
  *
- * User: rossedlin
- * Contact: <contact@rossedlin.com>
+ * @author  Ross Edlin <contact@rossedlin.com>
  *
  * Date: 15/03/18
  * Time: 16:52
+ *
+ * Class Str
+ * @package Cryslo\Core
  */
 class Str
 {
