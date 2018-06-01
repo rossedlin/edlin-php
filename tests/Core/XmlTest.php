@@ -31,4 +31,17 @@ final class XmlTest extends TestCase
             Xml::simpleToArray(file_get_contents(__DIR__ . '/../../xml/test/simple.xml'))
         );
     }
+
+    /**
+     * @covers \Cryslo\Core\Xml::soapToArray
+     *
+     * @throws \Exception
+     */
+    public function testSoapToArray()
+    {
+        $this->assertEquals(
+            require_once(__DIR__ . '/../../xml/test/soap.php'),
+            Xml::soapToArray(file_get_contents(__DIR__ . '/../../xml/test/soap.xml'))
+        );
+    }
 }
