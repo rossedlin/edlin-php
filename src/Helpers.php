@@ -6,36 +6,23 @@
  * Time: 14:07
  */
 
-if (!function_exists('pre'))
-{
-	/**
-	 * @param bool $var
-	 */
-	function pre($var = false)
-	{
-		\Cryslo\Core::pre($var);
-	}
+if (!function_exists('pre')) {
+    /**
+     * @param bool $var
+     */
+    function pre($var = false)
+    {
+        \Cryslo\Core::pre($var);
+    }
 }
 
-if (!function_exists('prt'))
-{
+if (!function_exists('prt')) {
     /**
-     * @param mixed   $var
+     * @param mixed  $var
      * @param string $color
      */
-	function prt($var = false, $color = "")
-	{
-		\Cryslo\Core::prt($var, $color);
-	}
-}
-
-if (!function_exists('die_r'))
-{
-	/**
-	 * @param bool $var
-	 */
-	function die_r($var = false)
-	{
-		\Cryslo\Core::die_r($var);
-	}
+    function prt($var = false, $color = "")
+    {
+        \Cryslo\Core::prt($var, $color);
+    }
 }

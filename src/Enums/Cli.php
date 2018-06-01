@@ -16,23 +16,23 @@ namespace Cryslo\Enums;
  */
 class Cli
 {
-    const _Close = "\033[0m";
+    const _CLOSE = "\033[0m";
 
-    const White  = "\033[0;30m";
-    const Red    = "\033[0;31m";
-    const Green  = "\033[0;32m";
-    const Yellow = "\033[0;33m";
-    const Blue   = "\033[0;34m";
-    const Purple = "\033[0;35m";
-    const Cyan   = "\033[0;36m";
-    const Gray   = "\033[0;37m";
+    const WHITE  = "\033[0;30m";
+    const RED    = "\033[0;31m";
+    const GREEN  = "\033[0;32m";
+    const YELLOW = "\033[0;33m";
+    const BLUE   = "\033[0;34m";
+    const PURPLE = "\033[0;35m";
+    const CYAN   = "\033[0;36m";
+    const GRAY   = "\033[0;37m";
 
-    const Bold_White  = "\033[1;30m";
-    const Bold_Red    = "\033[1;31m";
-    const Bold_Green  = "\033[1;32m";
-    const Bold_Yellow = "\033[1;33m";
-    const Bold_Blue   = "\033[1;34m";
-    const Bold_Purple = "\033[1;35m";
-    const Bold_Cyan   = "\033[1;36m";
-    const Bold_Gray   = "\033[1;37m";
+    const BOLD_WHITE  = "\033[1;30m";
+    const BOLD_RED    = "\033[1;31m";
+    const BOLD_GREEN  = "\033[1;32m";
+    const BOLD_YELLOW = "\033[1;33m";
+    const BOLD_BLUE   = "\033[1;34m";
+    const BOLD_PURPLE = "\033[1;35m";
+    const BOLD_CYAN   = "\033[1;36m";
+    const BOLD_GRAY   = "\033[1;37m";
 }
