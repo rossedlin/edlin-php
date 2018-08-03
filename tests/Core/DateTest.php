@@ -97,7 +97,7 @@ final class DateTest extends TestCase
         $diff = $time - 1527724800;
         $days = floor($diff / 86400);
 
-        $this->assertEquals((1527724800 * $days), Date::getYesterday());
+        $this->assertEquals((1527724800 + (86400 * ($days - 1))), Date::getYesterday());
     }
 
     /**
