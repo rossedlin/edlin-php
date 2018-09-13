@@ -2,18 +2,18 @@
 
 namespace Cryslo\Factories;
 
-use App\Objects\JsonResponse;
+use Cryslo\Objects\JsonResponse;
 
 /**
  * Created by PhpStorm.
  *
- * @author Ross Edlin <contact@rossedlin.com>
+ * @author  Ross Edlin <contact@rossedlin.com>
  *
  * Date: 30/08/18
  * Time: 13:00
  *
- * Class JsonResponse
- * @package App\Factories
+ * Class JsonResponseFactory
+ * @package Cryslo\Factories
  */
 class JsonResponseFactory
 {

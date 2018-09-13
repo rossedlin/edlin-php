@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Objects;
+namespace Cryslo\Objects;
 
 use Cryslo\Enums\Env;
 
@@ -13,7 +13,7 @@ use Cryslo\Enums\Env;
  * Time: 12:58
  *
  * Class JsonResponse
- * @package App\Objects
+ * @package Cryslo\Objects
  */
 class JsonResponse
 {
