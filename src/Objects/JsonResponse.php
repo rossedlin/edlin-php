@@ -24,6 +24,14 @@ class JsonResponse
     private $payload = [];
 
     /**
+     * @return bool
+     */
+    public function isSuccess(): bool
+    {
+        return $this->success;
+    }
+
+    /**
      * @param bool $success
      */
     public function setSuccess(bool $success)
@@ -32,11 +40,27 @@ class JsonResponse
     }
 
     /**
+     * @return array
+     */
+    public function getDebug(): array
+    {
+        return $this->debug;
+    }
+
+    /**
      * @param array $debug
      */
     public function setDebug(array $debug)
     {
         $this->debug = $debug;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPayload(): array
+    {
+        return $this->payload;
     }
 
     /**
