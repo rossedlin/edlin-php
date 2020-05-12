@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Tests\Core;
+namespace Edlin\Tests\Core;
 
-use Cryslo\Core\Math;
+use Edlin\Core\Math;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,15 +14,15 @@ use PHPUnit\Framework\TestCase;
  * Time: 12:10
  *
  * Class MathTest
- * @package Cryslo\Tests\Core
- * @covers  \Cryslo\Core\Math
+ * @package Edlin\Tests\Core
+ * @covers  \Edlin\Core\Math
  */
 final class MathTest extends TestCase
 {
     /**
      * Testing Adding Numbers
      *
-     * @covers \Cryslo\Core\Math::add
+     * @covers \Edlin\Core\Math::add
      */
     public function testAdd()
     {
@@ -33,7 +33,7 @@ final class MathTest extends TestCase
     /**
      * Testing Even Numbers
      *
-     * @covers \Cryslo\Core\Math::isEven
+     * @covers \Edlin\Core\Math::isEven
      */
     public function testEven()
     {
@@ -56,7 +56,7 @@ final class MathTest extends TestCase
     /**
      * Testing odd Numbers
      *
-     * @covers \Cryslo\Core\Math::isOdd
+     * @covers \Edlin\Core\Math::isOdd
      */
     public function testOdd()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cryslo;
+namespace Edlin;
 
 /**
  * Created by PhpStorm.

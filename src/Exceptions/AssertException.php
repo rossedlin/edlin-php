@@ -1,6 +1,6 @@
 <?php
 
-namespace Cryslo\Exceptions;
+namespace Edlin\Exceptions;
 
 class AssertException extends \Exception
 {

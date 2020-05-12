@@ -1,6 +1,6 @@
 <?php
 
-namespace Cryslo\Assert;
+namespace Edlin\Assert;
 
 /**
  * Created by PhpStorm.

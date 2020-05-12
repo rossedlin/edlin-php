@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Core;
+namespace Edlin\Core;
 
-use Cryslo\Exceptions\CrysloException;
+use Edlin\Exceptions\EdlinException;
 
 /**
  * Created by PhpStorm.
@@ -14,7 +14,7 @@ use Cryslo\Exceptions\CrysloException;
  * Time: 10:45
  *
  * Class Date
- * @package Cryslo\Core
+ * @package Edlin\Core
  */
 class Date
 {
@@ -25,7 +25,7 @@ class Date
      * @param int $to
      * @return int
      *
-     * @throws CrysloException
+     * @throws EdlinException
      */
     public static function getYearsFrom(int $from, int $to = null): int
     {
@@ -37,7 +37,7 @@ class Date
         $t = date("Y-m-d, H:i:s", $to);
 
         if ($f > $t) {
-            throw new CrysloException("From is greater than To");
+            throw new EdlinException("From is greater than To");
         }
 
         $date     = new \DateTime($f);
@@ -51,7 +51,7 @@ class Date
      *
      * @return int
      *
-     * @throws CrysloException
+     * @throws EdlinException
      */
     public static function getYesterday(int $today = null): int
     {

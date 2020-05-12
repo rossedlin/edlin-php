@@ -1,5 +1,5 @@
 <?php
-namespace Cryslo\Core;
+namespace Edlin\Core;
 
 /**
  * Created by PhpStorm.
@@ -8,7 +8,7 @@ namespace Cryslo\Core;
  * Time: 14:57
  *
  * Class Math
- * @package Cryslo\Core
+ * @package Edlin\Core
  */
 class Math
 {

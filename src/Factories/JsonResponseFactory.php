@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Factories;
+namespace Edlin\Factories;
 
-use Cryslo\Objects\JsonResponse;
+use Edlin\Objects\JsonResponse;
 
 /**
  * Created by PhpStorm.
@@ -13,7 +13,7 @@ use Cryslo\Objects\JsonResponse;
  * Time: 13:00
  *
  * Class JsonResponseFactory
- * @package Cryslo\Factories
+ * @package Edlin\Factories
  */
 class JsonResponseFactory
 {

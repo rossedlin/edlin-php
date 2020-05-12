@@ -1,6 +1,6 @@
 <?php
 
-namespace Cryslo\Core;
+namespace Edlin\Core;
 
 /**
  * Created by PhpStorm.
@@ -12,7 +12,7 @@ namespace Cryslo\Core;
  *
  * Class SaltHash
  *
- * @package Cryslo\Core
+ * @package Edlin\Core
  */
 class SaltHash
 {

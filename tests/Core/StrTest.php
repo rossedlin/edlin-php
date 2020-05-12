@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Tests\Core;
+namespace Edlin\Tests\Core;
 
-use Cryslo\Core\Str;
+use Edlin\Core\Str;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,13 +14,13 @@ use PHPUnit\Framework\TestCase;
  * Time: 12:10
  *
  * Class StrTest
- * @package Cryslo\Tests\Core
- * @covers  \Cryslo\Core\Str
+ * @package Edlin\Tests\Core
+ * @covers  \Edlin\Core\Str
  */
 final class StrTest extends TestCase
 {
     /**
-     * @covers \Cryslo\Core\Str::cacheFriendlyKey
+     * @covers \Edlin\Core\Str::cacheFriendlyKey
      */
     public function testCacheFriendlyKey()
     {
@@ -39,7 +39,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Str::codify
+     * @covers \Edlin\Core\Str::codify
      */
     public function testCodify()
     {
@@ -55,7 +55,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Str::endsWith
+     * @covers \Edlin\Core\Str::endsWith
      */
     public function testEndsWith()
     {
@@ -78,7 +78,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Str::getOnlyLetters
+     * @covers \Edlin\Core\Str::getOnlyLetters
      */
     public function testGetOnlyLetters()
     {
@@ -112,7 +112,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Str::getOnlyNumbers
+     * @covers \Edlin\Core\Str::getOnlyNumbers
      */
     public function testGetOnlyNumbers()
     {
@@ -151,7 +151,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Str::replaceMultipleWithOne
+     * @covers \Edlin\Core\Str::replaceMultipleWithOne
      * @throws \Exception
      */
     public function testReplaceMultipleWithOne()
@@ -183,7 +183,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Str::startsWith
+     * @covers \Edlin\Core\Str::startsWith
      */
     public function testStartsWith()
     {
