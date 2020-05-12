@@ -1,9 +1,9 @@
 <?php
 
-namespace Cryslo\Tests\Core;
+namespace Edlin\Tests\Core;
 
 use PHPUnit\Framework\TestCase;
-use Cryslo\Core\Utils;
+use Edlin\Core\Utils;
 
 /**
  * Created by PhpStorm.
@@ -14,13 +14,13 @@ use Cryslo\Core\Utils;
  * Time: 09:58
  *
  * Class UtilsTest
- * @package Cryslo\Tests\Core
- * @covers  \Cryslo\Core\Utils
+ * @package Edlin\Tests\Core
+ * @covers  \Edlin\Core\Utils
  */
 final class UtilsTest extends TestCase
 {
     /**
-     * @covers \Cryslo\Core\Utils::convertToArrayFromStdClass
+     * @covers \Edlin\Core\Utils::convertToArrayFromStdClass
      */
     public function testConvertToArrayFromStdClass()
     {
@@ -49,7 +49,7 @@ final class UtilsTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Utils::snakeCaseToCamelCase
+     * @covers \Edlin\Core\Utils::snakeCaseToCamelCase
      */
     public function testSnakeCaseToPascalCase()
     {
@@ -60,7 +60,7 @@ final class UtilsTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Utils::snakeCaseToCamelCase
+     * @covers \Edlin\Core\Utils::snakeCaseToCamelCase
      */
     public function testSnakeCaseToCamelCase()
     {

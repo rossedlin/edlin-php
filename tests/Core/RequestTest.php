@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Tests\Core;
+namespace Edlin\Tests\Core;
 
-use Cryslo\Core\Request;
+use Edlin\Core\Request;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,15 +14,15 @@ use PHPUnit\Framework\TestCase;
  * Time: 17:09
  *
  * Class RequestTest
- * @package Cryslo\Tests\Core
- * @covers  \Cryslo\Core\Request
+ * @package Edlin\Tests\Core
+ * @covers  \Edlin\Core\Request
  */
 final class RequestTest extends TestCase
 {
     /**
      * Testing Array
      *
-     * @covers \Cryslo\Core\Request::getFromArray
+     * @covers \Edlin\Core\Request::getFromArray
      */
     public function testGetFromArray()
     {
@@ -68,7 +68,7 @@ final class RequestTest extends TestCase
     /**
      * Testing Post
      *
-     * @covers \Cryslo\Core\Request::isPost
+     * @covers \Edlin\Core\Request::isPost
      */
     public function testPost()
     {
@@ -117,7 +117,7 @@ final class RequestTest extends TestCase
     /**
      * Testing Get
      *
-     * @covers \Cryslo\Core\Request::get
+     * @covers \Edlin\Core\Request::get
      */
     public function testGet()
     {
@@ -156,7 +156,7 @@ final class RequestTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Request::isPost
+     * @covers \Edlin\Core\Request::isPost
      */
     public function testIsPost()
     {
@@ -174,7 +174,7 @@ final class RequestTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Request::isValidType
+     * @covers \Edlin\Core\Request::isValidType
      */
     public function testIsValidType()
     {
@@ -185,7 +185,7 @@ final class RequestTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Request::isValidIp
+     * @covers \Edlin\Core\Request::isValidIp
      */
     public function testIsValidIp()
     {

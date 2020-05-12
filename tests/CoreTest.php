@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Tests;
+namespace Edlin\Tests;
 
-use Cryslo\Core;
+use Edlin\Core;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,13 +16,13 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class CoreTest
- * @package Cryslo\Tests
- * @covers  \Cryslo\Core
+ * @package Edlin\Tests
+ * @covers  \Edlin\Core
  */
 class CoreTest extends TestCase
 {
     /**
-     * @covers \Cryslo\Core::pre()
+     * @covers \Edlin\Core::pre()
      * @throws \Exception
      */
     public function testPre()
@@ -45,7 +45,7 @@ class CoreTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core::pre()
+     * @covers \Edlin\Core::pre()
      * @throws \Exception
      */
     public function testPrt()

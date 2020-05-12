@@ -1,9 +1,9 @@
 <?php
 
-namespace Cryslo\Tests\Core;
+namespace Edlin\Tests\Core;
 
 use PHPUnit\Framework\TestCase;
-use Cryslo\Core\Xml;
+use Edlin\Core\Xml;
 
 /**
  * Created by PhpStorm.
@@ -14,13 +14,13 @@ use Cryslo\Core\Xml;
  * Time: 18:03
  *
  * Class XmlTest
- * @package Cryslo\Tests\Core
- * @covers  \Cryslo\Core\Xml
+ * @package Edlin\Tests\Core
+ * @covers  \Edlin\Core\Xml
  */
 final class XmlTest extends TestCase
 {
     /**
-     * @covers \Cryslo\Core\Xml::simpleToArray
+     * @covers \Edlin\Core\Xml::simpleToArray
      *
      * @throws \Exception
      */
@@ -33,7 +33,7 @@ final class XmlTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Xml::soapToArray
+     * @covers \Edlin\Core\Xml::soapToArray
      *
      * @throws \Exception
      */
