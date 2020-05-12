@@ -10,7 +10,7 @@ class Utils
      * @return string
      * @codeCoverageIgnore
      */
-    public static function addVersionToCssFile($path)
+    public static function addVersionToFile($path)
     {
         $file = $_SERVER['DOCUMENT_ROOT'] . $path;
         if (file_exists($file)) {
