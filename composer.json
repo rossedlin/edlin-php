@@ -1,6 +1,12 @@
 {
   "name": "rossedlin/edlin-php",
   "version": "3.0.0",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "ross",
+    "edlin"
+  ],
   "dist": {
     "url": "https://github.com/rossedlin/edlin-php/archive/v3.0.0.zip",
     "type": "zip"
