@@ -1,6 +1,6 @@
 <?php
 
-namespace Cryslo\Core;
+namespace Edlin\Core;
 
 /**
  * Created by PhpStorm.
@@ -11,7 +11,7 @@ namespace Cryslo\Core;
  * Time: 19:45
  *
  * Class Request
- * @package Cryslo\Core
+ * @package Edlin\Core
  */
 class Request
 {

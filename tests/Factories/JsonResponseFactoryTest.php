@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Tests\Factories;
+namespace Edlin\Tests\Factories;
 
-use Cryslo\Factories\JsonResponseFactory;
+use Edlin\Factories\JsonResponseFactory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,8 +14,8 @@ use PHPUnit\Framework\TestCase;
  * Time: 12:07
  *
  * Class JsonResponseFactoryTest
- * @package Cryslo\Tests\Factories
- * @covers  \Cryslo\Factories\JsonResponseFactory
+ * @package Edlin\Tests\Factories
+ * @covers  \Edlin\Factories\JsonResponseFactory
  */
 final class JsonResponseFactoryTest extends TestCase
 {
@@ -24,7 +24,7 @@ final class JsonResponseFactoryTest extends TestCase
     const DEBUG   = ['123' => 'abc'];
 
     /**
-     * @covers \Cryslo\Factories\JsonResponseFactory::fail
+     * @covers \Edlin\Factories\JsonResponseFactory::fail
      */
     public function testFail()
     {
@@ -40,7 +40,7 @@ final class JsonResponseFactoryTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Factories\JsonResponseFactory::failWithDebug
+     * @covers \Edlin\Factories\JsonResponseFactory::failWithDebug
      */
     public function testFailWithDebug()
     {
@@ -56,7 +56,7 @@ final class JsonResponseFactoryTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Factories\JsonResponseFactory::success
+     * @covers \Edlin\Factories\JsonResponseFactory::success
      */
     public function testSuccess()
     {
@@ -72,7 +72,7 @@ final class JsonResponseFactoryTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Factories\JsonResponseFactory::success
+     * @covers \Edlin\Factories\JsonResponseFactory::success
      */
     public function testSuccessWithPayload()
     {

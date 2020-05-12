@@ -1,6 +1,6 @@
 <?php
 
-namespace Cryslo\Enums;
+namespace Edlin\Enums;
 
 /**
  * Created by PhpStorm.
@@ -12,7 +12,7 @@ namespace Cryslo\Enums;
  * Time: 17:16
  *
  * Class Wordpress
- * @package Cryslo\Enums
+ * @package Edlin\Enums
  */
 class Wordpress
 {

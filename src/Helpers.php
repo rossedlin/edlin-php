@@ -12,7 +12,7 @@ if (!function_exists('pre')) {
      */
     function pre($var = false)
     {
-        \Cryslo\Core::pre($var);
+        \Edlin\Core::pre($var);
     }
 }
 
@@ -21,8 +21,8 @@ if (!function_exists('prt')) {
      * @param mixed  $var
      * @param string $color
      */
-    function prt($var = false, $color = \Cryslo\Enums\Cli::BLUE)
+    function prt($var = false, $color = \Edlin\Enums\Cli::BLUE)
     {
-        \Cryslo\Core::prt($var, $color);
+        \Edlin\Core::prt($var, $color);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cryslo\Core;
+namespace Edlin\Core;
 
 class Utils
 {

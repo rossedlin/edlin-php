@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Objects;
+namespace Edlin\Objects;
 
-use Cryslo\Enums\Env;
+use Edlin\Enums\Env;
 
 /**
  * Created by PhpStorm.
@@ -13,7 +13,7 @@ use Cryslo\Enums\Env;
  * Time: 12:58
  *
  * Class JsonResponse
- * @package Cryslo\Objects
+ * @package Edlin\Objects
  */
 class JsonResponse
 {

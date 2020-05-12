@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Tests\Core;
+namespace Edlin\Tests\Core;
 
-use Cryslo\Core\Html;
+use Edlin\Core\Html;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,13 +14,13 @@ use PHPUnit\Framework\TestCase;
  * Time: 12:11
  *
  * Class HtmlTest
- * @package Cryslo\Tests\Core
- * @covers  \Cryslo\Core\Html
+ * @package Edlin\Tests\Core
+ * @covers  \Edlin\Core\Html
  */
 final class HtmlTest extends TestCase
 {
     /**
-     * @covers \Cryslo\Core\Html::setFormInputSelected
+     * @covers \Edlin\Core\Html::setFormInputSelected
      */
     public function testSetFormInputSelected()
     {
@@ -43,7 +43,7 @@ final class HtmlTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Html::setFormInputChecked
+     * @covers \Edlin\Core\Html::setFormInputChecked
      */
     public function testSetFormInputChecked()
     {

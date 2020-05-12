@@ -1,8 +1,8 @@
 <?php
 
-namespace Cryslo\Tests\Core;
+namespace Edlin\Tests\Core;
 
-use Cryslo\Core\SaltHash;
+use Edlin\Core\SaltHash;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,13 +14,13 @@ use PHPUnit\Framework\TestCase;
  * Time: 11:50
  *
  * Class SaltHashTest
- * @package Cryslo\Tests\Core
- * @covers  \Cryslo\Core\SaltHash
+ * @package Edlin\Tests\Core
+ * @covers  \Edlin\Core\SaltHash
  */
 final class SaltHashTest extends TestCase
 {
     /**
-     * @covers \Cryslo\Core\SaltHash::generateHash
+     * @covers \Edlin\Core\SaltHash::generateHash
      */
     public function testGenerateHash()
     {
@@ -47,7 +47,7 @@ final class SaltHashTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\SaltHash::generateSaltHash
+     * @covers \Edlin\Core\SaltHash::generateSaltHash
      * @throws \Exception
      */
     public function testGenerateSaltHash()
@@ -67,7 +67,7 @@ final class SaltHashTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\SaltHash::validateSaltHash
+     * @covers \Edlin\Core\SaltHash::validateSaltHash
      * @throws \Exception
      */
     public function testValidateSaltHash()

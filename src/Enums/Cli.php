@@ -1,6 +1,6 @@
 <?php
 
-namespace Cryslo\Enums;
+namespace Edlin\Enums;
 
 /**
  * Created by PhpStorm.
@@ -12,7 +12,7 @@ namespace Cryslo\Enums;
  * Time: 15:26
  *
  * Class Cli
- * @package Cryslo\Enums
+ * @package Edlin\Enums
  */
 class Cli
 {

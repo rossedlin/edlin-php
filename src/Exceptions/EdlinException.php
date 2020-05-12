@@ -1,18 +1,18 @@
 <?php
 
-namespace Cryslo\Exceptions;
+namespace Edlin\Exceptions;
 
 /**
  * Created by PhpStorm.
  *
- * User: rossedlin
+ * User: Ross Edlin
  * Contact: <contact@rossedlin.com>
  *
  * Date: 31/05/18
  * Time: 11:27
  */
 
-class CrysloException extends \Exception
+class EdlinException extends \Exception
 {
 
 }

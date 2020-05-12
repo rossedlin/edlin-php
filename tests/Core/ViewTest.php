@@ -1,9 +1,9 @@
 <?php
 
-namespace Cryslo\Tests\Core;
+namespace Edlin\Tests\Core;
 
 use PHPUnit\Framework\TestCase;
-use Cryslo\Core\View;
+use Edlin\Core\View;
 
 /**
  * Created by PhpStorm.
@@ -14,13 +14,13 @@ use Cryslo\Core\View;
  * Time: 15:03
  *
  * Class ViewTest
- * @package Cryslo\Tests\Core
- * @covers  \Cryslo\Core\View
+ * @package Edlin\Tests\Core
+ * @covers  \Edlin\Core\View
  */
 final class ViewTest extends TestCase
 {
     /**
-     * @covers \Cryslo\Core\View::getHtml
+     * @covers \Edlin\Core\View::getHtml
      * @throws \Exception
      */
     public function testHtml()
@@ -54,7 +54,7 @@ final class ViewTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\View::getCss
+     * @covers \Edlin\Core\View::getCss
      * @throws \Exception
      */
     public function testCss()

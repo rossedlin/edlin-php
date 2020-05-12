@@ -1,9 +1,9 @@
 <?php
 
-namespace Cryslo\Tests\Core;
+namespace Edlin\Tests\Core;
 
-use Cryslo\Core\Date;
-use Cryslo\Exceptions\CrysloException;
+use Edlin\Core\Date;
+use Edlin\Exceptions\EdlinException;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -15,17 +15,17 @@ use PHPUnit\Framework\TestCase;
  * Time: 10:46
  *
  * Class DateTest
- * @package Cryslo\Tests\Core
- * @covers  \Cryslo\Core\Date
+ * @package Edlin\Tests\Core
+ * @covers  \Edlin\Core\Date
  */
 final class DateTest extends TestCase
 {
     /**
      * Testing Adding Numbers
      *
-     * @covers \Cryslo\Core\Date::getYearsFrom
+     * @covers \Edlin\Core\Date::getYearsFrom
      *
-     * @throws CrysloException
+     * @throws EdlinException
      */
     public function testGetYearsFrom()
     {
@@ -71,15 +71,15 @@ final class DateTest extends TestCase
          */
         try {
             $this->assertEquals(9999999, Date::getYearsFrom(strtotime("2010-01-01"), strtotime("2000-01-01")));
-        } catch (CrysloException $e) {
+        } catch (EdlinException $e) {
             $this->assertTrue(true);
         }
     }
 
     /**
-     * \Cryslo\Core\Date::getYesterday
+     * \Edlin\Core\Date::getYesterday
      *
-     * @throws CrysloException
+     * @throws EdlinException
      */
     public function testGetYesterday()
     {
@@ -101,7 +101,7 @@ final class DateTest extends TestCase
     }
 
     /**
-     * @covers \Cryslo\Core\Date::isValidTimeStamp
+     * @covers \Edlin\Core\Date::isValidTimeStamp
      */
     public function testIsValidTimeStamp()
     {
