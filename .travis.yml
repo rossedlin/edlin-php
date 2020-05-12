@@ -5,11 +5,11 @@ php:
 before_script:
   - composer install
 
-#addons:
-#  sonarcloud:
-#    organization: "rossedlin-github" # the key of the org you chose at step #3
-#    token:
-#      secure: 7dc2c53ae2da930dfd1daff58139325db09de0b7 # encrypted value of your token
+addons:
+  sonarcloud:
+    organization: "rossedlin-github" # the key of the org you chose at step #3
+    token:
+      secure: c6c72767741b4a29592a88ac8356c20d36e170cd # encrypted value of your token
 script:
   # other script steps might be done before running the actual analysis
   - vendor/phpunit/phpunit/phpunit
