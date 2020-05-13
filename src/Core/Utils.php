@@ -5,19 +5,15 @@ namespace Edlin\Core;
 class Utils
 {
     /**
-     * @param $path
+     * @param $file
+     * @param $version
      *
      * @return string
      * @codeCoverageIgnore
      */
-    public static function addVersionToFile($path)
+    public static function addVersionToFile($file, $version)
     {
-        $file = $_SERVER['DOCUMENT_ROOT'] . $path;
-        if (file_exists($file)) {
-            return $path . '?v=' . filemtime($file);
-        }
-
-        return "";
+        return $file . '?v=' . $version;
     }
 
     /**
