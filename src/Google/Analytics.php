@@ -3,7 +3,6 @@
 namespace Edlin\Google;
 
 use Edlin\Enums\Time;
-use Edlin\Exceptions\EdlinException;
 use Edlin\Request;
 use Edlin\View;
 

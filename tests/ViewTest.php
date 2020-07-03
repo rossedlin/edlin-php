@@ -1,9 +1,9 @@
 <?php
 
-namespace Edlin\Tests\Core;
+namespace Edlin\Tests;
 
+use Edlin\View;
 use PHPUnit\Framework\TestCase;
-use Edlin\Core\View;
 
 /**
  * Created by PhpStorm.
@@ -28,7 +28,7 @@ final class ViewTest extends TestCase
         $this->assertTrue(View::htmlExists('Test/TestHtml'));
         $this->assertFalse(View::htmlExists('Test/Fail'));
 
-        $file = __DIR__ . '/../../view/Test/TestHtml.html';
+        $file = __DIR__ . '/../view/Test/TestHtml.html';
         $args = [
             'title'   => md5(time()),
             'content' => md5(time()),
@@ -62,7 +62,7 @@ final class ViewTest extends TestCase
         $this->assertTrue(View::cssExists('Test/TestCss'));
         $this->assertFalse(View::cssExists('Test/Fail'));
 
-        $file = __DIR__ . '/../../view/Test/TestCss.css';
+        $file = __DIR__ . '/../view/Test/TestCss.css';
         $args = [
             'font-size' => time() . 'px',
         ];

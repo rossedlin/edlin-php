@@ -1,8 +1,8 @@
 <?php
 
-namespace Edlin\Tests\Core;
+namespace Edlin\Tests;
 
-use Edlin\Core\Request;
+use Edlin\Request;
 use PHPUnit\Framework\TestCase;
 
 /**
