@@ -1,5 +1,5 @@
 <?php
-namespace Edlin\Core;
+namespace Edlin;
 
 /**
  * Created by PhpStorm.
