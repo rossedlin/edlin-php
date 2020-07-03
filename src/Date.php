@@ -1,6 +1,6 @@
 <?php
 
-namespace Edlin\Core;
+namespace Edlin;
 
 use Edlin\Exceptions\EdlinException;
 
@@ -25,6 +25,7 @@ class Date
      * @param int $to
      * @return int
      *
+     * @throws \Exception
      * @throws EdlinException
      */
     public static function getYearsFrom(int $from, int $to = null): int
