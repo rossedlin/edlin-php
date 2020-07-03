@@ -1,6 +1,6 @@
 <?php
 
-namespace Edlin\Core;
+namespace Edlin;
 
 class Utils
 {
