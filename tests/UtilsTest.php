@@ -1,9 +1,9 @@
 <?php
 
-namespace Edlin\Tests\Core;
+namespace Edlin\Tests;
 
+use Edlin\Utils;
 use PHPUnit\Framework\TestCase;
-use Edlin\Core\Utils;
 
 /**
  * Created by PhpStorm.

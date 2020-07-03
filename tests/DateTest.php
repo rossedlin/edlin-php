@@ -1,8 +1,8 @@
 <?php
 
-namespace Edlin\Tests\Core;
+namespace Edlin\Tests;
 
-use Edlin\Core\Date;
+use Edlin\Date;
 use Edlin\Exceptions\EdlinException;
 use PHPUnit\Framework\TestCase;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Edlin\Tests\Core;
+namespace Edlin\Tests;
 
+use Edlin\Xml;
 use PHPUnit\Framework\TestCase;
-use Edlin\Core\Xml;
 
 /**
  * Created by PhpStorm.
@@ -27,8 +27,8 @@ final class XmlTest extends TestCase
     public function testSimpleToArray()
     {
         $this->assertEquals(
-            require_once(__DIR__ . '/../../xml/test/simple.php'),
-            Xml::simpleToArray(file_get_contents(__DIR__ . '/../../xml/test/simple.xml'))
+            require_once(__DIR__ . '/../xml/test/simple.php'),
+            Xml::simpleToArray(file_get_contents(__DIR__ . '/../xml/test/simple.xml'))
         );
     }
 
@@ -40,8 +40,8 @@ final class XmlTest extends TestCase
     public function testSoapToArray()
     {
         $this->assertEquals(
-            require_once(__DIR__ . '/../../xml/test/soap.php'),
-            Xml::soapToArray(file_get_contents(__DIR__ . '/../../xml/test/soap.xml'))
+            require_once(__DIR__ . '/../xml/test/soap.php'),
+            Xml::soapToArray(file_get_contents(__DIR__ . '/../xml/test/soap.xml'))
         );
     }
 }
