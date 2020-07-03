@@ -15,12 +15,12 @@ use PHPUnit\Framework\TestCase;
  *
  * Class UtilsTest
  * @package Edlin\Tests\Core
- * @covers  \Edlin\Core\Utils
+ * @covers  \Edlin\Utils
  */
 final class UtilsTest extends TestCase
 {
     /**
-     * @covers \Edlin\Core\Utils::convertToArrayFromStdClass
+     * @covers \Edlin\Utils::convertToArrayFromStdClass
      */
     public function testConvertToArrayFromStdClass()
     {
@@ -49,7 +49,7 @@ final class UtilsTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Utils::snakeCaseToCamelCase
+     * @covers \Edlin\Utils::snakeCaseToCamelCase
      */
     public function testSnakeCaseToPascalCase()
     {
@@ -60,7 +60,7 @@ final class UtilsTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Utils::snakeCaseToCamelCase
+     * @covers \Edlin\Utils::snakeCaseToCamelCase
      */
     public function testSnakeCaseToCamelCase()
     {

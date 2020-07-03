@@ -15,12 +15,12 @@ use PHPUnit\Framework\TestCase;
  *
  * Class XmlTest
  * @package Edlin\Tests\Core
- * @covers  \Edlin\Core\Xml
+ * @covers  \Edlin\Xml
  */
 final class XmlTest extends TestCase
 {
     /**
-     * @covers \Edlin\Core\Xml::simpleToArray
+     * @covers \Edlin\Xml::simpleToArray
      *
      * @throws \Exception
      */
@@ -33,7 +33,7 @@ final class XmlTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Xml::soapToArray
+     * @covers \Edlin\Xml::soapToArray
      *
      * @throws \Exception
      */

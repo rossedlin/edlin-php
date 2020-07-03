@@ -15,12 +15,12 @@ use PHPUnit\Framework\TestCase;
  *
  * Class StrTest
  * @package Edlin\Tests\Core
- * @covers  \Edlin\Core\Str
+ * @covers  \Edlin\Str
  */
 final class StrTest extends TestCase
 {
     /**
-     * @covers \Edlin\Core\Str::cacheFriendlyKey
+     * @covers \Edlin\Str::cacheFriendlyKey
      */
     public function testCacheFriendlyKey()
     {
@@ -39,7 +39,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Str::codify
+     * @covers \Edlin\Str::codify
      */
     public function testCodify()
     {
@@ -55,7 +55,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Str::endsWith
+     * @covers \Edlin\Str::endsWith
      */
     public function testEndsWith()
     {
@@ -78,7 +78,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Str::getOnlyLetters
+     * @covers \Edlin\Str::getOnlyLetters
      */
     public function testGetOnlyLetters()
     {
@@ -112,7 +112,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Str::getOnlyNumbers
+     * @covers \Edlin\Str::getOnlyNumbers
      */
     public function testGetOnlyNumbers()
     {
@@ -151,7 +151,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Str::replaceMultipleWithOne
+     * @covers \Edlin\Str::replaceMultipleWithOne
      * @throws \Exception
      */
     public function testReplaceMultipleWithOne()
@@ -183,7 +183,7 @@ final class StrTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Str::startsWith
+     * @covers \Edlin\Str::startsWith
      */
     public function testStartsWith()
     {
