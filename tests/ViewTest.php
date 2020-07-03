@@ -15,12 +15,12 @@ use PHPUnit\Framework\TestCase;
  *
  * Class ViewTest
  * @package Edlin\Tests\Core
- * @covers  \Edlin\Core\View
+ * @covers  \Edlin\View
  */
 final class ViewTest extends TestCase
 {
     /**
-     * @covers \Edlin\Core\View::getHtml
+     * @covers \Edlin\View::getHtml
      * @throws \Exception
      */
     public function testHtml()
@@ -54,7 +54,7 @@ final class ViewTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\View::getCss
+     * @covers \Edlin\View::getCss
      * @throws \Exception
      */
     public function testCss()

@@ -15,14 +15,14 @@ use PHPUnit\Framework\TestCase;
  *
  * Class MathTest
  * @package Edlin\Tests\Core
- * @covers  \Edlin\Core\Math
+ * @covers  \Edlin\Math
  */
 final class MathTest extends TestCase
 {
     /**
      * Testing Adding Numbers
      *
-     * @covers \Edlin\Core\Math::add
+     * @covers \Edlin\Math::add
      */
     public function testAdd()
     {
@@ -33,7 +33,7 @@ final class MathTest extends TestCase
     /**
      * Testing Even Numbers
      *
-     * @covers \Edlin\Core\Math::isEven
+     * @covers \Edlin\Math::isEven
      */
     public function testEven()
     {
@@ -56,7 +56,7 @@ final class MathTest extends TestCase
     /**
      * Testing odd Numbers
      *
-     * @covers \Edlin\Core\Math::isOdd
+     * @covers \Edlin\Math::isOdd
      */
     public function testOdd()
     {

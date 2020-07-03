@@ -16,14 +16,14 @@ use PHPUnit\Framework\TestCase;
  *
  * Class DateTest
  * @package Edlin\Tests\Core
- * @covers  \Edlin\Core\Date
+ * @covers  \Edlin\Date
  */
 final class DateTest extends TestCase
 {
     /**
      * Testing Adding Numbers
      *
-     * @covers \Edlin\Core\Date::getYearsFrom
+     * @covers \Edlin\Date::getYearsFrom
      *
      * @throws EdlinException
      */
@@ -101,7 +101,7 @@ final class DateTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Date::isValidTimeStamp
+     * @covers \Edlin\Date::isValidTimeStamp
      */
     public function testIsValidTimeStamp()
     {

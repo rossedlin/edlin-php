@@ -15,14 +15,14 @@ use PHPUnit\Framework\TestCase;
  *
  * Class RequestTest
  * @package Edlin\Tests\Core
- * @covers  \Edlin\Core\Request
+ * @covers  \Edlin\Request
  */
 final class RequestTest extends TestCase
 {
     /**
      * Testing Array
      *
-     * @covers \Edlin\Core\Request::getFromArray
+     * @covers \Edlin\Request::getFromArray
      */
     public function testGetFromArray()
     {
@@ -68,7 +68,7 @@ final class RequestTest extends TestCase
     /**
      * Testing Post
      *
-     * @covers \Edlin\Core\Request::isPost
+     * @covers \Edlin\Request::isPost
      */
     public function testPost()
     {
@@ -117,7 +117,7 @@ final class RequestTest extends TestCase
     /**
      * Testing Get
      *
-     * @covers \Edlin\Core\Request::get
+     * @covers \Edlin\Request::get
      */
     public function testGet()
     {
@@ -156,7 +156,7 @@ final class RequestTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Request::isPost
+     * @covers \Edlin\Request::isPost
      */
     public function testIsPost()
     {
@@ -174,7 +174,7 @@ final class RequestTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Request::isValidType
+     * @covers \Edlin\Request::isValidType
      */
     public function testIsValidType()
     {
@@ -185,7 +185,7 @@ final class RequestTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Request::isValidIp
+     * @covers \Edlin\Request::isValidIp
      */
     public function testIsValidIp()
     {

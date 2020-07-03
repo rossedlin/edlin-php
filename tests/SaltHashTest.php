@@ -15,12 +15,12 @@ use PHPUnit\Framework\TestCase;
  *
  * Class SaltHashTest
  * @package Edlin\Tests\Core
- * @covers  \Edlin\Core\SaltHash
+ * @covers  \Edlin\SaltHash
  */
 final class SaltHashTest extends TestCase
 {
     /**
-     * @covers \Edlin\Core\SaltHash::generateHash
+     * @covers \Edlin\SaltHash::generateHash
      */
     public function testGenerateHash()
     {
@@ -47,7 +47,7 @@ final class SaltHashTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\SaltHash::generateSaltHash
+     * @covers \Edlin\SaltHash::generateSaltHash
      * @throws \Exception
      */
     public function testGenerateSaltHash()
@@ -67,7 +67,7 @@ final class SaltHashTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\SaltHash::validateSaltHash
+     * @covers \Edlin\SaltHash::validateSaltHash
      * @throws \Exception
      */
     public function testValidateSaltHash()

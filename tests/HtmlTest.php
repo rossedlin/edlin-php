@@ -15,12 +15,12 @@ use PHPUnit\Framework\TestCase;
  *
  * Class HtmlTest
  * @package Edlin\Tests\Core
- * @covers  \Edlin\Core\Html
+ * @covers  \Edlin\Html
  */
 final class HtmlTest extends TestCase
 {
     /**
-     * @covers \Edlin\Core\Html::setFormInputSelected
+     * @covers \Edlin\Html::setFormInputSelected
      */
     public function testSetFormInputSelected()
     {
@@ -43,7 +43,7 @@ final class HtmlTest extends TestCase
     }
 
     /**
-     * @covers \Edlin\Core\Html::setFormInputChecked
+     * @covers \Edlin\Html::setFormInputChecked
      */
     public function testSetFormInputChecked()
     {
