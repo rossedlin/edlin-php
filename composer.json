@@ -1,6 +1,6 @@
 {
   "name": "rossedlin/edlin-php",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "license": "MIT",
   "keywords": [
     "php",
@@ -8,7 +8,7 @@
     "edlin"
   ],
   "dist": {
-    "url": "https://github.com/rossedlin/edlin-php/archive/v3.1.3.zip",
+    "url": "https://github.com/rossedlin/edlin-php/archive/v3.1.4.zip",
     "type": "zip"
   },
   "require": {
