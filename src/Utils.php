@@ -59,6 +59,7 @@ class Utils
     public static function snakeCaseToCamelCase($str)
     {
         $func = create_function('$c', 'return strtoupper($c[1]);');
+
         return preg_replace_callback('/_([a-z])/', $func, $str);
     }
 }
