@@ -17,6 +17,7 @@ class Str
 {
     /**
      * @param $key
+     *
      * @return string
      */
     public static function cacheFriendlyKey($key)
@@ -75,6 +76,20 @@ class Str
     public static function getOnlyNumbersWithPlus($str)
     {
         return preg_replace('/[^+0-9]+/', '', $str);
+    }
+
+    /**
+     * @param $str
+     *
+     * @return bool
+     */
+    public static function hasOnlyNumbers($str): bool
+    {
+        if (preg_match('/[^0-9]+/', $str)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
