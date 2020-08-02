@@ -100,7 +100,10 @@ class Str
      */
     public static function startsWith($haystack, $needle)
     {
-        // search backwards starting from haystack length characters from the end
-        return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
+        if (substr($haystack, 0, 1) === $needle) {
+            return true;
+        }
+
+        return false;
     }
 }
