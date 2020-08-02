@@ -86,10 +86,10 @@ class Str
     public static function hasOnlyNumbers($str): bool
     {
         if (preg_match('/[^0-9]+/', $str)) {
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     /**
