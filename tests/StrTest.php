@@ -151,6 +151,41 @@ final class StrTest extends TestCase
     }
 
     /**
+     * @covers \Edlin\Str::hasOnlyNumbers
+     */
+    public function testHasOnlyNumbers()
+    {
+        /**
+         * Test correct values
+         */
+        $correct = [
+            '123456789',
+            '441233800779111',
+            "447393678067",
+        ];
+
+        foreach ($correct as $test) {
+            $this->assertTrue(Str::hasOnlyNumbers($test));
+        }
+
+        /**
+         * Test fail values
+         */
+        $fail = [
+            '+123456789',
+            '+441233800779111',
+            '44893t3448',
+            'g45y2h252',
+            'wegherhwer',
+            '4489.[45y.[453t3448',
+        ];
+
+        foreach ($fail as $test) {
+            $this->assertFalse(Str::hasOnlyNumbers($test));
+        }
+    }
+
+    /**
      * @covers \Edlin\Str::replaceMultipleWithOne
      * @throws \Exception
      */
