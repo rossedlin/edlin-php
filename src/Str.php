@@ -69,6 +69,16 @@ class Str
 
     /**
      * @param string $str
+     *
+     * @return string
+     */
+    public static function getOnlyNumbersWithPlus($str)
+    {
+        return preg_replace('/[^+0-9]+/', '', $str);
+    }
+
+    /**
+     * @param string $str
      * @param string $multiple
      * @param string $one
      *
