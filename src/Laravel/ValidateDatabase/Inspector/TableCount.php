@@ -10,12 +10,12 @@ namespace Edlin\Laravel\ValidateDatabase\Inspector;
 
 use Edlin\Laravel\ValidateDatabase;
 
-class Database
+class TableCount
 {
     /**
      * @param ValidateDatabase $validator
      */
-    public static function count(ValidateDatabase $validator)
+    public static function run(ValidateDatabase $validator)
     {
         if (count($validator->getDatabaseDecoded()) !== count($validator->getJsonDecoded())) {
             $validator->addError(
