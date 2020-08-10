@@ -5,6 +5,7 @@ namespace Edlin\Laravel;
 use Edlin\Enums\Cli;
 use Edlin\Exceptions\EdlinException;
 use Edlin\Laravel\ValidateDatabase\Inspector\TableCount;
+use Edlin\Laravel\ValidateDatabase\Inspector\TableIntegrity;
 use Edlin\Laravel\ValidateDatabase\Inspector\TableName;
 use Edlin\Laravel\ValidateDatabase\Tables;
 use Edlin\Laravel\ValidateDatabase\Migration;
@@ -125,6 +126,7 @@ class ValidateDatabase
          */
         TableCount::run($this);
         TableName::run($this);
+        TableIntegrity::run($this);
 
         foreach ($this->errors as $error) {
             prt($error, Cli::RED);
@@ -186,5 +188,15 @@ class ValidateDatabase
     public function addError(string $message)
     {
         $this->errors[] = $message;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function addErrorIfString($message)
+    {
+        if (is_string($message)) {
+            $this->errors[] = $message;
+        }
     }
 }
