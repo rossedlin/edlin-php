@@ -3,6 +3,7 @@
 namespace Edlin\Laravel\ValidateDatabase\Inspector;
 
 
+use Edlin\Enums\Cli;
 use Edlin\Laravel\ValidateDatabase;
 
 /**
@@ -28,30 +29,35 @@ class TableIntegrity
          */
         foreach ($databaseDecoded as $tableName => $tableStructure) {
 
-            /**
-             * Overview check of table
-             */
-            if (isset($jsonDecoded[$tableName]) && $tableStructure != $jsonDecoded[$tableName]) {
-
-                $jsonStructure = $jsonDecoded[$tableName];
-
-                $validator->addError("Table integrity check failed for: " . $tableName);
-
+            try {
                 /**
-                 * Detailed check of table
+                 * Overview check of table
                  */
-                $validator->addErrorIfString(self::checkStandardClass($jsonStructure, $tableStructure));
-                $validator->addErrorIfString(self::checkColumnsIsSet($jsonStructure, $tableStructure));
-                $validator->addErrorIfString(self::checkColumnsCount($jsonStructure, $tableStructure));
+                if (isset($jsonDecoded[$tableName]) && $tableStructure != $jsonDecoded[$tableName]) {
 
-                /**
-                 * Detailed check of columns
-                 */
-                foreach ($jsonStructure->columns as $jsonKey => $jsonColumn) {
-                    $validator->addErrorIfString(
-                        self::checkColumnDetails($jsonColumn, $tableStructure->columns[$jsonKey])
-                    );
+                    $jsonStructure = $jsonDecoded[$tableName];
+
+                    $validator->addError("Table integrity check failed for: " . $tableName);
+
+                    /**
+                     * Detailed check of table
+                     */
+                    $validator->addErrorIfString(self::checkStandardClass($jsonStructure, $tableStructure));
+                    $validator->addErrorIfString(self::checkColumnsIsSet($jsonStructure, $tableStructure));
+                    $validator->addErrorIfString(self::checkColumnsCount($jsonStructure, $tableStructure));
+
+                    /**
+                     * Detailed check of columns
+                     */
+                    foreach ($jsonStructure->columns as $jsonKey => $jsonColumn) {
+                        $validator->addErrorIfString(
+                            self::checkColumnDetails($jsonColumn, $tableStructure->columns[$jsonKey])
+                        );
+                    }
                 }
+            } catch (\Throwable $e) {
+                prt($tableName, Cli::RED);
+                prt($e->getMessage(), Cli::BOLD_RED);
             }
         }
     }
