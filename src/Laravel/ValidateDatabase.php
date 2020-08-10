@@ -4,7 +4,7 @@ namespace Edlin\Laravel;
 
 use Edlin\Enums\Cli;
 use Edlin\Exceptions\EdlinException;
-use Edlin\Laravel\ValidateDatabase\Inspector\Database;
+use Edlin\Laravel\ValidateDatabase\Inspector\TableCount;
 use Edlin\Laravel\ValidateDatabase\Tables;
 use Edlin\Laravel\ValidateDatabase\Migration;
 
@@ -122,7 +122,7 @@ class ValidateDatabase
         /**
          * Table Count
          */
-        Database::count($this);
+        TableCount::run($this);
 
         foreach ($this->errors as $error) {
             prt($error, Cli::RED);
