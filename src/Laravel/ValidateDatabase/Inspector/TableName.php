@@ -12,7 +12,7 @@ use Edlin\Laravel\ValidateDatabase;
  * Class TableNameCheck
  * @package Edlin\Laravel\ValidateDatabase\Inspector
  */
-class TableNameCheck
+class TableName
 {
     /**
      * @param ValidateDatabase $validator
