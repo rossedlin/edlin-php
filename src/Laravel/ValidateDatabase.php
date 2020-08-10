@@ -13,8 +13,6 @@ use Edlin\Laravel\ValidateDatabase\Migration;
  * Date: 2020-08-10
  * Time: 12:33
  *
- *          class DB extends \Illuminate\Support\Facades\DB {}
- *
  * Class ValidateDatabase
  * @package Edlin\Laravel
  */
@@ -185,6 +183,6 @@ class ValidateDatabase
      */
     public function addError(string $message)
     {
-        $this->errors[]  = $message;
+        $this->errors[] = $message;
     }
 }
