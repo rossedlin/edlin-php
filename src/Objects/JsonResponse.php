@@ -96,7 +96,7 @@ class JsonResponse
     /**
      * @param string $error
      */
-    public function addErrors(string $error): void
+    public function addError(string $error): void
     {
         $this->errors[] = $error;
     }
