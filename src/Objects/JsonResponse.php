@@ -7,7 +7,7 @@ use Edlin\Enums\Env;
 /**
  * Created by PhpStorm.
  *
- * @author Ross Edlin <contact@rossedlin.com>
+ * @author  Ross Edlin <contact@rossedlin.com>
  *
  * Date: 30/08/18
  * Time: 12:58
@@ -95,10 +95,15 @@ class JsonResponse
 
     /**
      * @param string $error
+     * @param null   $key
      */
-    public function addError(string $error): void
+    public function addError(string $error, $key = null): void
     {
-        $this->errors[] = $error;
+        if ($key) {
+            $this->errors[$key] = $error;
+        } else {
+            $this->errors[] = $error;
+        }
     }
 
     /**
@@ -118,6 +123,7 @@ class JsonResponse
                 'success' => $this->success,
                 'app_env' => getenv(Env::APP_ENV),
                 'debug'   => $this->debug,
+                'errors'  => $this->errors,
                 'payload' => $this->payload,
             ];
         } else {
