@@ -32,6 +32,7 @@ final class JsonResponseFactoryTest extends TestCase
             [
                 'success' => false,
                 'app_env' => getenv(self::APP_ENV),
+                'errors'  => [],
                 'payload' => [],
                 'debug'   => [],
             ],
@@ -48,6 +49,7 @@ final class JsonResponseFactoryTest extends TestCase
             [
                 'success' => false,
                 'app_env' => getenv(self::APP_ENV),
+                'errors'  => [],
                 'payload' => [],
                 'debug'   => self::DEBUG,
             ],
@@ -64,6 +66,7 @@ final class JsonResponseFactoryTest extends TestCase
             [
                 'success' => true,
                 'app_env' => getenv(self::APP_ENV),
+                'errors'  => [],
                 'payload' => [],
                 'debug'   => [],
             ],
@@ -80,6 +83,7 @@ final class JsonResponseFactoryTest extends TestCase
             [
                 'success' => true,
                 'app_env' => getenv(self::APP_ENV),
+                'errors'  => [],
                 'payload' => self::PAYLOAD,
                 'debug'   => [],
             ],
