@@ -23,6 +23,8 @@ class JsonResponse
 
     private $payload = [];
 
+    private $errors = [];
+
     /**
      * @return bool
      */
@@ -69,6 +71,34 @@ class JsonResponse
     public function setPayload(array $payload)
     {
         $this->payload = $payload;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasErrors(): bool
+    {
+        if (empty($this->errors)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @return array
+     */
+    public function getErrors(): array
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param string $error
+     */
+    public function addErrors(string $error): void
+    {
+        $this->errors[] = $error;
     }
 
     /**
