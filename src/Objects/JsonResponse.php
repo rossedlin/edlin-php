@@ -133,6 +133,7 @@ class JsonResponse
              */
             return [
                 'success' => $this->success,
+                'errors'  => $this->errors,
                 'payload' => $this->payload,
             ];
         }
