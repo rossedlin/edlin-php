@@ -27,4 +27,22 @@ class Arr
 
         return $result;
     }
+
+    /**
+     * Returns a array result if set, else the default
+     *
+     * @param array $array
+     * @param       $key
+     * @param bool  $default
+     *
+     * @return mixed
+     */
+    public static function get(array &$array, $key, $default = false)
+    {
+        if (isset($array[$key])) {
+            return $array[$key];
+        }
+
+        return $default;
+    }
 }
