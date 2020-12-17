@@ -145,7 +145,7 @@ class ValidateDatabase
             throw new EdlinException("File already exists: " . $this->migrationName);
         }
 
-        file_put_contents($this->jsonFile, $this->jsonStructure);
+        file_put_contents($this->jsonFile, $this->databaseStructure);
 
         if ($this->exists()) {
             return true;
