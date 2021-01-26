@@ -266,6 +266,12 @@ final class StrTest extends TestCase
          */
         $this->assertEquals('biuvwevw', Str::getBefore($str, '1'));
         $this->assertEquals('biuvwevw1vvwnijvw', Str::getBefore($str, '2'));
+
+        /**
+         * WordPress Test
+         */
+        $str = file_get_contents(__DIR__ . '/StrTest/wordpress.html');
+        $this->assertEquals(file_get_contents(__DIR__ . '/StrTest/wordpress_before.html'), Str::getBefore($str, '<!-- /wp:heading -->'));
     }
 
     /**
