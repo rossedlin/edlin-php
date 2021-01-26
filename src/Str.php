@@ -128,4 +128,24 @@ class Str
         // search backwards starting from haystack length characters from the end
         return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
     }
+
+    /**
+     * @param $string
+     * @param $start
+     * @param $end
+     *
+     * @return bool|string
+     */
+    public static function getBetween($string, $start, $end)
+    {
+        $string = ' ' . $string;
+        $ini    = strpos($string, $start);
+        if ($ini == 0) {
+            return '';
+        }
+        $ini += strlen($start);
+        $len = strpos($string, $end, $ini) - $ini;
+
+        return substr($string, $ini, $len);
+    }
 }
