@@ -148,4 +148,26 @@ class Str
 
         return substr($string, $ini, $len);
     }
+
+    /**
+     * @param $string
+     * @param $before
+     *
+     * @return bool|string
+     */
+    public static function getBefore($string, $before)
+    {
+        return substr($string, 0, strpos($string, $before));
+    }
+
+    /**
+     * @param $string
+     * @param $after
+     *
+     * @return bool|string
+     */
+    public static function getAfter($string, $after)
+    {
+        return substr($string, strpos($string, $after) + 1, strlen($string));
+    }
 }
