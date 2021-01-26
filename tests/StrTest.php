@@ -280,5 +280,11 @@ final class StrTest extends TestCase
          */
         $this->assertEquals('vvwnijvw2venwjvkeo', Str::getAfter($str, '1'));
         $this->assertEquals('venwjvkeo', Str::getAfter($str, '2'));
+
+        /**
+         * WordPress Test
+         */
+        $str = file_get_contents(__DIR__ . '/StrTest/wordpress.html');
+        $this->assertEquals(file_get_contents(__DIR__ . '/StrTest/wordpress_after.html'), Str::getAfter($str, '<!-- /wp:heading -->'));
     }
 }
