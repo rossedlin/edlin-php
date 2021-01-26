@@ -253,4 +253,32 @@ final class StrTest extends TestCase
          */
         $this->assertEquals('vvwnijvw', Str::getBetween($str, '1', '2'));
     }
+
+    /**
+     * @covers \Edlin\Str::getBefore
+     */
+    public function testGetBefore()
+    {
+        $str = 'biuvwevw1vvwnijvw2venwjvkeo';
+
+        /**
+         * Equals
+         */
+        $this->assertEquals('biuvwevw', Str::getBefore($str, '1'));
+        $this->assertEquals('biuvwevw1vvwnijvw', Str::getBefore($str, '2'));
+    }
+
+    /**
+     * @covers \Edlin\Str::getAfter
+     */
+    public function testGetAfter()
+    {
+        $str = 'biuvwevw1vvwnijvw2venwjvkeo';
+
+        /**
+         * Equals
+         */
+        $this->assertEquals('vvwnijvw2venwjvkeo', Str::getAfter($str, '1'));
+        $this->assertEquals('venwjvkeo', Str::getAfter($str, '2'));
+    }
 }
