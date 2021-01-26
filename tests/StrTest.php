@@ -240,4 +240,17 @@ final class StrTest extends TestCase
         $this->assertFalse(Str::startsWith($str, '98')); //Check reverse
         $this->assertFalse(Str::startsWith($str, '98 ')); //Check reverse + space
     }
+
+    /**
+     * @covers \Edlin\Str::getBetween
+     */
+    public function testGetBetween()
+    {
+        $str = 'biuvwevw1vvwnijvw2venwjvkeo';
+
+        /**
+         * Equals
+         */
+        $this->assertEquals('vvwnijvw', Str::getBetween($str, '1', '2'));
+    }
 }
