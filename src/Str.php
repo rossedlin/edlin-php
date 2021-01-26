@@ -168,6 +168,6 @@ class Str
      */
     public static function getAfter($string, $after)
     {
-        return substr($string, strpos($string, $after) + 1, strlen($string));
+        return substr($string, strpos($string, $after) + strlen($after), strlen($string));
     }
 }
