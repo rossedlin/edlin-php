@@ -3,6 +3,7 @@
 namespace Edlin;
 
 use Edlin\Exceptions\EdlinException;
+use Exception;
 
 /**
  * Created by PhpStorm.
@@ -21,12 +22,13 @@ class Date
     /**
      * Returns the number of Years from a specific Time Stamp
      *
-     * @param int $from
-     * @param int $to
+     * @param int      $from
+     * @param int|null $to
+     *
      * @return int
      *
-     * @throws \Exception
      * @throws EdlinException
+     * @throws Exception
      */
     public static function getYearsFrom(int $from, int $to = null): int
     {
@@ -48,11 +50,10 @@ class Date
     }
 
     /**
-     * @param int $today - Timestamp of today
+     * @param int|null $today - Timestamp of today
      *
      * @return int
      *
-     * @throws EdlinException
      */
     public static function getYesterday(int $today = null): int
     {
@@ -67,13 +68,27 @@ class Date
     }
 
     /**
-     * @param $timestamp
+     * @param int $timestamp
      *
      * @return bool
      */
     public static function isValidTimeStamp(int $timestamp): bool
     {
         if ($timestamp >= 0 && $timestamp <= PHP_INT_MAX) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param string $date
+     *
+     * @return bool
+     */
+    public static function isValidYYYYMMDD(string $date): bool
+    {
+        if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $date)) {
             return true;
         }
 
