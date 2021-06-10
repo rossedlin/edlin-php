@@ -108,4 +108,22 @@ final class DateTest extends TestCase
         $this->assertTrue(Date::isValidTimeStamp(1527811199));
         $this->assertFalse(Date::isValidTimeStamp(-1));
     }
+
+    /**
+     * @covers \Edlin\Date::isValidYYYYMMDD
+     */
+    public function testIsValidYYYYMMDD()
+    {
+        $this->assertTrue(Date::isValidYYYYMMDD('1990-01-01'));
+
+        /**
+         * Failures
+         */
+        $this->assertFalse(Date::isValidYYYYMMDD(' 1990-01-01'));
+        $this->assertFalse(Date::isValidYYYYMMDD('1990-01-01 '));
+        $this->assertFalse(Date::isValidYYYYMMDD('90-01-01'));
+        $this->assertFalse(Date::isValidYYYYMMDD('1990-01-1'));
+        $this->assertFalse(Date::isValidYYYYMMDD('1990-1-01'));
+        $this->assertFalse(Date::isValidYYYYMMDD('1990-1-1'));
+    }
 }
