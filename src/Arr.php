@@ -45,4 +45,52 @@ class Arr
 
         return $default;
     }
+
+    /**
+     * @param array $a
+     * @param array $b
+     *
+     * @return array
+     */
+    public static function compare(array $a, array $b): array
+    {
+        $diff = [];
+
+        foreach ($a as $aKey => $aValue) {
+
+            /**
+             * Check exists
+             */
+            if (!isset($b[$aKey])) {
+                $diff[$aKey] = null;
+                continue;
+            }
+
+            /**
+             * Check Int
+             */
+            if (is_int($aValue) && $aValue !== $b[$aKey]) {
+                $diff[$aKey] = $aValue;
+            }
+
+            /**
+             * Check String
+             */
+            if (is_string($aValue) && $aValue !== $b[$aKey]) {
+                $diff[$aKey] = $aValue;
+            }
+
+            /**
+             * Check Array
+             */
+            if (is_array($aValue)) {
+                $r = self::compare($aValue, $b[$aKey]);
+                if (!empty($r)) {
+                    $diff[$aKey] = $r;
+                }
+            }
+        }
+
+        return $diff;
+    }
 }
