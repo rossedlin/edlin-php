@@ -54,6 +54,8 @@ class Md5
             if ($file->isFile()) {
                 if ($method === 'php') {
                     $contents['files'][$file->getFilename()] = md5(file_get_contents($file->getRealPath()));
+                } elseif ($method === 'system_md5') {
+                    $contents['files'][$file->getFilename()] = substr(system("md5 " . $file->getRealPath()), 0, 32);
                 } elseif ($method === 'system_md5sum') {
                     $contents['files'][$file->getFilename()] = substr(system("md5sum " . $file->getRealPath()), 0, 32);
                 }
