@@ -22,11 +22,12 @@ class Md5
     }
 
     /**
-     * @param $path
+     * @param string $path
+     * @param string $method
      *
      * @return array
      */
-    public static function directory($path): array
+    public static function directory(string $path, string $method = 'php'): array
     {
         $contents = [
             'files'       => [],
@@ -51,7 +52,11 @@ class Md5
             }
 
             if ($file->isFile()) {
-                $contents['files'][$file->getFilename()] = md5(file_get_contents($file->getRealPath()));
+                if ($method === 'php') {
+                    $contents['files'][$file->getFilename()] = md5(file_get_contents($file->getRealPath()));
+                } elseif ($method === 'system_md5sum') {
+                    $contents['files'][$file->getFilename()] = substr(system("md5sum " . $file->getRealPath()), 0, 32);
+                }
             }
         }
 

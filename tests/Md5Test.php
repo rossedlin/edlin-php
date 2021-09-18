@@ -24,7 +24,7 @@ final class Md5Test extends TestCase
      */
     public function testDirectory()
     {
-        $this->assertEquals([
+        $expected = [
             'files'       => [
                 'fileone.txt' => '2de62a90cdf853a8653407223ae3e565',
             ],
@@ -52,6 +52,10 @@ final class Md5Test extends TestCase
                     ],
                 ],
             ],
-        ], Md5::directory(__DIR__ . '/Md5Test'));
+        ];
+
+        $this->assertEquals($expected, Md5::directory(__DIR__ . '/Md5Test'));
+        $this->assertEquals($expected, Md5::directory(__DIR__ . '/Md5Test', 'php'));
+        $this->assertEquals($expected, Md5::directory(__DIR__ . '/Md5Test', 'system_md5sum'));
     }
 }
