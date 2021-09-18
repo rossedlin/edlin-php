@@ -145,7 +145,7 @@ class Directory
             }
 
             if ($file->isFile()) {
-                $contents['files'][] = $file->getFilename();
+                $contents['files'][$file->getFilename()] = [];
             }
         }
 

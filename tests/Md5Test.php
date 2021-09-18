@@ -3,6 +3,7 @@
 namespace Edlin\Tests;
 
 use Edlin\Directory;
+use Edlin\Md5;
 use Exception;
 use PHPUnit\Framework\TestCase;
 
@@ -14,24 +15,23 @@ use PHPUnit\Framework\TestCase;
  * Date: 18/09/2021
  * Time: 20:18
  *
- * Class DirectoryTest
- * @covers  \Edlin\Directory
+ * @covers  \Edlin\Md5
  */
-final class DirectoryTest extends TestCase
+final class Md5Test extends TestCase
 {
     /**
-     * @covers \Edlin\Directory::getContents
+     * @covers \Edlin\Md5::directory
      */
-    public function testGetContents()
+    public function testDirectory()
     {
         $this->assertEquals([
             'files'       => [
-                'fileone.txt' => [],
+                'fileone.txt' => '534ce597146330a289981d255c6a35e1',
             ],
             'directories' => [
                 'dirone' => [
                     'files'       => [
-                        'filetwo.txt' => [],
+                        'filetwo.txt' => 'ed4b9ec118cd32262da1a0c5d940c28e',
                     ],
                     'directories' => [
                         'dirthree' => [
@@ -40,7 +40,7 @@ final class DirectoryTest extends TestCase
                         ],
                         'dirtwo'   => [
                             'files'       => [
-                                'filethree.txt' => [],
+                                'filethree.txt' => 'a1a40f84da2ac4d2c40d9413458dcf3d',
                             ],
                             'directories' => [
                                 'dirfour' => [
@@ -52,6 +52,6 @@ final class DirectoryTest extends TestCase
                     ],
                 ],
             ],
-        ], Directory::getContents(__DIR__ . '/DirectoryTest'));
+        ], Md5::directory(__DIR__ . '/Md5Test'));
     }
 }
