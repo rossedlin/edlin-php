@@ -17,7 +17,7 @@ class Cli
      *
      * @return mixed|null
      */
-    public static function get(string $key, $default = null)
+    public static function getArgumentVariable(string $key, $default = null)
     {
         foreach (Request::server('argv', []) as $i => $item) {
 
