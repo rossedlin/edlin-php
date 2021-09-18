@@ -26,12 +26,12 @@ final class Md5Test extends TestCase
     {
         $this->assertEquals([
             'files'       => [
-                'fileone.txt' => '534ce597146330a289981d255c6a35e1',
+                'fileone.txt' => '2de62a90cdf853a8653407223ae3e565',
             ],
             'directories' => [
                 'dirone' => [
                     'files'       => [
-                        'filetwo.txt' => 'ed4b9ec118cd32262da1a0c5d940c28e',
+                        'filetwo.txt' => 'a5f30764b2b1a5dce89d760ca391e024',
                     ],
                     'directories' => [
                         'dirthree' => [
@@ -40,7 +40,7 @@ final class Md5Test extends TestCase
                         ],
                         'dirtwo'   => [
                             'files'       => [
-                                'filethree.txt' => 'a1a40f84da2ac4d2c40d9413458dcf3d',
+                                'filethree.txt' => 'e6817a2e8231c241ea2509670c941a96',
                             ],
                             'directories' => [
                                 'dirfour' => [

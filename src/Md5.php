@@ -51,7 +51,7 @@ class Md5
             }
 
             if ($file->isFile()) {
-                $contents['files'][$file->getFilename()] = md5($file->getRealPath());
+                $contents['files'][$file->getFilename()] = md5(file_get_contents($file->getRealPath()));
             }
         }
 
