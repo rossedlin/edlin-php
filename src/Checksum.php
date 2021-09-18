@@ -8,9 +8,15 @@
 namespace Edlin;
 
 use DirectoryIterator;
+use Edlin\Exceptions\ChecksumException;
 
 class Checksum
 {
+    const CONTENTS = [
+        'files'       => [],
+        'directories' => [],
+    ];
+
     /**
      * @param $path
      *
@@ -29,11 +35,7 @@ class Checksum
      */
     public static function directory(string $path, array $args = []): array
     {
-        $contents = [
-            'files'       => [],
-            'directories' => [],
-        ];
-
+        $contents = self::CONTENTS;
         $iterator = new DirectoryIterator($path);
         foreach ($iterator as $file) {
 
@@ -79,5 +81,25 @@ class Checksum
         }
 
         return $contents;
+    }
+
+    /**
+     * @param string $remoteJson
+     * @param string $path
+     * @param array  $args
+     *
+     * @return bool
+     * @throws ChecksumException
+     */
+    public static function validateDirectory(string $remoteJson, string $path, array $args = []): bool
+    {
+        $remote = json_decode($remoteJson, JSON_OBJECT_AS_ARRAY);
+        $local  = self::directory($path, $args);
+
+        if ($remote === $local) {
+            return true;
+        }
+
+        throw new ChecksumException('Directory not valid.');
     }
 }
