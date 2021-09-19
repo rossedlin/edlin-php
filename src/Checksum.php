@@ -16,6 +16,10 @@ class Checksum
         'directories' => [],
     ];
 
+    const IGNORE_FILES = [
+        '.DS_Store',
+    ];
+
     /**
      * @param $path
      *
@@ -42,6 +46,13 @@ class Checksum
              * Skip any dotted paths
              */
             if ($file->isDot()) {
+                continue;
+            }
+
+            /**
+             * Skip ignored files
+             */
+            if (in_array($file->getFilename(), self::IGNORE_FILES)) {
                 continue;
             }
 
