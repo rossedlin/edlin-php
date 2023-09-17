@@ -17,4 +17,10 @@ namespace Edlin\Enums;
 class Env
 {
     const APP_ENV = 'APP_ENV';
+
+    const LOCAL       = 'local';
+    const DEVELOPMENT = 'development';
+    const TEST        = 'test';
+    const STAGING     = 'staging';
+    const PRODUCTION  = 'production';
 }

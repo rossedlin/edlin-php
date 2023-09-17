@@ -1,18 +1,14 @@
 {
   "name": "rossedlin/edlin-php",
-  "version": "3.2.23",
+  "version": "4.0.0",
   "license": "MIT",
   "keywords": [
     "php",
     "ross",
     "edlin"
   ],
-  "dist": {
-    "url": "https://github.com/rossedlin/edlin-php/archive/v3.2.23.zip",
-    "type": "zip"
-  },
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.4",
     "ext-json": "*",
     "ext-openssl": "*",
     "ext-simplexml": "*",
