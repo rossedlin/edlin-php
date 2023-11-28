@@ -19,6 +19,9 @@ use Exception;
  */
 class Date
 {
+    const YYYY_MM_DD = 'Y-m-d';
+    const YYYY_MM_DD_HH_MM_SS = 'Y-m-d H:i:s';
+
     /**
      * Returns the number of Years from a specific Time Stamp
      *
@@ -36,8 +39,8 @@ class Date
             $to = time();
         }
 
-        $f = date("Y-m-d, H:i:s", $from);
-        $t = date("Y-m-d, H:i:s", $to);
+        $f = date(self::YYYY_MM_DD_HH_MM_SS, $from);
+        $t = date(self::YYYY_MM_DD_HH_MM_SS, $to);
 
         if ($f > $t) {
             throw new EdlinException("From is greater than To");
@@ -61,8 +64,8 @@ class Date
             $today = time();
         }
 
-        $t = date("Y-m-d", $today);
-        $y = date('Y-m-d', strtotime($t . "-1 days"));
+        $t = date(self::YYYY_MM_DD, $today);
+        $y = date(self::YYYY_MM_DD, strtotime($t . "-1 days"));
 
         return strtotime($y);
     }
