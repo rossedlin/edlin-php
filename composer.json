@@ -1,6 +1,14 @@
 {
   "name": "rossedlin/edlin-php",
-  "version": "4.0.1",
+  "homepage": "https://www.codewithross.com",
+  "authors": [
+    {
+      "name": "Ross Edlin",
+      "email": "hey@codewithross.com",
+      "homepage": "https://www.codewithross.com"
+    }
+  ],
+  "version": "4.0.2",
   "license": "MIT",
   "keywords": [
     "php",
