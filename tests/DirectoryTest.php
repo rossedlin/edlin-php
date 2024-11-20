@@ -24,7 +24,7 @@ final class DirectoryTest extends TestCase
      */
     public function testGetContents()
     {
-        $this->assertEquals([
+        $expected = [
             'files'       => [
                 'fileone.txt' => [],
             ],
@@ -35,7 +35,9 @@ final class DirectoryTest extends TestCase
                     ],
                     'directories' => [
                         'dirthree' => [
-                            'files'       => [],
+                            'files'       => [
+                                'filethree.txt' => [],
+                            ],
                             'directories' => [],
                         ],
                         'dirtwo'   => [
@@ -44,7 +46,9 @@ final class DirectoryTest extends TestCase
                             ],
                             'directories' => [
                                 'dirfour' => [
-                                    'files'       => [],
+                                    'files'       => [
+                                        'filefour.txt' => [],
+                                    ],
                                     'directories' => [],
                                 ],
                             ],
@@ -52,6 +56,10 @@ final class DirectoryTest extends TestCase
                     ],
                 ],
             ],
-        ], Directory::getContents(__DIR__ . '/DirectoryTest'));
+        ];
+
+        $actual = Directory::getContents(__DIR__ . '/DirectoryTest');
+
+        $this->assertEquals($expected, $actual);
     }
 }
