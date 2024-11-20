@@ -1,0 +1,7 @@
+services:
+  web:
+    image: rossedlin/php-apache:7.1
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
