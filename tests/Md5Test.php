@@ -34,20 +34,11 @@ final class Md5Test extends TestCase
                         'filetwo.txt' => 'a5f30764b2b1a5dce89d760ca391e024',
                     ],
                     'directories' => [
-                        'dirthree' => [
-                            'files'       => [],
-                            'directories' => [],
-                        ],
                         'dirtwo'   => [
                             'files'       => [
                                 'filethree.txt' => 'e6817a2e8231c241ea2509670c941a96',
                             ],
-                            'directories' => [
-                                'dirfour' => [
-                                    'files'       => [],
-                                    'directories' => [],
-                                ],
-                            ],
+                            'directories' => [],
                         ],
                     ],
                 ],
