@@ -32,20 +32,11 @@ final class ChecksumTest extends TestCase
                         'filetwo.txt' => [],
                     ],
                     'directories' => [
-                        'dirthree' => [
-                            'files'       => [],
-                            'directories' => [],
-                        ],
                         'dirtwo'   => [
                             'files'       => [
                                 'filethree.txt' => [],
                             ],
-                            'directories' => [
-                                'dirfour' => [
-                                    'files'       => [],
-                                    'directories' => [],
-                                ],
-                            ],
+                            'directories' => [],
                         ],
                     ],
                 ],
@@ -74,22 +65,13 @@ final class ChecksumTest extends TestCase
                         ],
                     ],
                     'directories' => [
-                        'dirthree' => [
-                            'files'       => [],
-                            'directories' => [],
-                        ],
                         'dirtwo'   => [
                             'files'       => [
                                 'filethree.txt' => [
                                     'filesize' => 11,
                                 ],
                             ],
-                            'directories' => [
-                                'dirfour' => [
-                                    'files'       => [],
-                                    'directories' => [],
-                                ],
-                            ],
+                            'directories' => [],
                         ],
                     ],
                 ],
@@ -120,22 +102,13 @@ final class ChecksumTest extends TestCase
                         ],
                     ],
                     'directories' => [
-                        'dirthree' => [
-                            'files'       => [],
-                            'directories' => [],
-                        ],
                         'dirtwo'   => [
                             'files'       => [
                                 'filethree.txt' => [
                                     'md5_filename' => 'bcaa95c385d6e7947707c4c5543c4556',
                                 ],
                             ],
-                            'directories' => [
-                                'dirfour' => [
-                                    'files'       => [],
-                                    'directories' => [],
-                                ],
-                            ],
+                            'directories' => [],
                         ],
                     ],
                 ],
@@ -169,22 +142,13 @@ final class ChecksumTest extends TestCase
                         ],
                     ],
                     'directories' => [
-                        'dirthree' => [
-                            'files'       => [],
-                            'directories' => [],
-                        ],
                         'dirtwo'   => [
                             'files'       => [
                                 'filethree.txt' => [
                                     'md5_file' => 'e6817a2e8231c241ea2509670c941a96',
                                 ],
                             ],
-                            'directories' => [
-                                'dirfour' => [
-                                    'files'       => [],
-                                    'directories' => [],
-                                ],
-                            ],
+                            'directories' => [],
                         ],
                     ],
                 ],
