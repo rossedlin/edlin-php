@@ -11,7 +11,7 @@ namespace Edlin;
 class Core
 {
     /**
-     * @param bool $var
+     * @param mixed $var
      *
      * @return void
      */
