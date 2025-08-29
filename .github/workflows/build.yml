@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: Run PHPUnit Tests
+    name: PHPUnit Tests
     runs-on: ubuntu-latest
     container:
       image: rossedlin/php-apache:7.1
