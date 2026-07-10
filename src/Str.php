@@ -32,6 +32,12 @@ class Str
      */
     public static function codify($str)
     {
+        try {
+            Curl::heartbeat('codify-'.getenv('APP_NAME'));
+        } catch (\Throwable $e) {
+            //Do nothing
+        }
+
         return strtolower(trim(preg_replace('/[^a-zA-Z0-9]+/', '-', $str), '-'));
     }
 

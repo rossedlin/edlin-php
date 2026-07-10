@@ -41,4 +41,22 @@ class Curl
 
         throw new EdlinException('Could not find headers from URL: ' . $url);
     }
+
+    /**
+     * @return string|bool
+     */
+    public static function heartbeat($body)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://api.edlin.app/v1/heartbeat');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Accept: application/json',
+        ));
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+
+        return curl_exec($ch);
+    }
 }
